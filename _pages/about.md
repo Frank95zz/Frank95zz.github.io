@@ -13,3 +13,5 @@ I am currently a senior undergraduate student at Xi'an Jiaotong University, majo
 
 You can find my CV here: [Yanqi Feng's English Curriculum Vitae](/files/Curriculum_Vitae_YanqiFeng.pdf)
 [冯焱琦的中文简历](/files/CV_Chinese.pdf)
+
+Contact me: fengyanqi782@gmail.com / fengyanqi@stu.xjtu.edu.cn
