@@ -11,3 +11,11 @@ I am an incoming PhD student (starting in September, 2026) at Shanghai Jiaotong 
 
 I am currently a senior undergraduate student at Xi'an Jiaotong University, majoring in Automation (Academic Elite Program). During my undergraduate studies, I received multiple honors and awards, including the National Scholarship for twice, 2024 MCM Finalist, and several national- and provincial- awards.
 
+---
+permalink: /
+title: "Curriculum Vitae"
+author_profile: true
+redirect_from: 
+  - /about/
+  - /about.html
+---
