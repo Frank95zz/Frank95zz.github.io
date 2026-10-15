@@ -1,0 +1,101 @@
+% !TeX program = xelatex
+% 内容基于中文原始简历，英文原稿仅作交叉核对。更新：2026-10-15。
+\documentclass[10pt,a4paper]{article}
+\usepackage{academic-cv}
+\newcommand{\cvversion}{更新于 2026.10.15}
+\hypersetup{pdftitle={冯焱琦 - 中文学术简历}}
+\begin{document}
+\fontsize{10}{14}\selectfont
+\cvheader{冯焱琦\quad {\fontsize{19}{24}\selectfont Yanqi Feng}}{上海交通大学\quad 博士研究生}{自动化与感知学院\quad ·\quad 研究方向：水下机器人的控制与规划}
+
+\section{教育经历}
+\cventry{上海交通大学}{2026.09 - 至今}{全日制博士研究生\quad |\quad 自动化与感知学院\quad |\quad 导师：何建平教授}
+\begin{itemize}
+  \item 研究方向：水下机器人的控制与规划。
+\end{itemize}
+\cventry{西安交通大学}{2022.09 - 2026.06}{自动化（越杰班），电子与信息学部、钱学森书院\quad |\quad 学业导师：韩德强教授}
+\begin{itemize}
+  \item 成绩：\textbf{98.68}；排名：\textbf{1/195}（自动化大类）、\textbf{1/30}（越杰班）。
+  \item 入选越杰计划：面向拔尖创新人才的培养计划，每年从新生中遴选约 35 人。
+  \item 基础课程：高等数学 I-1/2（99/94）、线性代数（100）、大学物理 II-1/2（100/98）、电路（100）。
+  \item 专业课程：计算机网络原理（100）、运筹学（99）、自动控制原理（97）、数字信号处理（95）。
+\end{itemize}
+
+\section{论文与预印本}
+\begin{enumerate}[label={[\arabic*]}]
+  \item Yuheng Zhou, Haiyang Cheng, \textbf{Yanqi Feng}, Pangkit Fong, Mei Xuan Lee, Marcus Gee, Chongrong Fang, Jianping He.\\
+  \textbf{Underwater Visual Target Tracking with Target-Specific Depth Estimation and Adaptive Model-Fusion Predictive Control.}\\
+  预印本，arXiv:2609.20731 [cs.RO]，2026.09.17。\cvlink{https://arxiv.org/abs/2609.20731}{[arXiv]}\cvlink{https://arxiv.org/pdf/2609.20731}{[PDF]}
+  \item \textbf{Yanqi Feng}, Enming Chu, Junru Chen, Long Chen. \textbf{A Two-Stage Search Algorithm for Static Target in A 2D Unknown Complex Environment.}\\
+  2025 2nd International Seminar on Artificial Intelligence, Computer Technology and Control Engineering (ACTCE). IEEE, 2025, pp. 70-75. \cvlink{https://doi.org/10.1109/ACTCE66599.2025.00019}{[DOI]}
+\end{enumerate}
+
+\section{科研经历}
+\cventry{基于九轴 IMU 与水压计的扩展卡尔曼滤波算法}{2025.08}{上海交通大学\quad |\quad 指导老师：何建平教授\quad |\quad 独立开展}
+\begin{itemize}
+  \item 基于 IWIN-FINS 实验室水下机器人平台，构建融合九轴 IMU 与水压计数据的 EKF 姿态解算模型，并完成嵌入式代码编写。
+  \item 实验中，相比仅基于 IMU 的 Mahony 算法，融合算法表现出更好的稳定性。
+\end{itemize}
+\cventry{有限缓冲区两阶段装配无等待置换流水车间的死锁与调度}{2024.02 - 2025.01}{西安交通大学\quad |\quad 指导老师：冯彦翔副教授\quad |\quad 独立开展}
+\begin{itemize}
+  \item 研究缓冲区有限时的死锁问题；改进离散粒子群优化算法（DPSO），引入 Q 学习动态选择粒子群的进化方式。
+  \item 提出 VND+IG 两阶段局部搜索算法，增强跳出局部最优的能力；实验表现优于 HSSA、HGA、ABC 等算法。
+\end{itemize}
+\cventry{基于深度学习的油田智能终端设计与开发}{2024.04 - 2025.04}{西安交通大学\quad |\quad 指导老师：张翠翠\quad |\quad 国家级大学生创新训练项目成员}
+\begin{itemize}
+  \item 项目采用卷积神经网络及优化算法进行油井示功图自动分类，估计工况、动液面和单井产液量，并部署至 RK3568 嵌入式设备以支持抽油机自动间抽。
+  \item 主要负责异常示功图数据集构建。
+\end{itemize}
+
+\newpage
+\section{开源项目}
+\cventry{FinsROV: An Underwater Camera-Based Multi-Robot Platform}{参与者}{水下机器人机械设计、上下位机代码及配套视频教程}
+\begin{itemize}
+  \item 主要负责水下机器人下位机控制代码与上下位机通信代码的调试，以及视频教程制作。
+  \item 项目提供从机械结构到控制软件的开源资料，支持水下机器人平台的搭建与学习。
+\end{itemize}
+{\small\cvlink{https://github.com/IWIN-FINS/FinsROV-An-Underwater-Camera-Based-Multi-Robot-Platform}{GitHub：IWIN-FINS / FinsROV}\cvdivider\cvlink{https://www.bilibili.com/video/BV13vcvzgEv3}{Bilibili 视频教程}}
+
+\section{竞赛经历}
+\cventry{2026 MATE 国际水下机器人大赛中国大陆区域赛}{2026.04}{队长\quad |\quad 指导老师：何建平教授，上海交通大学}
+\begin{itemize}
+  \item 队伍首次参赛即获得 \textbf{PIONEER 组别冠军}。
+  \item 搭建搭载四自由度机械臂的水下机器人平台，实现水下三维重建、物种识别、目标抓取及精细操作。
+  \item 负责基于 YOLO 的水下物种识别算法、全队技术体系梳理与技术文档撰写，统筹备赛进度并协调各技术模块。
+\end{itemize}
+\cventry{美国大学生数学建模竞赛（MCM）}{2024.02}{队长 / 论文位\quad |\quad 指导老师：陈龙教授，西安交通大学}
+\begin{itemize}
+  \item 获 \textbf{Finalist 奖项（前 2\%）}。
+  \item 为复杂深海环境中的失事潜水器建立位置预测模型，结合 A* 算法提出两阶段搜索策略。
+  \item 负责论文写作、\LaTeX{} 排版、图片绘制与建模辅助，安排备赛计划并协调团队；相关算法工作形成 ACTCE 2025 论文。
+\end{itemize}
+\cventry{中国机器人大赛暨 RoboCup 机器人世界杯中国赛}{2024.11}{电控位\quad |\quad 指导老师：郭苓、陈强}
+\begin{itemize}
+  \item 获\textbf{自动分拣机器人 - 智能投送赛项二等奖}。
+  \item 基于 STM32F103ZET6 完成智能车的信息处理、运动控制与行为逻辑设计，实现不同颜色邮件的分拣与投递。
+  \item 负责运动规划、通信控制与实际调试。
+\end{itemize}
+
+\section{奖项与荣誉}
+\begin{tabularx}{\linewidth}{@{}X@{\hspace{1em}}r@{}}
+\textbf{国家奖学金}（两次） & 2023-2024、2024-2025\\[3pt]
+\textbf{越杰奖学金}：基础奖学金 6 万元、国际交流奖学金 18 万元 & 2022.09 - 2026.06\\[3pt]
+\textbf{优秀学生} & 2022-2023、2023-2024\\[3pt]
+中国国际大学生创新大赛陕西赛区省级银奖 & 2024.09\\[3pt]
+第十五届全国大学生数学竞赛（非数学 A 类）陕西省二等奖 & 2023.12
+\end{tabularx}
+\vspace{3pt}
+另获 6 项校级奖项，包括：
+\begin{itemize}
+  \item 外研社·国才杯校赛阅读二等奖、写作三等奖（2023.09）。
+  \item 西安交通大学第六十一届运动会 1 分钟 8 人长绳集体跳第七名（2024.05）。
+  \item 西安交通大学春季跳绳比赛 3 分钟 10 人跳大绳一等奖（2024.04）。
+\end{itemize}
+
+\section{技能与语言}
+\begin{tabularx}{\linewidth}{@{}p{23mm}X@{}}
+\textbf{编程} & C、MATLAB、Python\\[3pt]
+\textbf{工具} & Keil、Git、Docker、\LaTeX\\[3pt]
+\textbf{英语} & CET-4：613；CET-6：547
+\end{tabularx}
+\end{document}

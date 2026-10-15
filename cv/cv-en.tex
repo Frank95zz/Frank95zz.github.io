@@ -1,0 +1,99 @@
+% !TeX program = xelatex
+% Chinese source CV is authoritative. Updated: 2026-10-15.
+\documentclass[10pt,a4paper]{article}
+\usepackage{academic-cv}
+\newcommand{\cvversion}{Updated 15 October 2026}
+\hypersetup{pdftitle={Yanqi Feng - Academic Curriculum Vitae}}
+\begin{document}
+\fontsize{10}{12.1}\selectfont
+\setlist[itemize]{leftmargin=12pt,label=\textcolor{accent}{\tiny\textbullet},itemsep=1pt,topsep=2pt,parsep=0pt,partopsep=0pt}
+\cvheader{Yanqi Feng\quad {\fontsize{18}{23}\selectfont 冯焱琦}}{Ph.D. Student\quad |\quad Shanghai Jiao Tong University}{School of Automation and Intelligent Sensing\quad ·\quad Underwater robot control and planning}
+
+\section{Education}
+\cventry{Shanghai Jiao Tong University}{Sep 2026 - Present}{Ph.D. student, School of Automation and Intelligent Sensing\quad |\quad Advisor: Prof. Jianping He}
+\vspace{3pt}
+\cventry{Xi'an Jiaotong University}{Sep 2022 - Jun 2026}{Undergraduate studies in Automation, XJTU Academic Elite Program (Yuejie Class)}
+{\small\color{muted}Faculty of Electronic and Information Engineering; Qian Xuesen College\quad |\quad Advisor: Prof. Deqiang Han}
+\begin{itemize}
+  \item Academic score: \textbf{98.68}; rank: \textbf{1/195} in Automation and \textbf{1/30} in the Yuejie Class.
+  \item Selected for the Yuejie talent development program, which admits approximately 35 freshmen annually.
+  \item Foundation courses: Advanced Mathematics I-1/2 (99/94), Linear Algebra (100), University Physics II-1/2 (100/98), and Circuits (100).
+  \item Major courses: Computer Networks (100), Operations Research (99), Automatic Control (97), and Digital Signal Processing (95).
+\end{itemize}
+
+\section{Publications and Preprints}
+\begin{enumerate}[label={[\arabic*]}]
+  \item Yuheng Zhou, Haiyang Cheng, \textbf{Yanqi Feng}, Pangkit Fong, Mei Xuan Lee, Marcus Gee, Chongrong Fang, Jianping He. \textbf{Underwater Visual Target Tracking with Target-Specific Depth Estimation and Adaptive Model-Fusion Predictive Control.}\\
+  Preprint, arXiv:2609.20731 [cs.RO], 17 September 2026. \cvlink{https://arxiv.org/abs/2609.20731}{[arXiv]}\cvlink{https://arxiv.org/pdf/2609.20731}{[PDF]}
+  \item \textbf{Yanqi Feng}, Enming Chu, Junru Chen, Long Chen. \textbf{A Two-Stage Search Algorithm for Static Target in A 2D Unknown Complex Environment.} 2025 2nd International Seminar on Artificial Intelligence, Computer Technology and Control Engineering (ACTCE). IEEE, 2025, pp. 70-75. \cvlink{https://doi.org/10.1109/ACTCE66599.2025.00019}{[DOI]}
+\end{enumerate}
+
+\section{Research Experience}
+\cventry{EKF with a 9-Axis IMU and a Hydrostatic Pressure Sensor}{Aug 2025}{Independent project, Shanghai Jiao Tong University\quad |\quad Advisor: Prof. Jianping He}
+\begin{itemize}
+  \item Developed an extended Kalman filter for underwater robot attitude estimation by fusing 9-axis IMU and pressure measurements on the IWIN-FINS platform; implemented the embedded code.
+  \item Experiments showed improved stability compared with an IMU-only Mahony algorithm.
+\end{itemize}
+\cventry{Deadlock Control and Scheduling with Limited Buffers}{Feb 2024 - Jan 2025}{Independent project, Xi'an Jiaotong University\quad |\quad Advisor: Assoc. Prof. Yanxiang Feng}
+\begin{itemize}
+  \item Studied deadlocks in a two-stage assembly no-wait permutation flowshop with limited buffers; enhanced discrete particle swarm optimization (DPSO) using Q-learning for dynamic evolution strategy selection.
+  \item Proposed a two-stage local search (VND+IG) to escape local optima; the algorithm outperformed HSSA, HGA, and ABC in experiments.
+\end{itemize}
+\cventry{Design and Development of an AI-Powered Oilfield Terminal}{Apr 2024 - Apr 2025}{National Undergraduate Innovation Training Program\quad |\quad Advisor: Cuicui Zhang, XJTU}
+\begin{itemize}
+  \item The project used convolutional neural networks and optimization to classify oil-well indicator diagrams, estimate operating conditions, fluid level, and production, and support automatic intermittent pumping on an RK3568 embedded device.
+  \item Built the dataset of abnormal oil-well indicator diagrams.
+\end{itemize}
+
+\newpage
+\section{Open-Source Project}
+\cventry{FinsROV: An Underwater Camera-Based Multi-Robot Platform}{Contributor}{Open hardware, embedded and host software, and step-by-step video tutorials}
+\begin{itemize}
+  \item Debugged embedded robot control code and host-controller communication; produced video tutorials.
+  \item Contributed to an open-source platform spanning mechanical design, software, and practical robot-building guidance.
+\end{itemize}
+{\small\cvlink{https://github.com/IWIN-FINS/FinsROV-An-Underwater-Camera-Based-Multi-Robot-Platform}{GitHub: IWIN-FINS / FinsROV}\cvdivider\cvlink{https://www.bilibili.com/video/BV13vcvzgEv3}{Video tutorials}}
+
+\section{Competition Experience}
+\cventry{MATE ROV Competition, China Mainland Regional}{Apr 2026}{Team Captain\quad |\quad Advisor: Prof. Jianping He, Shanghai Jiao Tong University}
+\begin{itemize}
+  \item Won the \textbf{PIONEER division championship} on the team's first appearance.
+  \item Built an underwater robot with a four-degree-of-freedom manipulator for 3D reconstruction, species recognition, target grasping, and precision manipulation.
+  \item Developed YOLO-based underwater species recognition; organized the technical architecture and documentation, coordinated modules, and managed preparation milestones.
+\end{itemize}
+\cventry{Mathematical Contest in Modeling (MCM)}{Feb 2024}{Team Leader / Lead Writer\quad |\quad Advisor: Prof. Long Chen, Xi'an Jiaotong University}
+\begin{itemize}
+  \item Received the \textbf{Finalist Award (top 2\%)}.
+  \item Modeled the location of a wrecked submersible in a complex deep-sea environment and proposed a two-stage search strategy incorporating A*.
+  \item Led paper writing, \LaTeX{} typesetting, figure preparation, modeling support, and team coordination; the search-algorithm work led to the ACTCE 2025 publication.
+\end{itemize}
+\cventry{China Robot Competition and RoboCup China Open}{Nov 2024}{Embedded Development\quad |\quad Advisors: Ling Guo and Qiang Chen}
+\begin{itemize}
+  \item Won \textbf{Second Prize, Automatic Sorting Robot - Intelligent Delivery}.
+  \item Implemented information processing, motion control, and behavior logic for an STM32F103ZET6-based vehicle that sorts and delivers mail of different colors.
+  \item Responsible for motion planning, communication control, and hardware testing.
+\end{itemize}
+
+\section{Honors and Awards}
+\begin{tabularx}{\linewidth}{@{}X@{\hspace{1em}}r@{}}
+\textbf{National Scholarship}, twice & 2023-2024; 2024-2025\\[3pt]
+\textbf{Yuejie Scholarship}: RMB 60,000 base + RMB 180,000 international exchange & 2022 - 2026\\[3pt]
+\textbf{Outstanding Student Award} & 2022-2023; 2023-2024\\[3pt]
+Silver Prize, China International College Students' Innovation Competition, Shaanxi & Sep 2024\\[3pt]
+Second Prize, 15th National College Mathematics Competition, Shaanxi (Non-Math A) & Dec 2023
+\end{tabularx}
+\vspace{3pt}
+Six university-level awards, including:
+\begin{itemize}
+  \item FLTRP ETIC Cup campus contest: Second Prize in reading and Third Prize in writing (Sep 2023).
+  \item Seventh place, one-minute eight-person long-rope event, 61st XJTU Sports Meeting (May 2024).
+  \item First Prize, three-minute ten-person long-rope event, XJTU Spring Rope-Skipping Competition (Apr 2024).
+\end{itemize}
+
+\section{Skills and Languages}
+\begin{tabularx}{\linewidth}{@{}p{25mm}X@{}}
+\textbf{Programming} & C, MATLAB, Python\\[3pt]
+\textbf{Tools} & Keil, Git, Docker, \LaTeX\\[3pt]
+\textbf{English} & CET-4: 613; CET-6: 547
+\end{tabularx}
+\end{document}
