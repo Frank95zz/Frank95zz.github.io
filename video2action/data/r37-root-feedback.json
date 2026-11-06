@@ -1,0 +1,3625 @@
+{
+  "root_rows": [
+    {
+      "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S55_running_in_spot_part2_v1/formal/metrics.json",
+      "schema": "research36_root_metrics_v1",
+      "status": "complete",
+      "config": {
+        "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S55_running_in_spot_part2_v1/formal/effective_config.json",
+        "sha256": "bb3b944d873b5169d87833c24ca6d5ac88f804f5f8c10c959e4fe93dc5b0a76f",
+        "bytes": 7679
+      },
+      "source_id": "MoVi_F_S55_running_in_spot_part2_v1",
+      "model": "r37_gv_only_s371105_estimated",
+      "checkpoint": {
+        "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+        "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+        "bytes": 16578743
+      },
+      "teacher": {
+        "bytes": 697862,
+        "path": "/localssd/video2action_part2_20261018/data/subject55/instances_v2/MoVi_F_S55_running_in_spot_part2_v1/teacher_owned_v2/actual/actual_trajectory.npz",
+        "sha256": "08c631db78abe064c9505e2baf22818be909216dc160f2fdc4c45e902d21e47b"
+      },
+      "scores": {
+        "heading_off": {
+          "frames": 143,
+          "seconds": 2.86,
+          "q29_rmse_rad": 0.11902476923327694,
+          "root_xy_rmse_m": 0.08736037813027878,
+          "heading_mae_deg": 16.01122036924773,
+          "root_z_rmse_m": 0.018470123632793142,
+          "actual_root_z_amplitude_m": 0.07530778481096467,
+          "target_root_z_amplitude_m": 0.05247237133963367,
+          "root_velocity_vector_rmse_mps": 0.10435788003230537,
+          "actual_path_m": 0.39803309374244744,
+          "teacher_path_m": 0.40651635380760964,
+          "contact_F1": 0.8941684665226782,
+          "ankle_origin_slip_proxy_mps": 0.08354152547223717,
+          "contact_semantics": "ankle_roll contacts>1N; not sole/flight truth",
+          "G1_29_global_MPJPE_mm": 99.65637761809903,
+          "G1_29_root_translation_relative_MPJPE_mm": 35.154669270824435,
+          "G1_29_world_velocity_error_mm_per_frame": 3.9681021325774486,
+          "G1_29_world_velocity_error_mm_per_s": 198.40510662887243,
+          "G1_29_world_acceleration_error_mm_per_frame2": 1.5237875185113887,
+          "G1_29_world_acceleration_error_mm_per_s2": 3809.4687962784715,
+          "path_ratio": 0.9791318110927044,
+          "root_height_range_m": 0.07530778481096467,
+          "teacher_root_height_range_m": 0.05247237133963367
+        },
+        "heading_on": {
+          "frames": 143,
+          "seconds": 2.86,
+          "q29_rmse_rad": 0.11833561721286562,
+          "root_xy_rmse_m": 0.08184258905343314,
+          "heading_mae_deg": 2.5498681028098784,
+          "root_z_rmse_m": 0.017365834954192763,
+          "actual_root_z_amplitude_m": 0.07170009164463109,
+          "target_root_z_amplitude_m": 0.05247237133963367,
+          "root_velocity_vector_rmse_mps": 0.0977450275890882,
+          "actual_path_m": 0.3711081011525168,
+          "teacher_path_m": 0.40651635380760964,
+          "contact_F1": 0.8855291576673866,
+          "ankle_origin_slip_proxy_mps": 0.0891303517125115,
+          "contact_semantics": "ankle_roll contacts>1N; not sole/flight truth",
+          "G1_29_global_MPJPE_mm": 104.86337850459589,
+          "G1_29_root_translation_relative_MPJPE_mm": 24.431555776726782,
+          "G1_29_world_velocity_error_mm_per_frame": 4.13566121688445,
+          "G1_29_world_velocity_error_mm_per_s": 206.7830608442225,
+          "G1_29_world_acceleration_error_mm_per_frame2": 1.560162304249025,
+          "G1_29_world_acceleration_error_mm_per_s2": 3900.405760622562,
+          "path_ratio": 0.9128983315838497,
+          "root_height_range_m": 0.07170009164463109,
+          "teacher_root_height_range_m": 0.05247237133963367
+        },
+        "heading_gain14": {
+          "frames": 143,
+          "seconds": 2.86,
+          "q29_rmse_rad": 0.1244904189419708,
+          "root_xy_rmse_m": 0.08356227974102598,
+          "heading_mae_deg": 2.855634574316289,
+          "root_z_rmse_m": 0.015105844342500835,
+          "actual_root_z_amplitude_m": 0.07281286985250635,
+          "target_root_z_amplitude_m": 0.05247237133963367,
+          "root_velocity_vector_rmse_mps": 0.10803734719211498,
+          "actual_path_m": 0.4604064043489683,
+          "teacher_path_m": 0.40651635380760964,
+          "contact_F1": 0.9267139479905437,
+          "ankle_origin_slip_proxy_mps": 0.07229455965827823,
+          "contact_semantics": "ankle_roll contacts>1N; not sole/flight truth",
+          "G1_29_global_MPJPE_mm": 109.24772877247933,
+          "G1_29_root_translation_relative_MPJPE_mm": 26.445711504407615,
+          "G1_29_world_velocity_error_mm_per_frame": 4.421290750459064,
+          "G1_29_world_velocity_error_mm_per_s": 221.06453752295317,
+          "G1_29_world_acceleration_error_mm_per_frame2": 1.7496243142766237,
+          "G1_29_world_acceleration_error_mm_per_s2": 4374.060785691559,
+          "path_ratio": 1.1325655168275541,
+          "root_height_range_m": 0.07281286985250635,
+          "teacher_root_height_range_m": 0.05247237133963367
+        }
+      },
+      "branches": {
+        "heading_off": {
+          "schema": "research36_root_branch_v1",
+          "status": "complete",
+          "config": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S55_running_in_spot_part2_v1/formal/effective_config.json",
+            "sha256": "bb3b944d873b5169d87833c24ca6d5ac88f804f5f8c10c959e4fe93dc5b0a76f",
+            "bytes": 7679
+          },
+          "source_id": "MoVi_F_S55_running_in_spot_part2_v1",
+          "model": "r37_gv_only_s371105_estimated",
+          "checkpoint": {
+            "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+            "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+            "bytes": 16578743
+          },
+          "branch": "heading_off",
+          "actual_output": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S55_running_in_spot_part2_v1/formal/branches/heading_off/actual.npz",
+            "sha256": "86d3a20f7b9093caad0069b2ff63d901b241fb6a6b7c2234b2a742b07bf832b7",
+            "bytes": 556476
+          },
+          "frames": 143,
+          "requested_frames": 143,
+          "full_input_completed": true,
+          "failure": null,
+          "reused": false,
+          "reuse_evidence": null,
+          "commands_frozen": true,
+          "scoring_teacher_opened": false,
+          "teacher_future_used_for_commands": false,
+          "initial_state_verified": true,
+          "POST_clock_verified": true,
+          "GPU_used": false,
+          "PPO_updates": 0,
+          "smoke_only": false,
+          "seconds": 2.4553637839853764,
+          "producer_record": {
+            "mode": "zero_control",
+            "actual": {
+              "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S55_running_in_spot_part2_v1/formal/branches/heading_off/actual.npz",
+              "sha256": "86d3a20f7b9093caad0069b2ff63d901b241fb6a6b7c2234b2a742b07bf832b7",
+              "bytes": 556476
+            },
+            "frames": 143,
+            "requested_frames": 143,
+            "failure": null,
+            "full_input_completed": true,
+            "zero_control_exact_baseline_verified": true,
+            "command_inputs": [
+              "frozen_original_RGB_pre",
+              "video_estimated_relative_yaw",
+              "measured_current_PRE_robot_yaw",
+              "initial_warmup_yaw"
+            ],
+            "future_reference_read_for_commands": false,
+            "reference_encoder_instantiated": false,
+            "feedback_period_seconds": 0.02,
+            "mean_heading_clipped_fraction": 0.0,
+            "mean_pre_clipped_fraction": 0.0003277972027972028,
+            "mean_residual_clipped_fraction": 0.0,
+            "max_abs_residual": 0.0
+          }
+        },
+        "heading_on": {
+          "schema": "research36_root_branch_v1",
+          "status": "complete",
+          "config": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S55_running_in_spot_part2_v1/formal/effective_config.json",
+            "sha256": "bb3b944d873b5169d87833c24ca6d5ac88f804f5f8c10c959e4fe93dc5b0a76f",
+            "bytes": 7679
+          },
+          "source_id": "MoVi_F_S55_running_in_spot_part2_v1",
+          "model": "r37_gv_only_s371105_estimated",
+          "checkpoint": {
+            "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+            "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+            "bytes": 16578743
+          },
+          "branch": "heading_on",
+          "actual_output": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S55_running_in_spot_part2_v1/formal/branches/heading_on/actual.npz",
+            "sha256": "d32f3284009a5da27c8177f3ffb9ff17205756153a88f773282c8b8cb230bfe0",
+            "bytes": 557628
+          },
+          "frames": 143,
+          "requested_frames": 143,
+          "full_input_completed": true,
+          "failure": null,
+          "reused": false,
+          "reuse_evidence": null,
+          "commands_frozen": true,
+          "scoring_teacher_opened": false,
+          "teacher_future_used_for_commands": false,
+          "initial_state_verified": true,
+          "POST_clock_verified": true,
+          "GPU_used": false,
+          "PPO_updates": 0,
+          "smoke_only": false,
+          "seconds": 2.2445394955575466,
+          "producer_record": {
+            "mode": "estimated_heading",
+            "actual": {
+              "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S55_running_in_spot_part2_v1/formal/branches/heading_on/actual.npz",
+              "sha256": "d32f3284009a5da27c8177f3ffb9ff17205756153a88f773282c8b8cb230bfe0",
+              "bytes": 557628
+            },
+            "frames": 143,
+            "requested_frames": 143,
+            "failure": null,
+            "full_input_completed": true,
+            "zero_control_exact_baseline_verified": false,
+            "command_inputs": [
+              "frozen_original_RGB_pre",
+              "video_estimated_relative_yaw",
+              "measured_current_PRE_robot_yaw",
+              "initial_warmup_yaw"
+            ],
+            "future_reference_read_for_commands": false,
+            "reference_encoder_instantiated": false,
+            "feedback_period_seconds": 0.02,
+            "mean_heading_clipped_fraction": 0.0,
+            "mean_pre_clipped_fraction": 0.0003277972027972028,
+            "mean_residual_clipped_fraction": 0.0,
+            "max_abs_residual": 0.09086554497480392
+          }
+        },
+        "heading_gain14": {
+          "schema": "research36_root_branch_v1",
+          "status": "complete",
+          "config": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S55_running_in_spot_part2_v1/formal/effective_config.json",
+            "sha256": "bb3b944d873b5169d87833c24ca6d5ac88f804f5f8c10c959e4fe93dc5b0a76f",
+            "bytes": 7679
+          },
+          "source_id": "MoVi_F_S55_running_in_spot_part2_v1",
+          "model": "r37_gv_only_s371105_estimated",
+          "checkpoint": {
+            "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+            "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+            "bytes": 16578743
+          },
+          "branch": "heading_gain14",
+          "actual_output": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S55_running_in_spot_part2_v1/formal/branches/heading_gain14/actual.npz",
+            "sha256": "6c4bb9eb959a73d859ae925577db2f410b2ba672f7ff9712daccd4ef22398865",
+            "bytes": 558308
+          },
+          "frames": 143,
+          "requested_frames": 143,
+          "full_input_completed": true,
+          "failure": null,
+          "reused": false,
+          "reuse_evidence": null,
+          "commands_frozen": true,
+          "scoring_teacher_opened": false,
+          "teacher_future_used_for_commands": false,
+          "initial_state_verified": true,
+          "POST_clock_verified": true,
+          "GPU_used": false,
+          "PPO_updates": 0,
+          "smoke_only": false,
+          "seconds": 2.5973809398710728,
+          "producer_record": {
+            "mode": "estimated_heading",
+            "actual": {
+              "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S55_running_in_spot_part2_v1/formal/branches/heading_gain14/actual.npz",
+              "sha256": "6c4bb9eb959a73d859ae925577db2f410b2ba672f7ff9712daccd4ef22398865",
+              "bytes": 558308
+            },
+            "frames": 143,
+            "requested_frames": 143,
+            "failure": null,
+            "full_input_completed": true,
+            "zero_control_exact_baseline_verified": false,
+            "command_inputs": [
+              "frozen_original_RGB_pre",
+              "video_estimated_relative_yaw",
+              "measured_current_PRE_robot_yaw",
+              "initial_warmup_yaw"
+            ],
+            "future_reference_read_for_commands": false,
+            "reference_encoder_instantiated": false,
+            "feedback_period_seconds": 0.02,
+            "mean_heading_clipped_fraction": 0.0,
+            "mean_pre_clipped_fraction": 0.001638986013986014,
+            "mean_residual_clipped_fraction": 0.0,
+            "max_abs_residual": 0.06698289513587952
+          }
+        }
+      },
+      "common_scored_frames": 143,
+      "requested_frames": 143,
+      "all_branches_fully_scored": true,
+      "teacher_reference": "owned_teacher_candidate, same hash for all models; historical per-model metric values not reused",
+      "teacher_initialization_equal": true,
+      "no_alignment": true,
+      "no_padding": true,
+      "GPU_used": false
+    },
+    {
+      "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S55_sideways_part2_v1/formal/metrics.json",
+      "schema": "research36_root_metrics_v1",
+      "status": "complete",
+      "config": {
+        "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S55_sideways_part2_v1/formal/effective_config.json",
+        "sha256": "412cdaaa8714308ffdf36acb122489c494cc3cb1aa96abab19668061c2704548",
+        "bytes": 7631
+      },
+      "source_id": "MoVi_F_S55_sideways_part2_v1",
+      "model": "r37_gv_only_s371105_estimated",
+      "checkpoint": {
+        "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+        "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+        "bytes": 16578743
+      },
+      "teacher": {
+        "bytes": 1999913,
+        "path": "/localssd/video2action_part2_20261018/data/subject55/instances_v2/MoVi_F_S55_sideways_part2_v1/teacher_owned_v2/actual/actual_trajectory.npz",
+        "sha256": "ca5bbd21612a9904b70a86556e91142fd1abb4b6dfcd4f88441ea9bb26f53381"
+      },
+      "scores": {
+        "heading_off": {
+          "frames": 512,
+          "seconds": 10.24,
+          "q29_rmse_rad": 0.0932141027881582,
+          "root_xy_rmse_m": 0.3372329098395935,
+          "heading_mae_deg": 43.33930627737603,
+          "root_z_rmse_m": 0.00961352650928684,
+          "actual_root_z_amplitude_m": 0.041173940474338755,
+          "target_root_z_amplitude_m": 0.037773543132023635,
+          "root_velocity_vector_rmse_mps": 0.21206111642794567,
+          "actual_path_m": 3.1992935088186965,
+          "teacher_path_m": 2.9990375004249494,
+          "contact_F1": 0.916354556803995,
+          "ankle_origin_slip_proxy_mps": 0.050171806627355396,
+          "contact_semantics": "ankle_roll contacts>1N; not sole/flight truth",
+          "G1_29_global_MPJPE_mm": 363.56958495595427,
+          "G1_29_root_translation_relative_MPJPE_mm": 107.78797758732698,
+          "G1_29_world_velocity_error_mm_per_frame": 5.191768531270767,
+          "G1_29_world_velocity_error_mm_per_s": 259.58842656353835,
+          "G1_29_world_acceleration_error_mm_per_frame2": 1.0333792337243115,
+          "G1_29_world_acceleration_error_mm_per_s2": 2583.4480843107785,
+          "path_ratio": 1.0667734259292763,
+          "root_height_range_m": 0.041173940474338755,
+          "teacher_root_height_range_m": 0.037773543132023635
+        },
+        "heading_on": {
+          "frames": 512,
+          "seconds": 10.24,
+          "q29_rmse_rad": 0.09092162832600506,
+          "root_xy_rmse_m": 0.15329824801012878,
+          "heading_mae_deg": 2.1210096727710117,
+          "root_z_rmse_m": 0.008023925522106875,
+          "actual_root_z_amplitude_m": 0.03920845894420355,
+          "target_root_z_amplitude_m": 0.037773543132023635,
+          "root_velocity_vector_rmse_mps": 0.1292027506484603,
+          "actual_path_m": 3.2327567644619353,
+          "teacher_path_m": 2.9990375004249494,
+          "contact_F1": 0.9123904881101377,
+          "ankle_origin_slip_proxy_mps": 0.04878276189147849,
+          "contact_semantics": "ankle_roll contacts>1N; not sole/flight truth",
+          "G1_29_global_MPJPE_mm": 185.21990430661202,
+          "G1_29_root_translation_relative_MPJPE_mm": 20.479993961517597,
+          "G1_29_world_velocity_error_mm_per_frame": 3.4580711890727764,
+          "G1_29_world_velocity_error_mm_per_s": 172.90355945363882,
+          "G1_29_world_acceleration_error_mm_per_frame2": 0.979787128426599,
+          "G1_29_world_acceleration_error_mm_per_s2": 2449.4678210664974,
+          "path_ratio": 1.0779314243332632,
+          "root_height_range_m": 0.03920845894420355,
+          "teacher_root_height_range_m": 0.037773543132023635
+        },
+        "heading_gain14": {
+          "frames": 512,
+          "seconds": 10.24,
+          "q29_rmse_rad": 0.09121319811380438,
+          "root_xy_rmse_m": 0.175457682419012,
+          "heading_mae_deg": 2.123600135977771,
+          "root_z_rmse_m": 0.008077084539290964,
+          "actual_root_z_amplitude_m": 0.046207811322898085,
+          "target_root_z_amplitude_m": 0.037773543132023635,
+          "root_velocity_vector_rmse_mps": 0.12542278355388747,
+          "actual_path_m": 3.533584149330185,
+          "teacher_path_m": 2.9990375004249494,
+          "contact_F1": 0.9199491740787802,
+          "ankle_origin_slip_proxy_mps": 0.049857476463735874,
+          "contact_semantics": "ankle_roll contacts>1N; not sole/flight truth",
+          "G1_29_global_MPJPE_mm": 196.82923792473736,
+          "G1_29_root_translation_relative_MPJPE_mm": 19.63595313099812,
+          "G1_29_world_velocity_error_mm_per_frame": 3.169419237727553,
+          "G1_29_world_velocity_error_mm_per_s": 158.47096188637767,
+          "G1_29_world_acceleration_error_mm_per_frame2": 0.984199267528443,
+          "G1_29_world_acceleration_error_mm_per_s2": 2460.4981688211074,
+          "path_ratio": 1.1782394014177857,
+          "root_height_range_m": 0.046207811322898085,
+          "teacher_root_height_range_m": 0.037773543132023635
+        }
+      },
+      "branches": {
+        "heading_off": {
+          "schema": "research36_root_branch_v1",
+          "status": "complete",
+          "config": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S55_sideways_part2_v1/formal/effective_config.json",
+            "sha256": "412cdaaa8714308ffdf36acb122489c494cc3cb1aa96abab19668061c2704548",
+            "bytes": 7631
+          },
+          "source_id": "MoVi_F_S55_sideways_part2_v1",
+          "model": "r37_gv_only_s371105_estimated",
+          "checkpoint": {
+            "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+            "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+            "bytes": 16578743
+          },
+          "branch": "heading_off",
+          "actual_output": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S55_sideways_part2_v1/formal/branches/heading_off/actual.npz",
+            "sha256": "0cff7ef1d83af907f60cdc81d9b0e018ee83d9ca6b8fe27df1ca3b6dac6b62cc",
+            "bytes": 1959286
+          },
+          "frames": 512,
+          "requested_frames": 512,
+          "full_input_completed": true,
+          "failure": null,
+          "reused": false,
+          "reuse_evidence": null,
+          "commands_frozen": true,
+          "scoring_teacher_opened": false,
+          "teacher_future_used_for_commands": false,
+          "initial_state_verified": true,
+          "POST_clock_verified": true,
+          "GPU_used": false,
+          "PPO_updates": 0,
+          "smoke_only": false,
+          "seconds": 7.343101777136326,
+          "producer_record": {
+            "mode": "zero_control",
+            "actual": {
+              "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S55_sideways_part2_v1/formal/branches/heading_off/actual.npz",
+              "sha256": "0cff7ef1d83af907f60cdc81d9b0e018ee83d9ca6b8fe27df1ca3b6dac6b62cc",
+              "bytes": 1959286
+            },
+            "frames": 512,
+            "requested_frames": 512,
+            "failure": null,
+            "full_input_completed": true,
+            "zero_control_exact_baseline_verified": true,
+            "command_inputs": [
+              "frozen_original_RGB_pre",
+              "video_estimated_relative_yaw",
+              "measured_current_PRE_robot_yaw",
+              "initial_warmup_yaw"
+            ],
+            "future_reference_read_for_commands": false,
+            "reference_encoder_instantiated": false,
+            "feedback_period_seconds": 0.02,
+            "mean_heading_clipped_fraction": 0.0,
+            "mean_pre_clipped_fraction": 0.0,
+            "mean_residual_clipped_fraction": 0.0,
+            "max_abs_residual": 0.0
+          }
+        },
+        "heading_on": {
+          "schema": "research36_root_branch_v1",
+          "status": "complete",
+          "config": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S55_sideways_part2_v1/formal/effective_config.json",
+            "sha256": "412cdaaa8714308ffdf36acb122489c494cc3cb1aa96abab19668061c2704548",
+            "bytes": 7631
+          },
+          "source_id": "MoVi_F_S55_sideways_part2_v1",
+          "model": "r37_gv_only_s371105_estimated",
+          "checkpoint": {
+            "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+            "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+            "bytes": 16578743
+          },
+          "branch": "heading_on",
+          "actual_output": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S55_sideways_part2_v1/formal/branches/heading_on/actual.npz",
+            "sha256": "7194f2d8c3471da324096298e811fd7420e295c432c377d0c5a44f4fe0a81492",
+            "bytes": 1962987
+          },
+          "frames": 512,
+          "requested_frames": 512,
+          "full_input_completed": true,
+          "failure": null,
+          "reused": false,
+          "reuse_evidence": null,
+          "commands_frozen": true,
+          "scoring_teacher_opened": false,
+          "teacher_future_used_for_commands": false,
+          "initial_state_verified": true,
+          "POST_clock_verified": true,
+          "GPU_used": false,
+          "PPO_updates": 0,
+          "smoke_only": false,
+          "seconds": 6.8348106145858765,
+          "producer_record": {
+            "mode": "estimated_heading",
+            "actual": {
+              "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S55_sideways_part2_v1/formal/branches/heading_on/actual.npz",
+              "sha256": "7194f2d8c3471da324096298e811fd7420e295c432c377d0c5a44f4fe0a81492",
+              "bytes": 1962987
+            },
+            "frames": 512,
+            "requested_frames": 512,
+            "failure": null,
+            "full_input_completed": true,
+            "zero_control_exact_baseline_verified": false,
+            "command_inputs": [
+              "frozen_original_RGB_pre",
+              "video_estimated_relative_yaw",
+              "measured_current_PRE_robot_yaw",
+              "initial_warmup_yaw"
+            ],
+            "future_reference_read_for_commands": false,
+            "reference_encoder_instantiated": false,
+            "feedback_period_seconds": 0.02,
+            "mean_heading_clipped_fraction": 0.0,
+            "mean_pre_clipped_fraction": 0.0,
+            "mean_residual_clipped_fraction": 0.0,
+            "max_abs_residual": 0.06235537678003311
+          }
+        },
+        "heading_gain14": {
+          "schema": "research36_root_branch_v1",
+          "status": "complete",
+          "config": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S55_sideways_part2_v1/formal/effective_config.json",
+            "sha256": "412cdaaa8714308ffdf36acb122489c494cc3cb1aa96abab19668061c2704548",
+            "bytes": 7631
+          },
+          "source_id": "MoVi_F_S55_sideways_part2_v1",
+          "model": "r37_gv_only_s371105_estimated",
+          "checkpoint": {
+            "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+            "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+            "bytes": 16578743
+          },
+          "branch": "heading_gain14",
+          "actual_output": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S55_sideways_part2_v1/formal/branches/heading_gain14/actual.npz",
+            "sha256": "614ef8c46163265ced43932716577c08496f0d53daa90e2caa1e26ff962ffd47",
+            "bytes": 1965541
+          },
+          "frames": 512,
+          "requested_frames": 512,
+          "full_input_completed": true,
+          "failure": null,
+          "reused": false,
+          "reuse_evidence": null,
+          "commands_frozen": true,
+          "scoring_teacher_opened": false,
+          "teacher_future_used_for_commands": false,
+          "initial_state_verified": true,
+          "POST_clock_verified": true,
+          "GPU_used": false,
+          "PPO_updates": 0,
+          "smoke_only": false,
+          "seconds": 6.497274897992611,
+          "producer_record": {
+            "mode": "estimated_heading",
+            "actual": {
+              "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S55_sideways_part2_v1/formal/branches/heading_gain14/actual.npz",
+              "sha256": "614ef8c46163265ced43932716577c08496f0d53daa90e2caa1e26ff962ffd47",
+              "bytes": 1965541
+            },
+            "frames": 512,
+            "requested_frames": 512,
+            "failure": null,
+            "full_input_completed": true,
+            "zero_control_exact_baseline_verified": false,
+            "command_inputs": [
+              "frozen_original_RGB_pre",
+              "video_estimated_relative_yaw",
+              "measured_current_PRE_robot_yaw",
+              "initial_warmup_yaw"
+            ],
+            "future_reference_read_for_commands": false,
+            "reference_encoder_instantiated": false,
+            "feedback_period_seconds": 0.02,
+            "mean_heading_clipped_fraction": 0.0,
+            "mean_pre_clipped_fraction": 0.0,
+            "mean_residual_clipped_fraction": 0.0,
+            "max_abs_residual": 0.07110152393579483
+          }
+        }
+      },
+      "common_scored_frames": 512,
+      "requested_frames": 512,
+      "all_branches_fully_scored": true,
+      "teacher_reference": "owned_teacher_candidate, same hash for all models; historical per-model metric values not reused",
+      "teacher_initialization_equal": true,
+      "no_alignment": true,
+      "no_padding": true,
+      "GPU_used": false
+    },
+    {
+      "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S56_jogging_part2_v1/formal/metrics.json",
+      "schema": "research36_root_metrics_v1",
+      "status": "complete",
+      "config": {
+        "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S56_jogging_part2_v1/formal/effective_config.json",
+        "sha256": "8d140892d5cb195de8b027986ef8c72ea4839f790bb455100c4b16bcf2479321",
+        "bytes": 7624
+      },
+      "source_id": "MoVi_F_S56_jogging_part2_v1",
+      "model": "r37_gv_only_s371105_estimated",
+      "checkpoint": {
+        "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+        "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+        "bytes": 16578743
+      },
+      "teacher": {
+        "bytes": 1142387,
+        "path": "/localssd/video2action_part2_20261018/data/subject56/instances_v2/MoVi_F_S56_jogging_part2_v1/teacher_owned_v1/actual/actual_trajectory.npz",
+        "sha256": "f9f860fe1eabc61da12628acc7a297d743a55fa7fda517f4179906ebde609865"
+      },
+      "scores": {
+        "heading_off": {
+          "frames": 268,
+          "seconds": 5.36,
+          "q29_rmse_rad": 0.12530149696732676,
+          "root_xy_rmse_m": 0.3242401012966605,
+          "heading_mae_deg": 23.556207057173424,
+          "root_z_rmse_m": 0.01370797285921721,
+          "actual_root_z_amplitude_m": 0.04804275330458463,
+          "target_root_z_amplitude_m": 0.05876889772595573,
+          "root_velocity_vector_rmse_mps": 0.2847665835338089,
+          "actual_path_m": 2.0318825109319505,
+          "teacher_path_m": 2.984420503336857,
+          "contact_F1": 0.919631093544137,
+          "ankle_origin_slip_proxy_mps": 0.21262487801531677,
+          "contact_semantics": "ankle_roll contacts>1N; not sole/flight truth",
+          "G1_29_global_MPJPE_mm": 375.4083891430537,
+          "G1_29_root_translation_relative_MPJPE_mm": 55.45138954833292,
+          "G1_29_world_velocity_error_mm_per_frame": 8.068115522670723,
+          "G1_29_world_velocity_error_mm_per_s": 403.40577613353616,
+          "G1_29_world_acceleration_error_mm_per_frame2": 1.870846189082389,
+          "G1_29_world_acceleration_error_mm_per_s2": 4677.115472705973,
+          "path_ratio": 0.6808298323443759,
+          "root_height_range_m": 0.04804275330458463,
+          "teacher_root_height_range_m": 0.05876889772595573
+        },
+        "heading_on": {
+          "frames": 268,
+          "seconds": 5.36,
+          "q29_rmse_rad": 0.12963260301387647,
+          "root_xy_rmse_m": 0.18317341986239372,
+          "heading_mae_deg": 4.742159996201027,
+          "root_z_rmse_m": 0.01397235818229292,
+          "actual_root_z_amplitude_m": 0.04722827808487717,
+          "target_root_z_amplitude_m": 0.05876889772595573,
+          "root_velocity_vector_rmse_mps": 0.21159614013436656,
+          "actual_path_m": 1.9756008231132023,
+          "teacher_path_m": 2.984420503336857,
+          "contact_F1": 0.9071618037135278,
+          "ankle_origin_slip_proxy_mps": 0.19202062236165665,
+          "contact_semantics": "ankle_roll contacts>1N; not sole/flight truth",
+          "G1_29_global_MPJPE_mm": 226.802415688989,
+          "G1_29_root_translation_relative_MPJPE_mm": 36.79342039073316,
+          "G1_29_world_velocity_error_mm_per_frame": 6.476319062291362,
+          "G1_29_world_velocity_error_mm_per_s": 323.81595311456806,
+          "G1_29_world_acceleration_error_mm_per_frame2": 1.8218362632392626,
+          "G1_29_world_acceleration_error_mm_per_s2": 4554.590658098156,
+          "path_ratio": 0.6619713344363833,
+          "root_height_range_m": 0.04722827808487717,
+          "teacher_root_height_range_m": 0.05876889772595573
+        },
+        "heading_gain14": {
+          "frames": 268,
+          "seconds": 5.36,
+          "q29_rmse_rad": 0.13286128429304883,
+          "root_xy_rmse_m": 0.14309028566516122,
+          "heading_mae_deg": 5.013663077176627,
+          "root_z_rmse_m": 0.013931179585751768,
+          "actual_root_z_amplitude_m": 0.05237705818895755,
+          "target_root_z_amplitude_m": 0.05876889772595573,
+          "root_velocity_vector_rmse_mps": 0.17161446374475356,
+          "actual_path_m": 2.2806079532718027,
+          "teacher_path_m": 2.984420503336857,
+          "contact_F1": 0.8966442953020134,
+          "ankle_origin_slip_proxy_mps": 0.1980084905987043,
+          "contact_semantics": "ankle_roll contacts>1N; not sole/flight truth",
+          "G1_29_global_MPJPE_mm": 181.02297917458978,
+          "G1_29_root_translation_relative_MPJPE_mm": 38.43243339860797,
+          "G1_29_world_velocity_error_mm_per_frame": 6.005880818734226,
+          "G1_29_world_velocity_error_mm_per_s": 300.29404093671127,
+          "G1_29_world_acceleration_error_mm_per_frame2": 2.085893231038306,
+          "G1_29_world_acceleration_error_mm_per_s2": 5214.733077595764,
+          "path_ratio": 0.7641711182193905,
+          "root_height_range_m": 0.05237705818895755,
+          "teacher_root_height_range_m": 0.05876889772595573
+        }
+      },
+      "branches": {
+        "heading_off": {
+          "schema": "research36_root_branch_v1",
+          "status": "complete",
+          "config": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S56_jogging_part2_v1/formal/effective_config.json",
+            "sha256": "8d140892d5cb195de8b027986ef8c72ea4839f790bb455100c4b16bcf2479321",
+            "bytes": 7624
+          },
+          "source_id": "MoVi_F_S56_jogging_part2_v1",
+          "model": "r37_gv_only_s371105_estimated",
+          "checkpoint": {
+            "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+            "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+            "bytes": 16578743
+          },
+          "branch": "heading_off",
+          "actual_output": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S56_jogging_part2_v1/formal/branches/heading_off/actual.npz",
+            "sha256": "8b3eaa8277a594e47e82df114c63cedd015dfd497be3a0e314cfc2ce37560a38",
+            "bytes": 1033890
+          },
+          "frames": 268,
+          "requested_frames": 268,
+          "full_input_completed": true,
+          "failure": null,
+          "reused": false,
+          "reuse_evidence": null,
+          "commands_frozen": true,
+          "scoring_teacher_opened": false,
+          "teacher_future_used_for_commands": false,
+          "initial_state_verified": true,
+          "POST_clock_verified": true,
+          "GPU_used": false,
+          "PPO_updates": 0,
+          "smoke_only": false,
+          "seconds": 4.61848658323288,
+          "producer_record": {
+            "mode": "zero_control",
+            "actual": {
+              "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S56_jogging_part2_v1/formal/branches/heading_off/actual.npz",
+              "sha256": "8b3eaa8277a594e47e82df114c63cedd015dfd497be3a0e314cfc2ce37560a38",
+              "bytes": 1033890
+            },
+            "frames": 268,
+            "requested_frames": 268,
+            "failure": null,
+            "full_input_completed": true,
+            "zero_control_exact_baseline_verified": true,
+            "command_inputs": [
+              "frozen_original_RGB_pre",
+              "video_estimated_relative_yaw",
+              "measured_current_PRE_robot_yaw",
+              "initial_warmup_yaw"
+            ],
+            "future_reference_read_for_commands": false,
+            "reference_encoder_instantiated": false,
+            "feedback_period_seconds": 0.02,
+            "mean_heading_clipped_fraction": 0.0,
+            "mean_pre_clipped_fraction": 0.0002915111940298507,
+            "mean_residual_clipped_fraction": 0.0,
+            "max_abs_residual": 0.0
+          }
+        },
+        "heading_on": {
+          "schema": "research36_root_branch_v1",
+          "status": "complete",
+          "config": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S56_jogging_part2_v1/formal/effective_config.json",
+            "sha256": "8d140892d5cb195de8b027986ef8c72ea4839f790bb455100c4b16bcf2479321",
+            "bytes": 7624
+          },
+          "source_id": "MoVi_F_S56_jogging_part2_v1",
+          "model": "r37_gv_only_s371105_estimated",
+          "checkpoint": {
+            "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+            "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+            "bytes": 16578743
+          },
+          "branch": "heading_on",
+          "actual_output": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S56_jogging_part2_v1/formal/branches/heading_on/actual.npz",
+            "sha256": "1e10849b21a523de9fd30a863dcf0ad21ace5b99e68ae19661a0de84dd1b36f7",
+            "bytes": 1036390
+          },
+          "frames": 268,
+          "requested_frames": 268,
+          "full_input_completed": true,
+          "failure": null,
+          "reused": false,
+          "reuse_evidence": null,
+          "commands_frozen": true,
+          "scoring_teacher_opened": false,
+          "teacher_future_used_for_commands": false,
+          "initial_state_verified": true,
+          "POST_clock_verified": true,
+          "GPU_used": false,
+          "PPO_updates": 0,
+          "smoke_only": false,
+          "seconds": 4.053556460887194,
+          "producer_record": {
+            "mode": "estimated_heading",
+            "actual": {
+              "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S56_jogging_part2_v1/formal/branches/heading_on/actual.npz",
+              "sha256": "1e10849b21a523de9fd30a863dcf0ad21ace5b99e68ae19661a0de84dd1b36f7",
+              "bytes": 1036390
+            },
+            "frames": 268,
+            "requested_frames": 268,
+            "failure": null,
+            "full_input_completed": true,
+            "zero_control_exact_baseline_verified": false,
+            "command_inputs": [
+              "frozen_original_RGB_pre",
+              "video_estimated_relative_yaw",
+              "measured_current_PRE_robot_yaw",
+              "initial_warmup_yaw"
+            ],
+            "future_reference_read_for_commands": false,
+            "reference_encoder_instantiated": false,
+            "feedback_period_seconds": 0.02,
+            "mean_heading_clipped_fraction": 0.0,
+            "mean_pre_clipped_fraction": 0.0002915111940298507,
+            "mean_residual_clipped_fraction": 0.0,
+            "max_abs_residual": 0.14029744267463684
+          }
+        },
+        "heading_gain14": {
+          "schema": "research36_root_branch_v1",
+          "status": "complete",
+          "config": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S56_jogging_part2_v1/formal/effective_config.json",
+            "sha256": "8d140892d5cb195de8b027986ef8c72ea4839f790bb455100c4b16bcf2479321",
+            "bytes": 7624
+          },
+          "source_id": "MoVi_F_S56_jogging_part2_v1",
+          "model": "r37_gv_only_s371105_estimated",
+          "checkpoint": {
+            "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+            "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+            "bytes": 16578743
+          },
+          "branch": "heading_gain14",
+          "actual_output": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S56_jogging_part2_v1/formal/branches/heading_gain14/actual.npz",
+            "sha256": "296745ec3f00540d9bd57001d4aaa4fecbe3740e305277b13ac389e8a2c432fa",
+            "bytes": 1037344
+          },
+          "frames": 268,
+          "requested_frames": 268,
+          "full_input_completed": true,
+          "failure": null,
+          "reused": false,
+          "reuse_evidence": null,
+          "commands_frozen": true,
+          "scoring_teacher_opened": false,
+          "teacher_future_used_for_commands": false,
+          "initial_state_verified": true,
+          "POST_clock_verified": true,
+          "GPU_used": false,
+          "PPO_updates": 0,
+          "smoke_only": false,
+          "seconds": 3.792782962322235,
+          "producer_record": {
+            "mode": "estimated_heading",
+            "actual": {
+              "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S56_jogging_part2_v1/formal/branches/heading_gain14/actual.npz",
+              "sha256": "296745ec3f00540d9bd57001d4aaa4fecbe3740e305277b13ac389e8a2c432fa",
+              "bytes": 1037344
+            },
+            "frames": 268,
+            "requested_frames": 268,
+            "failure": null,
+            "full_input_completed": true,
+            "zero_control_exact_baseline_verified": false,
+            "command_inputs": [
+              "frozen_original_RGB_pre",
+              "video_estimated_relative_yaw",
+              "measured_current_PRE_robot_yaw",
+              "initial_warmup_yaw"
+            ],
+            "future_reference_read_for_commands": false,
+            "reference_encoder_instantiated": false,
+            "feedback_period_seconds": 0.02,
+            "mean_heading_clipped_fraction": 0.0,
+            "mean_pre_clipped_fraction": 0.0006413246268656716,
+            "mean_residual_clipped_fraction": 0.0,
+            "max_abs_residual": 0.14256533980369568
+          }
+        }
+      },
+      "common_scored_frames": 268,
+      "requested_frames": 268,
+      "all_branches_fully_scored": true,
+      "teacher_reference": "owned_teacher_candidate, same hash for all models; historical per-model metric values not reused",
+      "teacher_initialization_equal": true,
+      "no_alignment": true,
+      "no_padding": true,
+      "GPU_used": false
+    },
+    {
+      "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S57_jogging_part2_v1/formal/metrics.json",
+      "schema": "research36_root_metrics_v1",
+      "status": "complete",
+      "config": {
+        "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S57_jogging_part2_v1/formal/effective_config.json",
+        "sha256": "a657a9e485a00f2ce476d0594b2a7d20650197a5ac9af361430392d01e21ad75",
+        "bytes": 7624
+      },
+      "source_id": "MoVi_F_S57_jogging_part2_v1",
+      "model": "r37_gv_only_s371105_estimated",
+      "checkpoint": {
+        "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+        "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+        "bytes": 16578743
+      },
+      "teacher": {
+        "bytes": 1613277,
+        "path": "/localssd/video2action_part2_20261018/data/subject57/instances_v2/MoVi_F_S57_jogging_part2_v1/teacher_owned_v1/actual/actual_trajectory.npz",
+        "sha256": "cd10f40d86e1a0cebd18ad6b0ae3594bb6efc31e3e51eae383b21e1c30c59730"
+      },
+      "scores": {
+        "heading_off": {
+          "frames": 400,
+          "seconds": 8.0,
+          "q29_rmse_rad": 0.09338032104364011,
+          "root_xy_rmse_m": 0.2581692809688266,
+          "heading_mae_deg": 29.074784309721192,
+          "root_z_rmse_m": 0.010687444511384913,
+          "actual_root_z_amplitude_m": 0.05635585138329613,
+          "target_root_z_amplitude_m": 0.07788183614113153,
+          "root_velocity_vector_rmse_mps": 0.2709190731221459,
+          "actual_path_m": 3.750826152265795,
+          "teacher_path_m": 4.600872414346768,
+          "contact_F1": 0.9321872015281757,
+          "ankle_origin_slip_proxy_mps": 0.16367245815073694,
+          "contact_semantics": "ankle_roll contacts>1N; not sole/flight truth",
+          "G1_29_global_MPJPE_mm": 302.4040249269426,
+          "G1_29_root_translation_relative_MPJPE_mm": 64.8162094345125,
+          "G1_29_world_velocity_error_mm_per_frame": 8.041746824421615,
+          "G1_29_world_velocity_error_mm_per_s": 402.08734122108075,
+          "G1_29_world_acceleration_error_mm_per_frame2": 1.7246796311254184,
+          "G1_29_world_acceleration_error_mm_per_s2": 4311.699077813546,
+          "path_ratio": 0.8152423745917625,
+          "root_height_range_m": 0.05635585138329613,
+          "teacher_root_height_range_m": 0.07788183614113153
+        },
+        "heading_on": {
+          "frames": 400,
+          "seconds": 8.0,
+          "q29_rmse_rad": 0.09274412831270819,
+          "root_xy_rmse_m": 0.1250613955759323,
+          "heading_mae_deg": 3.253500004088189,
+          "root_z_rmse_m": 0.010421461185880148,
+          "actual_root_z_amplitude_m": 0.05628871090387089,
+          "target_root_z_amplitude_m": 0.07788183614113153,
+          "root_velocity_vector_rmse_mps": 0.16967279323879944,
+          "actual_path_m": 3.8953111478660327,
+          "teacher_path_m": 4.600872414346768,
+          "contact_F1": 0.9351403678606002,
+          "ankle_origin_slip_proxy_mps": 0.1743321430305519,
+          "contact_semantics": "ankle_roll contacts>1N; not sole/flight truth",
+          "G1_29_global_MPJPE_mm": 157.5740364539141,
+          "G1_29_root_translation_relative_MPJPE_mm": 25.57793071959013,
+          "G1_29_world_velocity_error_mm_per_frame": 5.205496588245045,
+          "G1_29_world_velocity_error_mm_per_s": 260.27482941225225,
+          "G1_29_world_acceleration_error_mm_per_frame2": 1.6196402344999214,
+          "G1_29_world_acceleration_error_mm_per_s2": 4049.1005862498037,
+          "path_ratio": 0.8466462003422212,
+          "root_height_range_m": 0.05628871090387089,
+          "teacher_root_height_range_m": 0.07788183614113153
+        },
+        "heading_gain14": {
+          "frames": 400,
+          "seconds": 8.0,
+          "q29_rmse_rad": 0.09720432584797953,
+          "root_xy_rmse_m": 0.10923538816341745,
+          "heading_mae_deg": 3.5065778016863725,
+          "root_z_rmse_m": 0.011184054691488731,
+          "actual_root_z_amplitude_m": 0.05760769974092994,
+          "target_root_z_amplitude_m": 0.07788183614113153,
+          "root_velocity_vector_rmse_mps": 0.1645131132258101,
+          "actual_path_m": 4.438314165962979,
+          "teacher_path_m": 4.600872414346768,
+          "contact_F1": 0.9385365853658536,
+          "ankle_origin_slip_proxy_mps": 0.1891507910175653,
+          "contact_semantics": "ankle_roll contacts>1N; not sole/flight truth",
+          "G1_29_global_MPJPE_mm": 139.36001081580304,
+          "G1_29_root_translation_relative_MPJPE_mm": 27.323494945880615,
+          "G1_29_world_velocity_error_mm_per_frame": 5.339389800908815,
+          "G1_29_world_velocity_error_mm_per_s": 266.96949004544075,
+          "G1_29_world_acceleration_error_mm_per_frame2": 1.7919299645606663,
+          "G1_29_world_acceleration_error_mm_per_s2": 4479.824911401665,
+          "path_ratio": 0.9646679512613979,
+          "root_height_range_m": 0.05760769974092994,
+          "teacher_root_height_range_m": 0.07788183614113153
+        }
+      },
+      "branches": {
+        "heading_off": {
+          "schema": "research36_root_branch_v1",
+          "status": "complete",
+          "config": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S57_jogging_part2_v1/formal/effective_config.json",
+            "sha256": "a657a9e485a00f2ce476d0594b2a7d20650197a5ac9af361430392d01e21ad75",
+            "bytes": 7624
+          },
+          "source_id": "MoVi_F_S57_jogging_part2_v1",
+          "model": "r37_gv_only_s371105_estimated",
+          "checkpoint": {
+            "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+            "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+            "bytes": 16578743
+          },
+          "branch": "heading_off",
+          "actual_output": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S57_jogging_part2_v1/formal/branches/heading_off/actual.npz",
+            "sha256": "d48baa709da292fa42925d28f2ba6171f1d29764fce918231dff69668a93bb55",
+            "bytes": 1538631
+          },
+          "frames": 400,
+          "requested_frames": 400,
+          "full_input_completed": true,
+          "failure": null,
+          "reused": false,
+          "reuse_evidence": null,
+          "commands_frozen": true,
+          "scoring_teacher_opened": false,
+          "teacher_future_used_for_commands": false,
+          "initial_state_verified": true,
+          "POST_clock_verified": true,
+          "GPU_used": false,
+          "PPO_updates": 0,
+          "smoke_only": false,
+          "seconds": 5.509145617485046,
+          "producer_record": {
+            "mode": "zero_control",
+            "actual": {
+              "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S57_jogging_part2_v1/formal/branches/heading_off/actual.npz",
+              "sha256": "d48baa709da292fa42925d28f2ba6171f1d29764fce918231dff69668a93bb55",
+              "bytes": 1538631
+            },
+            "frames": 400,
+            "requested_frames": 400,
+            "failure": null,
+            "full_input_completed": true,
+            "zero_control_exact_baseline_verified": true,
+            "command_inputs": [
+              "frozen_original_RGB_pre",
+              "video_estimated_relative_yaw",
+              "measured_current_PRE_robot_yaw",
+              "initial_warmup_yaw"
+            ],
+            "future_reference_read_for_commands": false,
+            "reference_encoder_instantiated": false,
+            "feedback_period_seconds": 0.02,
+            "mean_heading_clipped_fraction": 0.0,
+            "mean_pre_clipped_fraction": 0.0,
+            "mean_residual_clipped_fraction": 0.0,
+            "max_abs_residual": 0.0
+          }
+        },
+        "heading_on": {
+          "schema": "research36_root_branch_v1",
+          "status": "complete",
+          "config": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S57_jogging_part2_v1/formal/effective_config.json",
+            "sha256": "a657a9e485a00f2ce476d0594b2a7d20650197a5ac9af361430392d01e21ad75",
+            "bytes": 7624
+          },
+          "source_id": "MoVi_F_S57_jogging_part2_v1",
+          "model": "r37_gv_only_s371105_estimated",
+          "checkpoint": {
+            "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+            "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+            "bytes": 16578743
+          },
+          "branch": "heading_on",
+          "actual_output": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S57_jogging_part2_v1/formal/branches/heading_on/actual.npz",
+            "sha256": "5609bd224875dc8683934c0440cb7619850ae80251f72c3cdbef780606a8167f",
+            "bytes": 1541837
+          },
+          "frames": 400,
+          "requested_frames": 400,
+          "full_input_completed": true,
+          "failure": null,
+          "reused": false,
+          "reuse_evidence": null,
+          "commands_frozen": true,
+          "scoring_teacher_opened": false,
+          "teacher_future_used_for_commands": false,
+          "initial_state_verified": true,
+          "POST_clock_verified": true,
+          "GPU_used": false,
+          "PPO_updates": 0,
+          "smoke_only": false,
+          "seconds": 5.281637620180845,
+          "producer_record": {
+            "mode": "estimated_heading",
+            "actual": {
+              "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S57_jogging_part2_v1/formal/branches/heading_on/actual.npz",
+              "sha256": "5609bd224875dc8683934c0440cb7619850ae80251f72c3cdbef780606a8167f",
+              "bytes": 1541837
+            },
+            "frames": 400,
+            "requested_frames": 400,
+            "failure": null,
+            "full_input_completed": true,
+            "zero_control_exact_baseline_verified": false,
+            "command_inputs": [
+              "frozen_original_RGB_pre",
+              "video_estimated_relative_yaw",
+              "measured_current_PRE_robot_yaw",
+              "initial_warmup_yaw"
+            ],
+            "future_reference_read_for_commands": false,
+            "reference_encoder_instantiated": false,
+            "feedback_period_seconds": 0.02,
+            "mean_heading_clipped_fraction": 0.0,
+            "mean_pre_clipped_fraction": 0.0,
+            "mean_residual_clipped_fraction": 0.0,
+            "max_abs_residual": 0.09046338498592377
+          }
+        },
+        "heading_gain14": {
+          "schema": "research36_root_branch_v1",
+          "status": "complete",
+          "config": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S57_jogging_part2_v1/formal/effective_config.json",
+            "sha256": "a657a9e485a00f2ce476d0594b2a7d20650197a5ac9af361430392d01e21ad75",
+            "bytes": 7624
+          },
+          "source_id": "MoVi_F_S57_jogging_part2_v1",
+          "model": "r37_gv_only_s371105_estimated",
+          "checkpoint": {
+            "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+            "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+            "bytes": 16578743
+          },
+          "branch": "heading_gain14",
+          "actual_output": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S57_jogging_part2_v1/formal/branches/heading_gain14/actual.npz",
+            "sha256": "603fc513dd6bd18217c99d8205a3cca23025b05ee1ea508dadf12b5401227a31",
+            "bytes": 1543482
+          },
+          "frames": 400,
+          "requested_frames": 400,
+          "full_input_completed": true,
+          "failure": null,
+          "reused": false,
+          "reuse_evidence": null,
+          "commands_frozen": true,
+          "scoring_teacher_opened": false,
+          "teacher_future_used_for_commands": false,
+          "initial_state_verified": true,
+          "POST_clock_verified": true,
+          "GPU_used": false,
+          "PPO_updates": 0,
+          "smoke_only": false,
+          "seconds": 5.30156085267663,
+          "producer_record": {
+            "mode": "estimated_heading",
+            "actual": {
+              "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S57_jogging_part2_v1/formal/branches/heading_gain14/actual.npz",
+              "sha256": "603fc513dd6bd18217c99d8205a3cca23025b05ee1ea508dadf12b5401227a31",
+              "bytes": 1543482
+            },
+            "frames": 400,
+            "requested_frames": 400,
+            "failure": null,
+            "full_input_completed": true,
+            "zero_control_exact_baseline_verified": false,
+            "command_inputs": [
+              "frozen_original_RGB_pre",
+              "video_estimated_relative_yaw",
+              "measured_current_PRE_robot_yaw",
+              "initial_warmup_yaw"
+            ],
+            "future_reference_read_for_commands": false,
+            "reference_encoder_instantiated": false,
+            "feedback_period_seconds": 0.02,
+            "mean_heading_clipped_fraction": 0.0,
+            "mean_pre_clipped_fraction": 0.0,
+            "mean_residual_clipped_fraction": 0.0,
+            "max_abs_residual": 0.0870458260178566
+          }
+        }
+      },
+      "common_scored_frames": 400,
+      "requested_frames": 400,
+      "all_branches_fully_scored": true,
+      "teacher_reference": "owned_teacher_candidate, same hash for all models; historical per-model metric values not reused",
+      "teacher_initialization_equal": true,
+      "no_alignment": true,
+      "no_padding": true,
+      "GPU_used": false
+    },
+    {
+      "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S57_sideways_part2_v1/formal/metrics.json",
+      "schema": "research36_root_metrics_v1",
+      "status": "complete",
+      "config": {
+        "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S57_sideways_part2_v1/formal/effective_config.json",
+        "sha256": "c804b25051c4c531a354ff95d9ab550854455d7aaa24f6e3a93cc9232a8563dd",
+        "bytes": 7631
+      },
+      "source_id": "MoVi_F_S57_sideways_part2_v1",
+      "model": "r37_gv_only_s371105_estimated",
+      "checkpoint": {
+        "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+        "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+        "bytes": 16578743
+      },
+      "teacher": {
+        "bytes": 1921386,
+        "path": "/localssd/video2action_part2_20261018/data/subject57/instances_v2/MoVi_F_S57_sideways_part2_v1/teacher_owned_v2/actual/actual_trajectory.npz",
+        "sha256": "2d3acf0360b4ad0dcfeb7c728e8fc98d8f769ce20eb5d3eb218314f21e230946"
+      },
+      "scores": {
+        "heading_off": {
+          "frames": 490,
+          "seconds": 9.8,
+          "q29_rmse_rad": 0.07639512828056472,
+          "root_xy_rmse_m": 0.3118781095613184,
+          "heading_mae_deg": 10.686561684518045,
+          "root_z_rmse_m": 0.005852942419119131,
+          "actual_root_z_amplitude_m": 0.03923226986629735,
+          "target_root_z_amplitude_m": 0.02799764336007826,
+          "root_velocity_vector_rmse_mps": 0.1629265584331515,
+          "actual_path_m": 1.8239303713967432,
+          "teacher_path_m": 2.773708896199937,
+          "contact_F1": 0.9212410501193318,
+          "ankle_origin_slip_proxy_mps": 0.04358416728870614,
+          "contact_semantics": "ankle_roll contacts>1N; not sole/flight truth",
+          "G1_29_global_MPJPE_mm": 395.00501409674354,
+          "G1_29_root_translation_relative_MPJPE_mm": 31.91610251962912,
+          "G1_29_world_velocity_error_mm_per_frame": 3.9783743532224953,
+          "G1_29_world_velocity_error_mm_per_s": 198.91871766112476,
+          "G1_29_world_acceleration_error_mm_per_frame2": 0.8437260547599608,
+          "G1_29_world_acceleration_error_mm_per_s2": 2109.315136899902,
+          "path_ratio": 0.6575781524498052,
+          "root_height_range_m": 0.03923226986629735,
+          "teacher_root_height_range_m": 0.02799764336007826
+        },
+        "heading_on": {
+          "frames": 490,
+          "seconds": 9.8,
+          "q29_rmse_rad": 0.07965336000744094,
+          "root_xy_rmse_m": 0.35758945734539327,
+          "heading_mae_deg": 3.4858137420132858,
+          "root_z_rmse_m": 0.007269047511516546,
+          "actual_root_z_amplitude_m": 0.040639412172628675,
+          "target_root_z_amplitude_m": 0.02799764336007826,
+          "root_velocity_vector_rmse_mps": 0.1605720423511801,
+          "actual_path_m": 1.6015325004120395,
+          "teacher_path_m": 2.773708896199937,
+          "contact_F1": 0.9160214413341274,
+          "ankle_origin_slip_proxy_mps": 0.030413811678789104,
+          "contact_semantics": "ankle_roll contacts>1N; not sole/flight truth",
+          "G1_29_global_MPJPE_mm": 453.86532877164626,
+          "G1_29_root_translation_relative_MPJPE_mm": 22.10678248504486,
+          "G1_29_world_velocity_error_mm_per_frame": 3.8940312022254235,
+          "G1_29_world_velocity_error_mm_per_s": 194.70156011127116,
+          "G1_29_world_acceleration_error_mm_per_frame2": 0.8396354669248549,
+          "G1_29_world_acceleration_error_mm_per_s2": 2099.088667312137,
+          "path_ratio": 0.5773974704433426,
+          "root_height_range_m": 0.040639412172628675,
+          "teacher_root_height_range_m": 0.02799764336007826
+        },
+        "heading_gain14": {
+          "frames": 490,
+          "seconds": 9.8,
+          "q29_rmse_rad": 0.07297532496765236,
+          "root_xy_rmse_m": 0.36968936663682017,
+          "heading_mae_deg": 3.8390452432495064,
+          "root_z_rmse_m": 0.005319361212629281,
+          "actual_root_z_amplitude_m": 0.03853532086155498,
+          "target_root_z_amplitude_m": 0.02799764336007826,
+          "root_velocity_vector_rmse_mps": 0.1511227936865617,
+          "actual_path_m": 2.2123480613221527,
+          "teacher_path_m": 2.773708896199937,
+          "contact_F1": 0.9194837123540258,
+          "ankle_origin_slip_proxy_mps": 0.04535215205682108,
+          "contact_semantics": "ankle_roll contacts>1N; not sole/flight truth",
+          "G1_29_global_MPJPE_mm": 468.09232667213735,
+          "G1_29_root_translation_relative_MPJPE_mm": 19.534397483167588,
+          "G1_29_world_velocity_error_mm_per_frame": 3.5598590860672394,
+          "G1_29_world_velocity_error_mm_per_s": 177.99295430336196,
+          "G1_29_world_acceleration_error_mm_per_frame2": 0.8505146715548615,
+          "G1_29_world_acceleration_error_mm_per_s2": 2126.286678887154,
+          "path_ratio": 0.7976136444430542,
+          "root_height_range_m": 0.03853532086155498,
+          "teacher_root_height_range_m": 0.02799764336007826
+        }
+      },
+      "branches": {
+        "heading_off": {
+          "schema": "research36_root_branch_v1",
+          "status": "complete",
+          "config": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S57_sideways_part2_v1/formal/effective_config.json",
+            "sha256": "c804b25051c4c531a354ff95d9ab550854455d7aaa24f6e3a93cc9232a8563dd",
+            "bytes": 7631
+          },
+          "source_id": "MoVi_F_S57_sideways_part2_v1",
+          "model": "r37_gv_only_s371105_estimated",
+          "checkpoint": {
+            "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+            "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+            "bytes": 16578743
+          },
+          "branch": "heading_off",
+          "actual_output": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S57_sideways_part2_v1/formal/branches/heading_off/actual.npz",
+            "sha256": "0a7f5c10262d79ff7e26aa9a764495f5a956665e158d7451afc84cb4fef4b5a7",
+            "bytes": 1873530
+          },
+          "frames": 490,
+          "requested_frames": 490,
+          "full_input_completed": true,
+          "failure": null,
+          "reused": false,
+          "reuse_evidence": null,
+          "commands_frozen": true,
+          "scoring_teacher_opened": false,
+          "teacher_future_used_for_commands": false,
+          "initial_state_verified": true,
+          "POST_clock_verified": true,
+          "GPU_used": false,
+          "PPO_updates": 0,
+          "smoke_only": false,
+          "seconds": 6.688422903418541,
+          "producer_record": {
+            "mode": "zero_control",
+            "actual": {
+              "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S57_sideways_part2_v1/formal/branches/heading_off/actual.npz",
+              "sha256": "0a7f5c10262d79ff7e26aa9a764495f5a956665e158d7451afc84cb4fef4b5a7",
+              "bytes": 1873530
+            },
+            "frames": 490,
+            "requested_frames": 490,
+            "failure": null,
+            "full_input_completed": true,
+            "zero_control_exact_baseline_verified": true,
+            "command_inputs": [
+              "frozen_original_RGB_pre",
+              "video_estimated_relative_yaw",
+              "measured_current_PRE_robot_yaw",
+              "initial_warmup_yaw"
+            ],
+            "future_reference_read_for_commands": false,
+            "reference_encoder_instantiated": false,
+            "feedback_period_seconds": 0.02,
+            "mean_heading_clipped_fraction": 0.0,
+            "mean_pre_clipped_fraction": 0.0,
+            "mean_residual_clipped_fraction": 0.0,
+            "max_abs_residual": 0.0
+          }
+        },
+        "heading_on": {
+          "schema": "research36_root_branch_v1",
+          "status": "complete",
+          "config": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S57_sideways_part2_v1/formal/effective_config.json",
+            "sha256": "c804b25051c4c531a354ff95d9ab550854455d7aaa24f6e3a93cc9232a8563dd",
+            "bytes": 7631
+          },
+          "source_id": "MoVi_F_S57_sideways_part2_v1",
+          "model": "r37_gv_only_s371105_estimated",
+          "checkpoint": {
+            "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+            "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+            "bytes": 16578743
+          },
+          "branch": "heading_on",
+          "actual_output": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S57_sideways_part2_v1/formal/branches/heading_on/actual.npz",
+            "sha256": "019b5d39ab69e273e991b49e9a90e943317a958c653cd29d943ab7ddbdb6364a",
+            "bytes": 1877224
+          },
+          "frames": 490,
+          "requested_frames": 490,
+          "full_input_completed": true,
+          "failure": null,
+          "reused": false,
+          "reuse_evidence": null,
+          "commands_frozen": true,
+          "scoring_teacher_opened": false,
+          "teacher_future_used_for_commands": false,
+          "initial_state_verified": true,
+          "POST_clock_verified": true,
+          "GPU_used": false,
+          "PPO_updates": 0,
+          "smoke_only": false,
+          "seconds": 6.537206802517176,
+          "producer_record": {
+            "mode": "estimated_heading",
+            "actual": {
+              "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S57_sideways_part2_v1/formal/branches/heading_on/actual.npz",
+              "sha256": "019b5d39ab69e273e991b49e9a90e943317a958c653cd29d943ab7ddbdb6364a",
+              "bytes": 1877224
+            },
+            "frames": 490,
+            "requested_frames": 490,
+            "failure": null,
+            "full_input_completed": true,
+            "zero_control_exact_baseline_verified": false,
+            "command_inputs": [
+              "frozen_original_RGB_pre",
+              "video_estimated_relative_yaw",
+              "measured_current_PRE_robot_yaw",
+              "initial_warmup_yaw"
+            ],
+            "future_reference_read_for_commands": false,
+            "reference_encoder_instantiated": false,
+            "feedback_period_seconds": 0.02,
+            "mean_heading_clipped_fraction": 0.0,
+            "mean_pre_clipped_fraction": 0.0,
+            "mean_residual_clipped_fraction": 0.0,
+            "max_abs_residual": 0.06755052506923676
+          }
+        },
+        "heading_gain14": {
+          "schema": "research36_root_branch_v1",
+          "status": "complete",
+          "config": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S57_sideways_part2_v1/formal/effective_config.json",
+            "sha256": "c804b25051c4c531a354ff95d9ab550854455d7aaa24f6e3a93cc9232a8563dd",
+            "bytes": 7631
+          },
+          "source_id": "MoVi_F_S57_sideways_part2_v1",
+          "model": "r37_gv_only_s371105_estimated",
+          "checkpoint": {
+            "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+            "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+            "bytes": 16578743
+          },
+          "branch": "heading_gain14",
+          "actual_output": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S57_sideways_part2_v1/formal/branches/heading_gain14/actual.npz",
+            "sha256": "debf0f325bfcbf02cccd73be756c2a11cd979f487c5d848f25ed637054ee0dd9",
+            "bytes": 1879780
+          },
+          "frames": 490,
+          "requested_frames": 490,
+          "full_input_completed": true,
+          "failure": null,
+          "reused": false,
+          "reuse_evidence": null,
+          "commands_frozen": true,
+          "scoring_teacher_opened": false,
+          "teacher_future_used_for_commands": false,
+          "initial_state_verified": true,
+          "POST_clock_verified": true,
+          "GPU_used": false,
+          "PPO_updates": 0,
+          "smoke_only": false,
+          "seconds": 6.510559771209955,
+          "producer_record": {
+            "mode": "estimated_heading",
+            "actual": {
+              "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S57_sideways_part2_v1/formal/branches/heading_gain14/actual.npz",
+              "sha256": "debf0f325bfcbf02cccd73be756c2a11cd979f487c5d848f25ed637054ee0dd9",
+              "bytes": 1879780
+            },
+            "frames": 490,
+            "requested_frames": 490,
+            "failure": null,
+            "full_input_completed": true,
+            "zero_control_exact_baseline_verified": false,
+            "command_inputs": [
+              "frozen_original_RGB_pre",
+              "video_estimated_relative_yaw",
+              "measured_current_PRE_robot_yaw",
+              "initial_warmup_yaw"
+            ],
+            "future_reference_read_for_commands": false,
+            "reference_encoder_instantiated": false,
+            "feedback_period_seconds": 0.02,
+            "mean_heading_clipped_fraction": 0.0,
+            "mean_pre_clipped_fraction": 0.0,
+            "mean_residual_clipped_fraction": 0.0,
+            "max_abs_residual": 0.05166393518447876
+          }
+        }
+      },
+      "common_scored_frames": 490,
+      "requested_frames": 490,
+      "all_branches_fully_scored": true,
+      "teacher_reference": "owned_teacher_candidate, same hash for all models; historical per-model metric values not reused",
+      "teacher_initialization_equal": true,
+      "no_alignment": true,
+      "no_padding": true,
+      "GPU_used": false
+    },
+    {
+      "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S57_walking_part2_v1/formal/metrics.json",
+      "schema": "research36_root_metrics_v1",
+      "status": "complete",
+      "config": {
+        "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S57_walking_part2_v1/formal/effective_config.json",
+        "sha256": "e9e422bdbc1b7ef866d0b6e9249bf237c524c339c972a3d2d577a146818d7fb7",
+        "bytes": 7624
+      },
+      "source_id": "MoVi_F_S57_walking_part2_v1",
+      "model": "r37_gv_only_s371105_estimated",
+      "checkpoint": {
+        "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+        "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+        "bytes": 16578743
+      },
+      "teacher": {
+        "bytes": 1519595,
+        "path": "/localssd/video2action_part2_20261018/data/subject57/instances_v2/MoVi_F_S57_walking_part2_v1/teacher_owned_v2/actual/actual_trajectory.npz",
+        "sha256": "c683e48470c96bfa5d140c12f74819835473acfecf1eae6a44f6a244dc0efb6f"
+      },
+      "scores": {
+        "heading_off": {
+          "frames": 375,
+          "seconds": 7.5,
+          "q29_rmse_rad": 0.07565070704689178,
+          "root_xy_rmse_m": 0.204398569040696,
+          "heading_mae_deg": 17.753789219988853,
+          "root_z_rmse_m": 0.005544961300949626,
+          "actual_root_z_amplitude_m": 0.025990830947631993,
+          "target_root_z_amplitude_m": 0.03946319325308434,
+          "root_velocity_vector_rmse_mps": 0.14357417218736526,
+          "actual_path_m": 2.3982924861332995,
+          "teacher_path_m": 2.8112649382145345,
+          "contact_F1": 0.9346642468239564,
+          "ankle_origin_slip_proxy_mps": 0.10347431183475499,
+          "contact_semantics": "ankle_roll contacts>1N; not sole/flight truth",
+          "G1_29_global_MPJPE_mm": 240.8079548104948,
+          "G1_29_root_translation_relative_MPJPE_mm": 40.87332121626686,
+          "G1_29_world_velocity_error_mm_per_frame": 4.418987692442094,
+          "G1_29_world_velocity_error_mm_per_s": 220.9493846221047,
+          "G1_29_world_acceleration_error_mm_per_frame2": 1.2180238856787158,
+          "G1_29_world_acceleration_error_mm_per_s2": 3045.059714196789,
+          "path_ratio": 0.853100842091561,
+          "root_height_range_m": 0.025990830947631993,
+          "teacher_root_height_range_m": 0.03946319325308434
+        },
+        "heading_on": {
+          "frames": 375,
+          "seconds": 7.5,
+          "q29_rmse_rad": 0.0774530154851358,
+          "root_xy_rmse_m": 0.20566364501099002,
+          "heading_mae_deg": 5.530562977149209,
+          "root_z_rmse_m": 0.00614527816337053,
+          "actual_root_z_amplitude_m": 0.027306969827474714,
+          "target_root_z_amplitude_m": 0.03946319325308434,
+          "root_velocity_vector_rmse_mps": 0.1280947440460644,
+          "actual_path_m": 2.415205212508334,
+          "teacher_path_m": 2.8112649382145345,
+          "contact_F1": 0.9351351351351351,
+          "ankle_origin_slip_proxy_mps": 0.11663328781146838,
+          "contact_semantics": "ankle_roll contacts>1N; not sole/flight truth",
+          "G1_29_global_MPJPE_mm": 249.47043361062543,
+          "G1_29_root_translation_relative_MPJPE_mm": 20.764993042985598,
+          "G1_29_world_velocity_error_mm_per_frame": 3.699478997030521,
+          "G1_29_world_velocity_error_mm_per_s": 184.97394985152604,
+          "G1_29_world_acceleration_error_mm_per_frame2": 1.1935847315659023,
+          "G1_29_world_acceleration_error_mm_per_s2": 2983.9618289147556,
+          "path_ratio": 0.8591168977628475,
+          "root_height_range_m": 0.027306969827474714,
+          "teacher_root_height_range_m": 0.03946319325308434
+        },
+        "heading_gain14": {
+          "frames": 375,
+          "seconds": 7.5,
+          "q29_rmse_rad": 0.07770261673443912,
+          "root_xy_rmse_m": 0.1654742200720275,
+          "heading_mae_deg": 6.111682478587199,
+          "root_z_rmse_m": 0.00553792565187971,
+          "actual_root_z_amplitude_m": 0.03257242333073662,
+          "target_root_z_amplitude_m": 0.03946319325308434,
+          "root_velocity_vector_rmse_mps": 0.11560839697823318,
+          "actual_path_m": 2.720474581103331,
+          "teacher_path_m": 2.8112649382145345,
+          "contact_F1": 0.9431192660550459,
+          "ankle_origin_slip_proxy_mps": 0.1183766511981568,
+          "contact_semantics": "ankle_roll contacts>1N; not sole/flight truth",
+          "G1_29_global_MPJPE_mm": 207.21949660192698,
+          "G1_29_root_translation_relative_MPJPE_mm": 22.394370587732737,
+          "G1_29_world_velocity_error_mm_per_frame": 3.4209749481307283,
+          "G1_29_world_velocity_error_mm_per_s": 171.04874740653642,
+          "G1_29_world_acceleration_error_mm_per_frame2": 1.1546825283462823,
+          "G1_29_world_acceleration_error_mm_per_s2": 2886.7063208657055,
+          "path_ratio": 0.9677048022486043,
+          "root_height_range_m": 0.03257242333073662,
+          "teacher_root_height_range_m": 0.03946319325308434
+        }
+      },
+      "branches": {
+        "heading_off": {
+          "schema": "research36_root_branch_v1",
+          "status": "complete",
+          "config": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S57_walking_part2_v1/formal/effective_config.json",
+            "sha256": "e9e422bdbc1b7ef866d0b6e9249bf237c524c339c972a3d2d577a146818d7fb7",
+            "bytes": 7624
+          },
+          "source_id": "MoVi_F_S57_walking_part2_v1",
+          "model": "r37_gv_only_s371105_estimated",
+          "checkpoint": {
+            "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+            "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+            "bytes": 16578743
+          },
+          "branch": "heading_off",
+          "actual_output": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S57_walking_part2_v1/formal/branches/heading_off/actual.npz",
+            "sha256": "8969fe44978494f07d524278d1270d291984df4d90120c9f40019777c147b5a8",
+            "bytes": 1440155
+          },
+          "frames": 375,
+          "requested_frames": 375,
+          "full_input_completed": true,
+          "failure": null,
+          "reused": false,
+          "reuse_evidence": null,
+          "commands_frozen": true,
+          "scoring_teacher_opened": false,
+          "teacher_future_used_for_commands": false,
+          "initial_state_verified": true,
+          "POST_clock_verified": true,
+          "GPU_used": false,
+          "PPO_updates": 0,
+          "smoke_only": false,
+          "seconds": 5.501717332750559,
+          "producer_record": {
+            "mode": "zero_control",
+            "actual": {
+              "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S57_walking_part2_v1/formal/branches/heading_off/actual.npz",
+              "sha256": "8969fe44978494f07d524278d1270d291984df4d90120c9f40019777c147b5a8",
+              "bytes": 1440155
+            },
+            "frames": 375,
+            "requested_frames": 375,
+            "failure": null,
+            "full_input_completed": true,
+            "zero_control_exact_baseline_verified": true,
+            "command_inputs": [
+              "frozen_original_RGB_pre",
+              "video_estimated_relative_yaw",
+              "measured_current_PRE_robot_yaw",
+              "initial_warmup_yaw"
+            ],
+            "future_reference_read_for_commands": false,
+            "reference_encoder_instantiated": false,
+            "feedback_period_seconds": 0.02,
+            "mean_heading_clipped_fraction": 0.0,
+            "mean_pre_clipped_fraction": 0.0,
+            "mean_residual_clipped_fraction": 0.0,
+            "max_abs_residual": 0.0
+          }
+        },
+        "heading_on": {
+          "schema": "research36_root_branch_v1",
+          "status": "complete",
+          "config": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S57_walking_part2_v1/formal/effective_config.json",
+            "sha256": "e9e422bdbc1b7ef866d0b6e9249bf237c524c339c972a3d2d577a146818d7fb7",
+            "bytes": 7624
+          },
+          "source_id": "MoVi_F_S57_walking_part2_v1",
+          "model": "r37_gv_only_s371105_estimated",
+          "checkpoint": {
+            "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+            "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+            "bytes": 16578743
+          },
+          "branch": "heading_on",
+          "actual_output": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S57_walking_part2_v1/formal/branches/heading_on/actual.npz",
+            "sha256": "940aa43b952890819da821bf4d08a4b26a63ad639a19c5d0aa82b68ae16002cc",
+            "bytes": 1443146
+          },
+          "frames": 375,
+          "requested_frames": 375,
+          "full_input_completed": true,
+          "failure": null,
+          "reused": false,
+          "reuse_evidence": null,
+          "commands_frozen": true,
+          "scoring_teacher_opened": false,
+          "teacher_future_used_for_commands": false,
+          "initial_state_verified": true,
+          "POST_clock_verified": true,
+          "GPU_used": false,
+          "PPO_updates": 0,
+          "smoke_only": false,
+          "seconds": 5.182294555008411,
+          "producer_record": {
+            "mode": "estimated_heading",
+            "actual": {
+              "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S57_walking_part2_v1/formal/branches/heading_on/actual.npz",
+              "sha256": "940aa43b952890819da821bf4d08a4b26a63ad639a19c5d0aa82b68ae16002cc",
+              "bytes": 1443146
+            },
+            "frames": 375,
+            "requested_frames": 375,
+            "failure": null,
+            "full_input_completed": true,
+            "zero_control_exact_baseline_verified": false,
+            "command_inputs": [
+              "frozen_original_RGB_pre",
+              "video_estimated_relative_yaw",
+              "measured_current_PRE_robot_yaw",
+              "initial_warmup_yaw"
+            ],
+            "future_reference_read_for_commands": false,
+            "reference_encoder_instantiated": false,
+            "feedback_period_seconds": 0.02,
+            "mean_heading_clipped_fraction": 0.0,
+            "mean_pre_clipped_fraction": 0.0,
+            "mean_residual_clipped_fraction": 0.0,
+            "max_abs_residual": 0.18467111885547638
+          }
+        },
+        "heading_gain14": {
+          "schema": "research36_root_branch_v1",
+          "status": "complete",
+          "config": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S57_walking_part2_v1/formal/effective_config.json",
+            "sha256": "e9e422bdbc1b7ef866d0b6e9249bf237c524c339c972a3d2d577a146818d7fb7",
+            "bytes": 7624
+          },
+          "source_id": "MoVi_F_S57_walking_part2_v1",
+          "model": "r37_gv_only_s371105_estimated",
+          "checkpoint": {
+            "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+            "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+            "bytes": 16578743
+          },
+          "branch": "heading_gain14",
+          "actual_output": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S57_walking_part2_v1/formal/branches/heading_gain14/actual.npz",
+            "sha256": "ea164b342223d0074890293d23ea9af90c0059eeb4e9d46789b8de660a03c9aa",
+            "bytes": 1445164
+          },
+          "frames": 375,
+          "requested_frames": 375,
+          "full_input_completed": true,
+          "failure": null,
+          "reused": false,
+          "reuse_evidence": null,
+          "commands_frozen": true,
+          "scoring_teacher_opened": false,
+          "teacher_future_used_for_commands": false,
+          "initial_state_verified": true,
+          "POST_clock_verified": true,
+          "GPU_used": false,
+          "PPO_updates": 0,
+          "smoke_only": false,
+          "seconds": 5.074659131467342,
+          "producer_record": {
+            "mode": "estimated_heading",
+            "actual": {
+              "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S57_walking_part2_v1/formal/branches/heading_gain14/actual.npz",
+              "sha256": "ea164b342223d0074890293d23ea9af90c0059eeb4e9d46789b8de660a03c9aa",
+              "bytes": 1445164
+            },
+            "frames": 375,
+            "requested_frames": 375,
+            "failure": null,
+            "full_input_completed": true,
+            "zero_control_exact_baseline_verified": false,
+            "command_inputs": [
+              "frozen_original_RGB_pre",
+              "video_estimated_relative_yaw",
+              "measured_current_PRE_robot_yaw",
+              "initial_warmup_yaw"
+            ],
+            "future_reference_read_for_commands": false,
+            "reference_encoder_instantiated": false,
+            "feedback_period_seconds": 0.02,
+            "mean_heading_clipped_fraction": 0.0,
+            "mean_pre_clipped_fraction": 0.0,
+            "mean_residual_clipped_fraction": 0.0,
+            "max_abs_residual": 0.1836256980895996
+          }
+        }
+      },
+      "common_scored_frames": 375,
+      "requested_frames": 375,
+      "all_branches_fully_scored": true,
+      "teacher_reference": "owned_teacher_candidate, same hash for all models; historical per-model metric values not reused",
+      "teacher_initialization_equal": true,
+      "no_alignment": true,
+      "no_padding": true,
+      "GPU_used": false
+    },
+    {
+      "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S58_running_in_spot_part2_v1/formal/metrics.json",
+      "schema": "research36_root_metrics_v1",
+      "status": "complete",
+      "config": {
+        "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S58_running_in_spot_part2_v1/formal/effective_config.json",
+        "sha256": "9b6347e06f268bc4dd70460db2b84236ec1c24ce690e38f6a16ec2f3036785df",
+        "bytes": 7680
+      },
+      "source_id": "MoVi_F_S58_running_in_spot_part2_v1",
+      "model": "r37_gv_only_s371105_estimated",
+      "checkpoint": {
+        "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+        "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+        "bytes": 16578743
+      },
+      "teacher": {
+        "bytes": 1135663,
+        "path": "/localssd/video2action_part2_20261018/data/subject58/instances_v2/MoVi_F_S58_running_in_spot_part2_v1/teacher_owned_v2/actual/actual_trajectory.npz",
+        "sha256": "0e8a8bda435548db530668d4332caf14e75c9bea0130bd66aa30e5c2b1fab7d7"
+      },
+      "scores": {
+        "heading_off": {
+          "frames": 265,
+          "seconds": 5.3,
+          "q29_rmse_rad": 0.11223324855599474,
+          "root_xy_rmse_m": 0.3062946292365111,
+          "heading_mae_deg": 33.84705146255586,
+          "root_z_rmse_m": 0.013298784506332966,
+          "actual_root_z_amplitude_m": 0.05931346701075646,
+          "target_root_z_amplitude_m": 0.047659082339225334,
+          "root_velocity_vector_rmse_mps": 0.15050230750646784,
+          "actual_path_m": 0.9572661049232285,
+          "teacher_path_m": 1.0137504700460491,
+          "contact_F1": 0.9318435754189944,
+          "ankle_origin_slip_proxy_mps": 0.0842771155000603,
+          "contact_semantics": "ankle_roll contacts>1N; not sole/flight truth",
+          "G1_29_global_MPJPE_mm": 358.25200687591683,
+          "G1_29_root_translation_relative_MPJPE_mm": 67.60738176177574,
+          "G1_29_world_velocity_error_mm_per_frame": 5.938407220342406,
+          "G1_29_world_velocity_error_mm_per_s": 296.9203610171203,
+          "G1_29_world_acceleration_error_mm_per_frame2": 2.0455558912775618,
+          "G1_29_world_acceleration_error_mm_per_s2": 5113.889728193904,
+          "path_ratio": 0.9442817865028907,
+          "root_height_range_m": 0.05931346701075646,
+          "teacher_root_height_range_m": 0.047659082339225334
+        },
+        "heading_on": {
+          "frames": 265,
+          "seconds": 5.3,
+          "q29_rmse_rad": 0.11065618976147913,
+          "root_xy_rmse_m": 0.1820336482997176,
+          "heading_mae_deg": 6.261479549966282,
+          "root_z_rmse_m": 0.013253703711860205,
+          "actual_root_z_amplitude_m": 0.06053825244339428,
+          "target_root_z_amplitude_m": 0.047659082339225334,
+          "root_velocity_vector_rmse_mps": 0.10114396602240647,
+          "actual_path_m": 0.9914823579627574,
+          "teacher_path_m": 1.0137504700460491,
+          "contact_F1": 0.9373601789709173,
+          "ankle_origin_slip_proxy_mps": 0.08764939981949556,
+          "contact_semantics": "ankle_roll contacts>1N; not sole/flight truth",
+          "G1_29_global_MPJPE_mm": 221.36420395026602,
+          "G1_29_root_translation_relative_MPJPE_mm": 25.725690702661986,
+          "G1_29_world_velocity_error_mm_per_frame": 4.462078933842245,
+          "G1_29_world_velocity_error_mm_per_s": 223.10394669211226,
+          "G1_29_world_acceleration_error_mm_per_frame2": 1.8589013332881532,
+          "G1_29_world_acceleration_error_mm_per_s2": 4647.253333220383,
+          "path_ratio": 0.978033931681156,
+          "root_height_range_m": 0.06053825244339428,
+          "teacher_root_height_range_m": 0.047659082339225334
+        },
+        "heading_gain14": {
+          "frames": 265,
+          "seconds": 5.3,
+          "q29_rmse_rad": 0.11404288185045976,
+          "root_xy_rmse_m": 0.242194970996862,
+          "heading_mae_deg": 6.498686991827262,
+          "root_z_rmse_m": 0.01224214916274207,
+          "actual_root_z_amplitude_m": 0.0577590279850585,
+          "target_root_z_amplitude_m": 0.047659082339225334,
+          "root_velocity_vector_rmse_mps": 0.12645009671850457,
+          "actual_path_m": 1.1898801096709124,
+          "teacher_path_m": 1.0137504700460491,
+          "contact_F1": 0.94021101992966,
+          "ankle_origin_slip_proxy_mps": 0.11601384568120743,
+          "contact_semantics": "ankle_roll contacts>1N; not sole/flight truth",
+          "G1_29_global_MPJPE_mm": 293.54089361419693,
+          "G1_29_root_translation_relative_MPJPE_mm": 25.981437459586523,
+          "G1_29_world_velocity_error_mm_per_frame": 5.048873460910283,
+          "G1_29_world_velocity_error_mm_per_s": 252.44367304551415,
+          "G1_29_world_acceleration_error_mm_per_frame2": 2.1573015615744366,
+          "G1_29_world_acceleration_error_mm_per_s2": 5393.253903936092,
+          "path_ratio": 1.1737406243736317,
+          "root_height_range_m": 0.0577590279850585,
+          "teacher_root_height_range_m": 0.047659082339225334
+        }
+      },
+      "branches": {
+        "heading_off": {
+          "schema": "research36_root_branch_v1",
+          "status": "complete",
+          "config": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S58_running_in_spot_part2_v1/formal/effective_config.json",
+            "sha256": "9b6347e06f268bc4dd70460db2b84236ec1c24ce690e38f6a16ec2f3036785df",
+            "bytes": 7680
+          },
+          "source_id": "MoVi_F_S58_running_in_spot_part2_v1",
+          "model": "r37_gv_only_s371105_estimated",
+          "checkpoint": {
+            "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+            "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+            "bytes": 16578743
+          },
+          "branch": "heading_off",
+          "actual_output": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S58_running_in_spot_part2_v1/formal/branches/heading_off/actual.npz",
+            "sha256": "2733a19f38b2a183bb62fd786bafc86b8b6b1eb2580b656c918fe1ab59fecc67",
+            "bytes": 1022578
+          },
+          "frames": 265,
+          "requested_frames": 265,
+          "full_input_completed": true,
+          "failure": null,
+          "reused": false,
+          "reuse_evidence": null,
+          "commands_frozen": true,
+          "scoring_teacher_opened": false,
+          "teacher_future_used_for_commands": false,
+          "initial_state_verified": true,
+          "POST_clock_verified": true,
+          "GPU_used": false,
+          "PPO_updates": 0,
+          "smoke_only": false,
+          "seconds": 3.8849638663232327,
+          "producer_record": {
+            "mode": "zero_control",
+            "actual": {
+              "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S58_running_in_spot_part2_v1/formal/branches/heading_off/actual.npz",
+              "sha256": "2733a19f38b2a183bb62fd786bafc86b8b6b1eb2580b656c918fe1ab59fecc67",
+              "bytes": 1022578
+            },
+            "frames": 265,
+            "requested_frames": 265,
+            "failure": null,
+            "full_input_completed": true,
+            "zero_control_exact_baseline_verified": true,
+            "command_inputs": [
+              "frozen_original_RGB_pre",
+              "video_estimated_relative_yaw",
+              "measured_current_PRE_robot_yaw",
+              "initial_warmup_yaw"
+            ],
+            "future_reference_read_for_commands": false,
+            "reference_encoder_instantiated": false,
+            "feedback_period_seconds": 0.02,
+            "mean_heading_clipped_fraction": 0.0,
+            "mean_pre_clipped_fraction": 0.0,
+            "mean_residual_clipped_fraction": 0.0,
+            "max_abs_residual": 0.0
+          }
+        },
+        "heading_on": {
+          "schema": "research36_root_branch_v1",
+          "status": "complete",
+          "config": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S58_running_in_spot_part2_v1/formal/effective_config.json",
+            "sha256": "9b6347e06f268bc4dd70460db2b84236ec1c24ce690e38f6a16ec2f3036785df",
+            "bytes": 7680
+          },
+          "source_id": "MoVi_F_S58_running_in_spot_part2_v1",
+          "model": "r37_gv_only_s371105_estimated",
+          "checkpoint": {
+            "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+            "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+            "bytes": 16578743
+          },
+          "branch": "heading_on",
+          "actual_output": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S58_running_in_spot_part2_v1/formal/branches/heading_on/actual.npz",
+            "sha256": "0b51261fa0a0bcbbb10830f7c77e0e9f9d43505a7d3db6db1382237e6878c16e",
+            "bytes": 1024683
+          },
+          "frames": 265,
+          "requested_frames": 265,
+          "full_input_completed": true,
+          "failure": null,
+          "reused": false,
+          "reuse_evidence": null,
+          "commands_frozen": true,
+          "scoring_teacher_opened": false,
+          "teacher_future_used_for_commands": false,
+          "initial_state_verified": true,
+          "POST_clock_verified": true,
+          "GPU_used": false,
+          "PPO_updates": 0,
+          "smoke_only": false,
+          "seconds": 3.92203126847744,
+          "producer_record": {
+            "mode": "estimated_heading",
+            "actual": {
+              "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S58_running_in_spot_part2_v1/formal/branches/heading_on/actual.npz",
+              "sha256": "0b51261fa0a0bcbbb10830f7c77e0e9f9d43505a7d3db6db1382237e6878c16e",
+              "bytes": 1024683
+            },
+            "frames": 265,
+            "requested_frames": 265,
+            "failure": null,
+            "full_input_completed": true,
+            "zero_control_exact_baseline_verified": false,
+            "command_inputs": [
+              "frozen_original_RGB_pre",
+              "video_estimated_relative_yaw",
+              "measured_current_PRE_robot_yaw",
+              "initial_warmup_yaw"
+            ],
+            "future_reference_read_for_commands": false,
+            "reference_encoder_instantiated": false,
+            "feedback_period_seconds": 0.02,
+            "mean_heading_clipped_fraction": 0.0,
+            "mean_pre_clipped_fraction": 0.0,
+            "mean_residual_clipped_fraction": 0.0,
+            "max_abs_residual": 0.10209917277097702
+          }
+        },
+        "heading_gain14": {
+          "schema": "research36_root_branch_v1",
+          "status": "complete",
+          "config": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S58_running_in_spot_part2_v1/formal/effective_config.json",
+            "sha256": "9b6347e06f268bc4dd70460db2b84236ec1c24ce690e38f6a16ec2f3036785df",
+            "bytes": 7680
+          },
+          "source_id": "MoVi_F_S58_running_in_spot_part2_v1",
+          "model": "r37_gv_only_s371105_estimated",
+          "checkpoint": {
+            "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+            "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+            "bytes": 16578743
+          },
+          "branch": "heading_gain14",
+          "actual_output": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S58_running_in_spot_part2_v1/formal/branches/heading_gain14/actual.npz",
+            "sha256": "80622b8dd7f41e57b3d099ad609e465b4cb84d8d01306ac0b208cc5df387a75d",
+            "bytes": 1026210
+          },
+          "frames": 265,
+          "requested_frames": 265,
+          "full_input_completed": true,
+          "failure": null,
+          "reused": false,
+          "reuse_evidence": null,
+          "commands_frozen": true,
+          "scoring_teacher_opened": false,
+          "teacher_future_used_for_commands": false,
+          "initial_state_verified": true,
+          "POST_clock_verified": true,
+          "GPU_used": false,
+          "PPO_updates": 0,
+          "smoke_only": false,
+          "seconds": 3.6484561525285244,
+          "producer_record": {
+            "mode": "estimated_heading",
+            "actual": {
+              "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S58_running_in_spot_part2_v1/formal/branches/heading_gain14/actual.npz",
+              "sha256": "80622b8dd7f41e57b3d099ad609e465b4cb84d8d01306ac0b208cc5df387a75d",
+              "bytes": 1026210
+            },
+            "frames": 265,
+            "requested_frames": 265,
+            "failure": null,
+            "full_input_completed": true,
+            "zero_control_exact_baseline_verified": false,
+            "command_inputs": [
+              "frozen_original_RGB_pre",
+              "video_estimated_relative_yaw",
+              "measured_current_PRE_robot_yaw",
+              "initial_warmup_yaw"
+            ],
+            "future_reference_read_for_commands": false,
+            "reference_encoder_instantiated": false,
+            "feedback_period_seconds": 0.02,
+            "mean_heading_clipped_fraction": 0.0,
+            "mean_pre_clipped_fraction": 0.0,
+            "mean_residual_clipped_fraction": 0.0,
+            "max_abs_residual": 0.12556040287017822
+          }
+        }
+      },
+      "common_scored_frames": 265,
+      "requested_frames": 265,
+      "all_branches_fully_scored": true,
+      "teacher_reference": "owned_teacher_candidate, same hash for all models; historical per-model metric values not reused",
+      "teacher_initialization_equal": true,
+      "no_alignment": true,
+      "no_padding": true,
+      "GPU_used": false
+    },
+    {
+      "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S58_walking_part2_v1/formal/metrics.json",
+      "schema": "research36_root_metrics_v1",
+      "status": "complete",
+      "config": {
+        "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S58_walking_part2_v1/formal/effective_config.json",
+        "sha256": "f6d67306aa43f0f8a430744988fe48d6f671383a792325f1abd48e1883a4deab",
+        "bytes": 7624
+      },
+      "source_id": "MoVi_F_S58_walking_part2_v1",
+      "model": "r37_gv_only_s371105_estimated",
+      "checkpoint": {
+        "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+        "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+        "bytes": 16578743
+      },
+      "teacher": {
+        "bytes": 1518645,
+        "path": "/localssd/video2action_part2_20261018/data/subject58/instances_v2/MoVi_F_S58_walking_part2_v1/teacher_owned_v2/actual/actual_trajectory.npz",
+        "sha256": "fff5d81eabccb5714510ef8d6bf3accb468e96d0f88a6a8c8428ff58d72eba69"
+      },
+      "scores": {
+        "heading_off": {
+          "frames": 375,
+          "seconds": 7.5,
+          "q29_rmse_rad": 0.11900657234543849,
+          "root_xy_rmse_m": 0.2624692918218793,
+          "heading_mae_deg": 40.770174548142144,
+          "root_z_rmse_m": 0.008146966311817333,
+          "actual_root_z_amplitude_m": 0.03878947640546171,
+          "target_root_z_amplitude_m": 0.04258793058272514,
+          "root_velocity_vector_rmse_mps": 0.21082970526177747,
+          "actual_path_m": 2.1684303372850753,
+          "teacher_path_m": 2.5217408981735083,
+          "contact_F1": 0.9147424511545293,
+          "ankle_origin_slip_proxy_mps": 0.08924098097218357,
+          "contact_semantics": "ankle_roll contacts>1N; not sole/flight truth",
+          "G1_29_global_MPJPE_mm": 279.83840539048106,
+          "G1_29_root_translation_relative_MPJPE_mm": 84.59081876998724,
+          "G1_29_world_velocity_error_mm_per_frame": 6.138442956429753,
+          "G1_29_world_velocity_error_mm_per_s": 306.9221478214876,
+          "G1_29_world_acceleration_error_mm_per_frame2": 1.4000161403068605,
+          "G1_29_world_acceleration_error_mm_per_s2": 3500.0403507671513,
+          "path_ratio": 0.8598941861377054,
+          "root_height_range_m": 0.03878947640546171,
+          "teacher_root_height_range_m": 0.04258793058272514
+        },
+        "heading_on": {
+          "frames": 375,
+          "seconds": 7.5,
+          "q29_rmse_rad": 0.11895188248887133,
+          "root_xy_rmse_m": 0.117582595074205,
+          "heading_mae_deg": 4.744488752728663,
+          "root_z_rmse_m": 0.008915875316237021,
+          "actual_root_z_amplitude_m": 0.03930723732028185,
+          "target_root_z_amplitude_m": 0.04258793058272514,
+          "root_velocity_vector_rmse_mps": 0.11415343532283882,
+          "actual_path_m": 2.3829409119375526,
+          "teacher_path_m": 2.5217408981735083,
+          "contact_F1": 0.9142857142857143,
+          "ankle_origin_slip_proxy_mps": 0.1126838832596915,
+          "contact_semantics": "ankle_roll contacts>1N; not sole/flight truth",
+          "G1_29_global_MPJPE_mm": 155.41386388272352,
+          "G1_29_root_translation_relative_MPJPE_mm": 27.128460728817757,
+          "G1_29_world_velocity_error_mm_per_frame": 4.0330329549854,
+          "G1_29_world_velocity_error_mm_per_s": 201.65164774926998,
+          "G1_29_world_acceleration_error_mm_per_frame2": 1.3843298703081373,
+          "G1_29_world_acceleration_error_mm_per_s2": 3460.8246757703428,
+          "path_ratio": 0.9449586647317779,
+          "root_height_range_m": 0.03930723732028185,
+          "teacher_root_height_range_m": 0.04258793058272514
+        },
+        "heading_gain14": {
+          "frames": 375,
+          "seconds": 7.5,
+          "q29_rmse_rad": 0.11838671596193122,
+          "root_xy_rmse_m": 0.06971560184139446,
+          "heading_mae_deg": 4.472367844982723,
+          "root_z_rmse_m": 0.008382664511791373,
+          "actual_root_z_amplitude_m": 0.03968512160357196,
+          "target_root_z_amplitude_m": 0.04258793058272514,
+          "root_velocity_vector_rmse_mps": 0.10281697790463266,
+          "actual_path_m": 2.466641889225421,
+          "teacher_path_m": 2.5217408981735083,
+          "contact_F1": 0.9152542372881356,
+          "ankle_origin_slip_proxy_mps": 0.11918943809174885,
+          "contact_semantics": "ankle_roll contacts>1N; not sole/flight truth",
+          "G1_29_global_MPJPE_mm": 92.99296729473703,
+          "G1_29_root_translation_relative_MPJPE_mm": 26.09548710172126,
+          "G1_29_world_velocity_error_mm_per_frame": 3.844349295621031,
+          "G1_29_world_velocity_error_mm_per_s": 192.21746478105155,
+          "G1_29_world_acceleration_error_mm_per_frame2": 1.4209355138628998,
+          "G1_29_world_acceleration_error_mm_per_s2": 3552.3387846572496,
+          "path_ratio": 0.978150408319905,
+          "root_height_range_m": 0.03968512160357196,
+          "teacher_root_height_range_m": 0.04258793058272514
+        }
+      },
+      "branches": {
+        "heading_off": {
+          "schema": "research36_root_branch_v1",
+          "status": "complete",
+          "config": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S58_walking_part2_v1/formal/effective_config.json",
+            "sha256": "f6d67306aa43f0f8a430744988fe48d6f671383a792325f1abd48e1883a4deab",
+            "bytes": 7624
+          },
+          "source_id": "MoVi_F_S58_walking_part2_v1",
+          "model": "r37_gv_only_s371105_estimated",
+          "checkpoint": {
+            "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+            "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+            "bytes": 16578743
+          },
+          "branch": "heading_off",
+          "actual_output": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S58_walking_part2_v1/formal/branches/heading_off/actual.npz",
+            "sha256": "28dd96cfa2394b1cd6ae24b795be36e39e7e498758ace58eb31bef33a4ba3717",
+            "bytes": 1439737
+          },
+          "frames": 375,
+          "requested_frames": 375,
+          "full_input_completed": true,
+          "failure": null,
+          "reused": false,
+          "reuse_evidence": null,
+          "commands_frozen": true,
+          "scoring_teacher_opened": false,
+          "teacher_future_used_for_commands": false,
+          "initial_state_verified": true,
+          "POST_clock_verified": true,
+          "GPU_used": false,
+          "PPO_updates": 0,
+          "smoke_only": false,
+          "seconds": 6.093237668275833,
+          "producer_record": {
+            "mode": "zero_control",
+            "actual": {
+              "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S58_walking_part2_v1/formal/branches/heading_off/actual.npz",
+              "sha256": "28dd96cfa2394b1cd6ae24b795be36e39e7e498758ace58eb31bef33a4ba3717",
+              "bytes": 1439737
+            },
+            "frames": 375,
+            "requested_frames": 375,
+            "failure": null,
+            "full_input_completed": true,
+            "zero_control_exact_baseline_verified": true,
+            "command_inputs": [
+              "frozen_original_RGB_pre",
+              "video_estimated_relative_yaw",
+              "measured_current_PRE_robot_yaw",
+              "initial_warmup_yaw"
+            ],
+            "future_reference_read_for_commands": false,
+            "reference_encoder_instantiated": false,
+            "feedback_period_seconds": 0.02,
+            "mean_heading_clipped_fraction": 0.0,
+            "mean_pre_clipped_fraction": 0.0,
+            "mean_residual_clipped_fraction": 0.0,
+            "max_abs_residual": 0.0
+          }
+        },
+        "heading_on": {
+          "schema": "research36_root_branch_v1",
+          "status": "complete",
+          "config": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S58_walking_part2_v1/formal/effective_config.json",
+            "sha256": "f6d67306aa43f0f8a430744988fe48d6f671383a792325f1abd48e1883a4deab",
+            "bytes": 7624
+          },
+          "source_id": "MoVi_F_S58_walking_part2_v1",
+          "model": "r37_gv_only_s371105_estimated",
+          "checkpoint": {
+            "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+            "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+            "bytes": 16578743
+          },
+          "branch": "heading_on",
+          "actual_output": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S58_walking_part2_v1/formal/branches/heading_on/actual.npz",
+            "sha256": "0e47f4a8d2022274f0a13548631bc0455e4eb95f1811e9303bd8f61c7fdec035",
+            "bytes": 1442850
+          },
+          "frames": 375,
+          "requested_frames": 375,
+          "full_input_completed": true,
+          "failure": null,
+          "reused": false,
+          "reuse_evidence": null,
+          "commands_frozen": true,
+          "scoring_teacher_opened": false,
+          "teacher_future_used_for_commands": false,
+          "initial_state_verified": true,
+          "POST_clock_verified": true,
+          "GPU_used": false,
+          "PPO_updates": 0,
+          "smoke_only": false,
+          "seconds": 5.315333727747202,
+          "producer_record": {
+            "mode": "estimated_heading",
+            "actual": {
+              "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S58_walking_part2_v1/formal/branches/heading_on/actual.npz",
+              "sha256": "0e47f4a8d2022274f0a13548631bc0455e4eb95f1811e9303bd8f61c7fdec035",
+              "bytes": 1442850
+            },
+            "frames": 375,
+            "requested_frames": 375,
+            "failure": null,
+            "full_input_completed": true,
+            "zero_control_exact_baseline_verified": false,
+            "command_inputs": [
+              "frozen_original_RGB_pre",
+              "video_estimated_relative_yaw",
+              "measured_current_PRE_robot_yaw",
+              "initial_warmup_yaw"
+            ],
+            "future_reference_read_for_commands": false,
+            "reference_encoder_instantiated": false,
+            "feedback_period_seconds": 0.02,
+            "mean_heading_clipped_fraction": 0.0,
+            "mean_pre_clipped_fraction": 0.0,
+            "mean_residual_clipped_fraction": 0.0,
+            "max_abs_residual": 0.10703536123037338
+          }
+        },
+        "heading_gain14": {
+          "schema": "research36_root_branch_v1",
+          "status": "complete",
+          "config": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S58_walking_part2_v1/formal/effective_config.json",
+            "sha256": "f6d67306aa43f0f8a430744988fe48d6f671383a792325f1abd48e1883a4deab",
+            "bytes": 7624
+          },
+          "source_id": "MoVi_F_S58_walking_part2_v1",
+          "model": "r37_gv_only_s371105_estimated",
+          "checkpoint": {
+            "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+            "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+            "bytes": 16578743
+          },
+          "branch": "heading_gain14",
+          "actual_output": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S58_walking_part2_v1/formal/branches/heading_gain14/actual.npz",
+            "sha256": "98f8aa1a0722f760aec8996463fe0063efb59c3058cccbc1f76a1798f4464b4f",
+            "bytes": 1444654
+          },
+          "frames": 375,
+          "requested_frames": 375,
+          "full_input_completed": true,
+          "failure": null,
+          "reused": false,
+          "reuse_evidence": null,
+          "commands_frozen": true,
+          "scoring_teacher_opened": false,
+          "teacher_future_used_for_commands": false,
+          "initial_state_verified": true,
+          "POST_clock_verified": true,
+          "GPU_used": false,
+          "PPO_updates": 0,
+          "smoke_only": false,
+          "seconds": 5.307542335242033,
+          "producer_record": {
+            "mode": "estimated_heading",
+            "actual": {
+              "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S58_walking_part2_v1/formal/branches/heading_gain14/actual.npz",
+              "sha256": "98f8aa1a0722f760aec8996463fe0063efb59c3058cccbc1f76a1798f4464b4f",
+              "bytes": 1444654
+            },
+            "frames": 375,
+            "requested_frames": 375,
+            "failure": null,
+            "full_input_completed": true,
+            "zero_control_exact_baseline_verified": false,
+            "command_inputs": [
+              "frozen_original_RGB_pre",
+              "video_estimated_relative_yaw",
+              "measured_current_PRE_robot_yaw",
+              "initial_warmup_yaw"
+            ],
+            "future_reference_read_for_commands": false,
+            "reference_encoder_instantiated": false,
+            "feedback_period_seconds": 0.02,
+            "mean_heading_clipped_fraction": 0.0,
+            "mean_pre_clipped_fraction": 0.0,
+            "mean_residual_clipped_fraction": 0.0,
+            "max_abs_residual": 0.11998402327299118
+          }
+        }
+      },
+      "common_scored_frames": 375,
+      "requested_frames": 375,
+      "all_branches_fully_scored": true,
+      "teacher_reference": "owned_teacher_candidate, same hash for all models; historical per-model metric values not reused",
+      "teacher_initialization_equal": true,
+      "no_alignment": true,
+      "no_padding": true,
+      "GPU_used": false
+    },
+    {
+      "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S59_jogging_part2_v1/formal/metrics.json",
+      "schema": "research36_root_metrics_v1",
+      "status": "complete",
+      "config": {
+        "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S59_jogging_part2_v1/formal/effective_config.json",
+        "sha256": "adfee868ddcaec17f50326e5a61f8bf65f4a6acd420a51a083adb61d6014e48f",
+        "bytes": 7624
+      },
+      "source_id": "MoVi_F_S59_jogging_part2_v1",
+      "model": "r37_gv_only_s371105_estimated",
+      "checkpoint": {
+        "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+        "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+        "bytes": 16578743
+      },
+      "teacher": {
+        "bytes": 1566419,
+        "path": "/localssd/video2action_part2_20261018/data/subject59/instances_v2/MoVi_F_S59_jogging_part2_v1/teacher_owned_v2/actual/actual_trajectory.npz",
+        "sha256": "7fcd841689cfe130db8a588d2bfe91b0516774e933d06d36044a97f80beedc57"
+      },
+      "scores": {
+        "heading_off": {
+          "frames": 387,
+          "seconds": 7.74,
+          "q29_rmse_rad": 0.10838096934778313,
+          "root_xy_rmse_m": 0.2098372091716457,
+          "heading_mae_deg": 13.709968472517444,
+          "root_z_rmse_m": 0.011822585026613125,
+          "actual_root_z_amplitude_m": 0.05730512678514299,
+          "target_root_z_amplitude_m": 0.07877630846197436,
+          "root_velocity_vector_rmse_mps": 0.20421227518735197,
+          "actual_path_m": 3.010302623226191,
+          "teacher_path_m": 4.010939437960962,
+          "contact_F1": 0.9063948100092678,
+          "ankle_origin_slip_proxy_mps": 0.15220625512050165,
+          "contact_semantics": "ankle_roll contacts>1N; not sole/flight truth",
+          "G1_29_global_MPJPE_mm": 253.3960088349167,
+          "G1_29_root_translation_relative_MPJPE_mm": 41.32472880184907,
+          "G1_29_world_velocity_error_mm_per_frame": 6.157357803420842,
+          "G1_29_world_velocity_error_mm_per_s": 307.8678901710421,
+          "G1_29_world_acceleration_error_mm_per_frame2": 1.6565336130368802,
+          "G1_29_world_acceleration_error_mm_per_s2": 4141.3340325922,
+          "path_ratio": 0.7505230806368235,
+          "root_height_range_m": 0.05730512678514299,
+          "teacher_root_height_range_m": 0.07877630846197436
+        },
+        "heading_on": {
+          "frames": 387,
+          "seconds": 7.74,
+          "q29_rmse_rad": 0.10245009885182033,
+          "root_xy_rmse_m": 0.18525708047733885,
+          "heading_mae_deg": 4.844329641054648,
+          "root_z_rmse_m": 0.011524493054329402,
+          "actual_root_z_amplitude_m": 0.06271014534055752,
+          "target_root_z_amplitude_m": 0.07877630846197436,
+          "root_velocity_vector_rmse_mps": 0.18191862283172297,
+          "actual_path_m": 3.1477843648545845,
+          "teacher_path_m": 4.010939437960962,
+          "contact_F1": 0.9051643192488263,
+          "ankle_origin_slip_proxy_mps": 0.15640520071731354,
+          "contact_semantics": "ankle_roll contacts>1N; not sole/flight truth",
+          "G1_29_global_MPJPE_mm": 229.14645833246178,
+          "G1_29_root_translation_relative_MPJPE_mm": 31.296319487971882,
+          "G1_29_world_velocity_error_mm_per_frame": 5.54369612281482,
+          "G1_29_world_velocity_error_mm_per_s": 277.184806140741,
+          "G1_29_world_acceleration_error_mm_per_frame2": 1.6006269733603662,
+          "G1_29_world_acceleration_error_mm_per_s2": 4001.5674334009154,
+          "path_ratio": 0.7847997741035005,
+          "root_height_range_m": 0.06271014534055752,
+          "teacher_root_height_range_m": 0.07877630846197436
+        },
+        "heading_gain14": {
+          "frames": 387,
+          "seconds": 7.74,
+          "q29_rmse_rad": 0.10524507409917346,
+          "root_xy_rmse_m": 0.25226022064846426,
+          "heading_mae_deg": 4.654602258321138,
+          "root_z_rmse_m": 0.013403302372018467,
+          "actual_root_z_amplitude_m": 0.05970500988587635,
+          "target_root_z_amplitude_m": 0.07877630846197436,
+          "root_velocity_vector_rmse_mps": 0.16703788536327677,
+          "actual_path_m": 3.693084013901428,
+          "teacher_path_m": 4.010939437960962,
+          "contact_F1": 0.9262759924385633,
+          "ankle_origin_slip_proxy_mps": 0.16438418627203039,
+          "contact_semantics": "ankle_roll contacts>1N; not sole/flight truth",
+          "G1_29_global_MPJPE_mm": 294.42400403955077,
+          "G1_29_root_translation_relative_MPJPE_mm": 31.022301199680413,
+          "G1_29_world_velocity_error_mm_per_frame": 5.365275183306023,
+          "G1_29_world_velocity_error_mm_per_s": 268.26375916530117,
+          "G1_29_world_acceleration_error_mm_per_frame2": 1.719651988676871,
+          "G1_29_world_acceleration_error_mm_per_s2": 4299.129971692178,
+          "path_ratio": 0.9207528737404417,
+          "root_height_range_m": 0.05970500988587635,
+          "teacher_root_height_range_m": 0.07877630846197436
+        }
+      },
+      "branches": {
+        "heading_off": {
+          "schema": "research36_root_branch_v1",
+          "status": "complete",
+          "config": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S59_jogging_part2_v1/formal/effective_config.json",
+            "sha256": "adfee868ddcaec17f50326e5a61f8bf65f4a6acd420a51a083adb61d6014e48f",
+            "bytes": 7624
+          },
+          "source_id": "MoVi_F_S59_jogging_part2_v1",
+          "model": "r37_gv_only_s371105_estimated",
+          "checkpoint": {
+            "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+            "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+            "bytes": 16578743
+          },
+          "branch": "heading_off",
+          "actual_output": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S59_jogging_part2_v1/formal/branches/heading_off/actual.npz",
+            "sha256": "f03f526ffb0e5e95300a04674771d4f401e9fdc15b07fa9541d59c16e45d0d93",
+            "bytes": 1487925
+          },
+          "frames": 387,
+          "requested_frames": 387,
+          "full_input_completed": true,
+          "failure": null,
+          "reused": false,
+          "reuse_evidence": null,
+          "commands_frozen": true,
+          "scoring_teacher_opened": false,
+          "teacher_future_used_for_commands": false,
+          "initial_state_verified": true,
+          "POST_clock_verified": true,
+          "GPU_used": false,
+          "PPO_updates": 0,
+          "smoke_only": false,
+          "seconds": 5.595864035189152,
+          "producer_record": {
+            "mode": "zero_control",
+            "actual": {
+              "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S59_jogging_part2_v1/formal/branches/heading_off/actual.npz",
+              "sha256": "f03f526ffb0e5e95300a04674771d4f401e9fdc15b07fa9541d59c16e45d0d93",
+              "bytes": 1487925
+            },
+            "frames": 387,
+            "requested_frames": 387,
+            "failure": null,
+            "full_input_completed": true,
+            "zero_control_exact_baseline_verified": true,
+            "command_inputs": [
+              "frozen_original_RGB_pre",
+              "video_estimated_relative_yaw",
+              "measured_current_PRE_robot_yaw",
+              "initial_warmup_yaw"
+            ],
+            "future_reference_read_for_commands": false,
+            "reference_encoder_instantiated": false,
+            "feedback_period_seconds": 0.02,
+            "mean_heading_clipped_fraction": 0.0,
+            "mean_pre_clipped_fraction": 0.0,
+            "mean_residual_clipped_fraction": 0.0,
+            "max_abs_residual": 0.0
+          }
+        },
+        "heading_on": {
+          "schema": "research36_root_branch_v1",
+          "status": "complete",
+          "config": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S59_jogging_part2_v1/formal/effective_config.json",
+            "sha256": "adfee868ddcaec17f50326e5a61f8bf65f4a6acd420a51a083adb61d6014e48f",
+            "bytes": 7624
+          },
+          "source_id": "MoVi_F_S59_jogging_part2_v1",
+          "model": "r37_gv_only_s371105_estimated",
+          "checkpoint": {
+            "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+            "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+            "bytes": 16578743
+          },
+          "branch": "heading_on",
+          "actual_output": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S59_jogging_part2_v1/formal/branches/heading_on/actual.npz",
+            "sha256": "8563117cf13619393d8e4b833d9291025f99c0cf7d7be56b188bb7b20d018ca9",
+            "bytes": 1490899
+          },
+          "frames": 387,
+          "requested_frames": 387,
+          "full_input_completed": true,
+          "failure": null,
+          "reused": false,
+          "reuse_evidence": null,
+          "commands_frozen": true,
+          "scoring_teacher_opened": false,
+          "teacher_future_used_for_commands": false,
+          "initial_state_verified": true,
+          "POST_clock_verified": true,
+          "GPU_used": false,
+          "PPO_updates": 0,
+          "smoke_only": false,
+          "seconds": 5.293127741664648,
+          "producer_record": {
+            "mode": "estimated_heading",
+            "actual": {
+              "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S59_jogging_part2_v1/formal/branches/heading_on/actual.npz",
+              "sha256": "8563117cf13619393d8e4b833d9291025f99c0cf7d7be56b188bb7b20d018ca9",
+              "bytes": 1490899
+            },
+            "frames": 387,
+            "requested_frames": 387,
+            "failure": null,
+            "full_input_completed": true,
+            "zero_control_exact_baseline_verified": false,
+            "command_inputs": [
+              "frozen_original_RGB_pre",
+              "video_estimated_relative_yaw",
+              "measured_current_PRE_robot_yaw",
+              "initial_warmup_yaw"
+            ],
+            "future_reference_read_for_commands": false,
+            "reference_encoder_instantiated": false,
+            "feedback_period_seconds": 0.02,
+            "mean_heading_clipped_fraction": 0.0,
+            "mean_pre_clipped_fraction": 0.0,
+            "mean_residual_clipped_fraction": 0.0,
+            "max_abs_residual": 0.11662182211875916
+          }
+        },
+        "heading_gain14": {
+          "schema": "research36_root_branch_v1",
+          "status": "complete",
+          "config": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S59_jogging_part2_v1/formal/effective_config.json",
+            "sha256": "adfee868ddcaec17f50326e5a61f8bf65f4a6acd420a51a083adb61d6014e48f",
+            "bytes": 7624
+          },
+          "source_id": "MoVi_F_S59_jogging_part2_v1",
+          "model": "r37_gv_only_s371105_estimated",
+          "checkpoint": {
+            "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+            "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+            "bytes": 16578743
+          },
+          "branch": "heading_gain14",
+          "actual_output": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S59_jogging_part2_v1/formal/branches/heading_gain14/actual.npz",
+            "sha256": "b98cd719ac1d5de206a65a64bc86f827d4b6a157fdab35701798a0c60aad2114",
+            "bytes": 1492384
+          },
+          "frames": 387,
+          "requested_frames": 387,
+          "full_input_completed": true,
+          "failure": null,
+          "reused": false,
+          "reuse_evidence": null,
+          "commands_frozen": true,
+          "scoring_teacher_opened": false,
+          "teacher_future_used_for_commands": false,
+          "initial_state_verified": true,
+          "POST_clock_verified": true,
+          "GPU_used": false,
+          "PPO_updates": 0,
+          "smoke_only": false,
+          "seconds": 5.118183009326458,
+          "producer_record": {
+            "mode": "estimated_heading",
+            "actual": {
+              "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S59_jogging_part2_v1/formal/branches/heading_gain14/actual.npz",
+              "sha256": "b98cd719ac1d5de206a65a64bc86f827d4b6a157fdab35701798a0c60aad2114",
+              "bytes": 1492384
+            },
+            "frames": 387,
+            "requested_frames": 387,
+            "failure": null,
+            "full_input_completed": true,
+            "zero_control_exact_baseline_verified": false,
+            "command_inputs": [
+              "frozen_original_RGB_pre",
+              "video_estimated_relative_yaw",
+              "measured_current_PRE_robot_yaw",
+              "initial_warmup_yaw"
+            ],
+            "future_reference_read_for_commands": false,
+            "reference_encoder_instantiated": false,
+            "feedback_period_seconds": 0.02,
+            "mean_heading_clipped_fraction": 0.0,
+            "mean_pre_clipped_fraction": 0.0,
+            "mean_residual_clipped_fraction": 0.0,
+            "max_abs_residual": 0.10552781820297241
+          }
+        }
+      },
+      "common_scored_frames": 387,
+      "requested_frames": 387,
+      "all_branches_fully_scored": true,
+      "teacher_reference": "owned_teacher_candidate, same hash for all models; historical per-model metric values not reused",
+      "teacher_initialization_equal": true,
+      "no_alignment": true,
+      "no_padding": true,
+      "GPU_used": false
+    },
+    {
+      "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S59_running_in_spot_part2_v1/formal/metrics.json",
+      "schema": "research36_root_metrics_v1",
+      "status": "complete",
+      "config": {
+        "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S59_running_in_spot_part2_v1/formal/effective_config.json",
+        "sha256": "673804472a8145402c4bc00c796bffe73362180a8c7e6781ae47e6f94a1a7225",
+        "bytes": 7679
+      },
+      "source_id": "MoVi_F_S59_running_in_spot_part2_v1",
+      "model": "r37_gv_only_s371105_estimated",
+      "checkpoint": {
+        "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+        "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+        "bytes": 16578743
+      },
+      "teacher": {
+        "bytes": 754797,
+        "path": "/localssd/video2action_part2_20261018/data/subject59/instances_v2/MoVi_F_S59_running_in_spot_part2_v1/teacher_owned_v2/actual/actual_trajectory.npz",
+        "sha256": "a66bce42d850bf4cae3c1bb915f5cbcb8c606f88c36a8126775ed22baf3a24a2"
+      },
+      "scores": {
+        "heading_off": {
+          "frames": 159,
+          "seconds": 3.18,
+          "q29_rmse_rad": 0.09562013178455217,
+          "root_xy_rmse_m": 0.09126259158648271,
+          "heading_mae_deg": 4.094973224576822,
+          "root_z_rmse_m": 0.008831539181532108,
+          "actual_root_z_amplitude_m": 0.039054686610988876,
+          "target_root_z_amplitude_m": 0.04560761731047269,
+          "root_velocity_vector_rmse_mps": 0.08571165586501739,
+          "actual_path_m": 0.32726433117984227,
+          "teacher_path_m": 0.44683035236726554,
+          "contact_F1": 0.911487758945386,
+          "ankle_origin_slip_proxy_mps": 0.06244493454798324,
+          "contact_semantics": "ankle_roll contacts>1N; not sole/flight truth",
+          "G1_29_global_MPJPE_mm": 102.31975056839073,
+          "G1_29_root_translation_relative_MPJPE_mm": 25.94137657865938,
+          "G1_29_world_velocity_error_mm_per_frame": 3.004271107344177,
+          "G1_29_world_velocity_error_mm_per_s": 150.21355536720884,
+          "G1_29_world_acceleration_error_mm_per_frame2": 1.2216529786241164,
+          "G1_29_world_acceleration_error_mm_per_s2": 3054.1324465602906,
+          "path_ratio": 0.732412938033476,
+          "root_height_range_m": 0.039054686610988876,
+          "teacher_root_height_range_m": 0.04560761731047269
+        },
+        "heading_on": {
+          "frames": 159,
+          "seconds": 3.18,
+          "q29_rmse_rad": 0.0955993327823154,
+          "root_xy_rmse_m": 0.0791460398591388,
+          "heading_mae_deg": 1.9869433568759611,
+          "root_z_rmse_m": 0.009419231631696685,
+          "actual_root_z_amplitude_m": 0.039418417086103275,
+          "target_root_z_amplitude_m": 0.04560761731047269,
+          "root_velocity_vector_rmse_mps": 0.07977076950959983,
+          "actual_path_m": 0.341829904197585,
+          "teacher_path_m": 0.44683035236726554,
+          "contact_F1": 0.8978102189781022,
+          "ankle_origin_slip_proxy_mps": 0.060859416647077544,
+          "contact_semantics": "ankle_roll contacts>1N; not sole/flight truth",
+          "G1_29_global_MPJPE_mm": 90.30875425057823,
+          "G1_29_root_translation_relative_MPJPE_mm": 23.41280855953096,
+          "G1_29_world_velocity_error_mm_per_frame": 2.977667967269846,
+          "G1_29_world_velocity_error_mm_per_s": 148.8833983634923,
+          "G1_29_world_acceleration_error_mm_per_frame2": 1.2495171766707769,
+          "G1_29_world_acceleration_error_mm_per_s2": 3123.792941676942,
+          "path_ratio": 0.7650104841504209,
+          "root_height_range_m": 0.039418417086103275,
+          "teacher_root_height_range_m": 0.04560761731047269
+        },
+        "heading_gain14": {
+          "frames": 159,
+          "seconds": 3.18,
+          "q29_rmse_rad": 0.09682329254762466,
+          "root_xy_rmse_m": 0.11722829156869857,
+          "heading_mae_deg": 2.119183240118489,
+          "root_z_rmse_m": 0.00968075000392076,
+          "actual_root_z_amplitude_m": 0.03491633218447465,
+          "target_root_z_amplitude_m": 0.04560761731047269,
+          "root_velocity_vector_rmse_mps": 0.10541017859968296,
+          "actual_path_m": 0.4243043013597645,
+          "teacher_path_m": 0.44683035236726554,
+          "contact_F1": 0.9430255402750491,
+          "ankle_origin_slip_proxy_mps": 0.0780180195229979,
+          "contact_semantics": "ankle_roll contacts>1N; not sole/flight truth",
+          "G1_29_global_MPJPE_mm": 126.50326381669802,
+          "G1_29_root_translation_relative_MPJPE_mm": 22.857654564659175,
+          "G1_29_world_velocity_error_mm_per_frame": 3.8030847725028987,
+          "G1_29_world_velocity_error_mm_per_s": 190.15423862514493,
+          "G1_29_world_acceleration_error_mm_per_frame2": 1.5256146306515164,
+          "G1_29_world_acceleration_error_mm_per_s2": 3814.036576628791,
+          "path_ratio": 0.9495870168887137,
+          "root_height_range_m": 0.03491633218447465,
+          "teacher_root_height_range_m": 0.04560761731047269
+        }
+      },
+      "branches": {
+        "heading_off": {
+          "schema": "research36_root_branch_v1",
+          "status": "complete",
+          "config": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S59_running_in_spot_part2_v1/formal/effective_config.json",
+            "sha256": "673804472a8145402c4bc00c796bffe73362180a8c7e6781ae47e6f94a1a7225",
+            "bytes": 7679
+          },
+          "source_id": "MoVi_F_S59_running_in_spot_part2_v1",
+          "model": "r37_gv_only_s371105_estimated",
+          "checkpoint": {
+            "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+            "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+            "bytes": 16578743
+          },
+          "branch": "heading_off",
+          "actual_output": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S59_running_in_spot_part2_v1/formal/branches/heading_off/actual.npz",
+            "sha256": "15af845129f4ea19e90a19e5fc8fee6f9e91c38eb5b879261e1e06d1c5f66ca9",
+            "bytes": 617352
+          },
+          "frames": 159,
+          "requested_frames": 159,
+          "full_input_completed": true,
+          "failure": null,
+          "reused": false,
+          "reuse_evidence": null,
+          "commands_frozen": true,
+          "scoring_teacher_opened": false,
+          "teacher_future_used_for_commands": false,
+          "initial_state_verified": true,
+          "POST_clock_verified": true,
+          "GPU_used": false,
+          "PPO_updates": 0,
+          "smoke_only": false,
+          "seconds": 2.658896490931511,
+          "producer_record": {
+            "mode": "zero_control",
+            "actual": {
+              "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S59_running_in_spot_part2_v1/formal/branches/heading_off/actual.npz",
+              "sha256": "15af845129f4ea19e90a19e5fc8fee6f9e91c38eb5b879261e1e06d1c5f66ca9",
+              "bytes": 617352
+            },
+            "frames": 159,
+            "requested_frames": 159,
+            "failure": null,
+            "full_input_completed": true,
+            "zero_control_exact_baseline_verified": true,
+            "command_inputs": [
+              "frozen_original_RGB_pre",
+              "video_estimated_relative_yaw",
+              "measured_current_PRE_robot_yaw",
+              "initial_warmup_yaw"
+            ],
+            "future_reference_read_for_commands": false,
+            "reference_encoder_instantiated": false,
+            "feedback_period_seconds": 0.02,
+            "mean_heading_clipped_fraction": 0.0,
+            "mean_pre_clipped_fraction": 0.0,
+            "mean_residual_clipped_fraction": 0.0,
+            "max_abs_residual": 0.0
+          }
+        },
+        "heading_on": {
+          "schema": "research36_root_branch_v1",
+          "status": "complete",
+          "config": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S59_running_in_spot_part2_v1/formal/effective_config.json",
+            "sha256": "673804472a8145402c4bc00c796bffe73362180a8c7e6781ae47e6f94a1a7225",
+            "bytes": 7679
+          },
+          "source_id": "MoVi_F_S59_running_in_spot_part2_v1",
+          "model": "r37_gv_only_s371105_estimated",
+          "checkpoint": {
+            "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+            "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+            "bytes": 16578743
+          },
+          "branch": "heading_on",
+          "actual_output": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S59_running_in_spot_part2_v1/formal/branches/heading_on/actual.npz",
+            "sha256": "a3e8a3e39991178e154af721fefc282a98ca60439d8b251909fd193fafc3f459",
+            "bytes": 618742
+          },
+          "frames": 159,
+          "requested_frames": 159,
+          "full_input_completed": true,
+          "failure": null,
+          "reused": false,
+          "reuse_evidence": null,
+          "commands_frozen": true,
+          "scoring_teacher_opened": false,
+          "teacher_future_used_for_commands": false,
+          "initial_state_verified": true,
+          "POST_clock_verified": true,
+          "GPU_used": false,
+          "PPO_updates": 0,
+          "smoke_only": false,
+          "seconds": 2.5380587093532085,
+          "producer_record": {
+            "mode": "estimated_heading",
+            "actual": {
+              "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S59_running_in_spot_part2_v1/formal/branches/heading_on/actual.npz",
+              "sha256": "a3e8a3e39991178e154af721fefc282a98ca60439d8b251909fd193fafc3f459",
+              "bytes": 618742
+            },
+            "frames": 159,
+            "requested_frames": 159,
+            "failure": null,
+            "full_input_completed": true,
+            "zero_control_exact_baseline_verified": false,
+            "command_inputs": [
+              "frozen_original_RGB_pre",
+              "video_estimated_relative_yaw",
+              "measured_current_PRE_robot_yaw",
+              "initial_warmup_yaw"
+            ],
+            "future_reference_read_for_commands": false,
+            "reference_encoder_instantiated": false,
+            "feedback_period_seconds": 0.02,
+            "mean_heading_clipped_fraction": 0.0,
+            "mean_pre_clipped_fraction": 0.0,
+            "mean_residual_clipped_fraction": 0.0,
+            "max_abs_residual": 0.0954047366976738
+          }
+        },
+        "heading_gain14": {
+          "schema": "research36_root_branch_v1",
+          "status": "complete",
+          "config": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S59_running_in_spot_part2_v1/formal/effective_config.json",
+            "sha256": "673804472a8145402c4bc00c796bffe73362180a8c7e6781ae47e6f94a1a7225",
+            "bytes": 7679
+          },
+          "source_id": "MoVi_F_S59_running_in_spot_part2_v1",
+          "model": "r37_gv_only_s371105_estimated",
+          "checkpoint": {
+            "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+            "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+            "bytes": 16578743
+          },
+          "branch": "heading_gain14",
+          "actual_output": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S59_running_in_spot_part2_v1/formal/branches/heading_gain14/actual.npz",
+            "sha256": "7ba5799726b9825fbdb60587764d89d36ccde7918a68c91b20c76c00d096699d",
+            "bytes": 619305
+          },
+          "frames": 159,
+          "requested_frames": 159,
+          "full_input_completed": true,
+          "failure": null,
+          "reused": false,
+          "reuse_evidence": null,
+          "commands_frozen": true,
+          "scoring_teacher_opened": false,
+          "teacher_future_used_for_commands": false,
+          "initial_state_verified": true,
+          "POST_clock_verified": true,
+          "GPU_used": false,
+          "PPO_updates": 0,
+          "smoke_only": false,
+          "seconds": 3.041854467242956,
+          "producer_record": {
+            "mode": "estimated_heading",
+            "actual": {
+              "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S59_running_in_spot_part2_v1/formal/branches/heading_gain14/actual.npz",
+              "sha256": "7ba5799726b9825fbdb60587764d89d36ccde7918a68c91b20c76c00d096699d",
+              "bytes": 619305
+            },
+            "frames": 159,
+            "requested_frames": 159,
+            "failure": null,
+            "full_input_completed": true,
+            "zero_control_exact_baseline_verified": false,
+            "command_inputs": [
+              "frozen_original_RGB_pre",
+              "video_estimated_relative_yaw",
+              "measured_current_PRE_robot_yaw",
+              "initial_warmup_yaw"
+            ],
+            "future_reference_read_for_commands": false,
+            "reference_encoder_instantiated": false,
+            "feedback_period_seconds": 0.02,
+            "mean_heading_clipped_fraction": 0.0,
+            "mean_pre_clipped_fraction": 0.0,
+            "mean_residual_clipped_fraction": 0.0,
+            "max_abs_residual": 0.10703809559345245
+          }
+        }
+      },
+      "common_scored_frames": 159,
+      "requested_frames": 159,
+      "all_branches_fully_scored": true,
+      "teacher_reference": "owned_teacher_candidate, same hash for all models; historical per-model metric values not reused",
+      "teacher_initialization_equal": true,
+      "no_alignment": true,
+      "no_padding": true,
+      "GPU_used": false
+    },
+    {
+      "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S59_sideways_part2_v1/formal/metrics.json",
+      "schema": "research36_root_metrics_v1",
+      "status": "complete",
+      "config": {
+        "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S59_sideways_part2_v1/formal/effective_config.json",
+        "sha256": "7b1a5abef7cc2fc2133f17be71eada32a143e47dbc1b206a19e8c0ce11c61d13",
+        "bytes": 7631
+      },
+      "source_id": "MoVi_F_S59_sideways_part2_v1",
+      "model": "r37_gv_only_s371105_estimated",
+      "checkpoint": {
+        "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+        "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+        "bytes": 16578743
+      },
+      "teacher": {
+        "bytes": 2270571,
+        "path": "/localssd/video2action_part2_20261018/data/subject59/instances_v2/MoVi_F_S59_sideways_part2_v1/teacher_owned_v2/actual/actual_trajectory.npz",
+        "sha256": "bd4dcc4be5919b9f7e8e176f9d4ab9a7d21d9c160d3cad3334d5d719f8a39682"
+      },
+      "scores": {
+        "heading_off": {
+          "frames": 589,
+          "seconds": 11.78,
+          "q29_rmse_rad": 0.07190152424309723,
+          "root_xy_rmse_m": 0.2134483912532193,
+          "heading_mae_deg": 4.375822148343878,
+          "root_z_rmse_m": 0.007752107326378049,
+          "actual_root_z_amplitude_m": 0.03623402231830586,
+          "target_root_z_amplitude_m": 0.032165943643013506,
+          "root_velocity_vector_rmse_mps": 0.13269604062452137,
+          "actual_path_m": 1.8215480094054295,
+          "teacher_path_m": 2.8314236947780325,
+          "contact_F1": 0.9204980842911877,
+          "ankle_origin_slip_proxy_mps": 0.04220935162799591,
+          "contact_semantics": "ankle_roll contacts>1N; not sole/flight truth",
+          "G1_29_global_MPJPE_mm": 257.77324203064535,
+          "G1_29_root_translation_relative_MPJPE_mm": 22.568131659413158,
+          "G1_29_world_velocity_error_mm_per_frame": 3.2961382011425546,
+          "G1_29_world_velocity_error_mm_per_s": 164.80691005712774,
+          "G1_29_world_acceleration_error_mm_per_frame2": 0.8139872606434663,
+          "G1_29_world_acceleration_error_mm_per_s2": 2034.9681516086655,
+          "path_ratio": 0.6433328974271469,
+          "root_height_range_m": 0.03623402231830586,
+          "teacher_root_height_range_m": 0.032165943643013506
+        },
+        "heading_on": {
+          "frames": 589,
+          "seconds": 11.78,
+          "q29_rmse_rad": 0.06997453566018232,
+          "root_xy_rmse_m": 0.29781812368513116,
+          "heading_mae_deg": 1.921392795969499,
+          "root_z_rmse_m": 0.006670904174903171,
+          "actual_root_z_amplitude_m": 0.03528995900316312,
+          "target_root_z_amplitude_m": 0.032165943643013506,
+          "root_velocity_vector_rmse_mps": 0.15728820366896323,
+          "actual_path_m": 1.80037088687388,
+          "teacher_path_m": 2.8314236947780325,
+          "contact_F1": 0.9205896338563956,
+          "ankle_origin_slip_proxy_mps": 0.03890090771053754,
+          "contact_semantics": "ankle_roll contacts>1N; not sole/flight truth",
+          "G1_29_global_MPJPE_mm": 333.46762116412515,
+          "G1_29_root_translation_relative_MPJPE_mm": 22.13936843280434,
+          "G1_29_world_velocity_error_mm_per_frame": 3.7582198442180252,
+          "G1_29_world_velocity_error_mm_per_s": 187.91099221090127,
+          "G1_29_world_acceleration_error_mm_per_frame2": 0.8295707495443254,
+          "G1_29_world_acceleration_error_mm_per_s2": 2073.9268738608134,
+          "path_ratio": 0.6358535778994456,
+          "root_height_range_m": 0.03528995900316312,
+          "teacher_root_height_range_m": 0.032165943643013506
+        },
+        "heading_gain14": {
+          "frames": 589,
+          "seconds": 11.78,
+          "q29_rmse_rad": 0.06607248796930182,
+          "root_xy_rmse_m": 0.1119332073245758,
+          "heading_mae_deg": 2.2010797487270573,
+          "root_z_rmse_m": 0.0065397026480009356,
+          "actual_root_z_amplitude_m": 0.03507176534263956,
+          "target_root_z_amplitude_m": 0.032165943643013506,
+          "root_velocity_vector_rmse_mps": 0.0907350486275678,
+          "actual_path_m": 2.5101348876435505,
+          "teacher_path_m": 2.8314236947780325,
+          "contact_F1": 0.9405297351324338,
+          "ankle_origin_slip_proxy_mps": 0.045697375698632754,
+          "contact_semantics": "ankle_roll contacts>1N; not sole/flight truth",
+          "G1_29_global_MPJPE_mm": 136.8587881068141,
+          "G1_29_root_translation_relative_MPJPE_mm": 20.698282327435145,
+          "G1_29_world_velocity_error_mm_per_frame": 2.5727094263357504,
+          "G1_29_world_velocity_error_mm_per_s": 128.63547131678752,
+          "G1_29_world_acceleration_error_mm_per_frame2": 0.7799135370573762,
+          "G1_29_world_acceleration_error_mm_per_s2": 1949.7838426434405,
+          "path_ratio": 0.8865274710644572,
+          "root_height_range_m": 0.03507176534263956,
+          "teacher_root_height_range_m": 0.032165943643013506
+        }
+      },
+      "branches": {
+        "heading_off": {
+          "schema": "research36_root_branch_v1",
+          "status": "complete",
+          "config": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S59_sideways_part2_v1/formal/effective_config.json",
+            "sha256": "7b1a5abef7cc2fc2133f17be71eada32a143e47dbc1b206a19e8c0ce11c61d13",
+            "bytes": 7631
+          },
+          "source_id": "MoVi_F_S59_sideways_part2_v1",
+          "model": "r37_gv_only_s371105_estimated",
+          "checkpoint": {
+            "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+            "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+            "bytes": 16578743
+          },
+          "branch": "heading_off",
+          "actual_output": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S59_sideways_part2_v1/formal/branches/heading_off/actual.npz",
+            "sha256": "963c1a56af8d546ed01a408a25a06207fae6c9046f0ddfdcd970ccc77f7f76e5",
+            "bytes": 2247085
+          },
+          "frames": 589,
+          "requested_frames": 589,
+          "full_input_completed": true,
+          "failure": null,
+          "reused": false,
+          "reuse_evidence": null,
+          "commands_frozen": true,
+          "scoring_teacher_opened": false,
+          "teacher_future_used_for_commands": false,
+          "initial_state_verified": true,
+          "POST_clock_verified": true,
+          "GPU_used": false,
+          "PPO_updates": 0,
+          "smoke_only": false,
+          "seconds": 8.54070544987917,
+          "producer_record": {
+            "mode": "zero_control",
+            "actual": {
+              "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S59_sideways_part2_v1/formal/branches/heading_off/actual.npz",
+              "sha256": "963c1a56af8d546ed01a408a25a06207fae6c9046f0ddfdcd970ccc77f7f76e5",
+              "bytes": 2247085
+            },
+            "frames": 589,
+            "requested_frames": 589,
+            "failure": null,
+            "full_input_completed": true,
+            "zero_control_exact_baseline_verified": true,
+            "command_inputs": [
+              "frozen_original_RGB_pre",
+              "video_estimated_relative_yaw",
+              "measured_current_PRE_robot_yaw",
+              "initial_warmup_yaw"
+            ],
+            "future_reference_read_for_commands": false,
+            "reference_encoder_instantiated": false,
+            "feedback_period_seconds": 0.02,
+            "mean_heading_clipped_fraction": 0.0,
+            "mean_pre_clipped_fraction": 0.0,
+            "mean_residual_clipped_fraction": 0.0,
+            "max_abs_residual": 0.0
+          }
+        },
+        "heading_on": {
+          "schema": "research36_root_branch_v1",
+          "status": "complete",
+          "config": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S59_sideways_part2_v1/formal/effective_config.json",
+            "sha256": "7b1a5abef7cc2fc2133f17be71eada32a143e47dbc1b206a19e8c0ce11c61d13",
+            "bytes": 7631
+          },
+          "source_id": "MoVi_F_S59_sideways_part2_v1",
+          "model": "r37_gv_only_s371105_estimated",
+          "checkpoint": {
+            "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+            "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+            "bytes": 16578743
+          },
+          "branch": "heading_on",
+          "actual_output": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S59_sideways_part2_v1/formal/branches/heading_on/actual.npz",
+            "sha256": "c9ef8bf3a008ae03f191f8205c92463f2965649414b7b6f324884edd4bb65526",
+            "bytes": 2251700
+          },
+          "frames": 589,
+          "requested_frames": 589,
+          "full_input_completed": true,
+          "failure": null,
+          "reused": false,
+          "reuse_evidence": null,
+          "commands_frozen": true,
+          "scoring_teacher_opened": false,
+          "teacher_future_used_for_commands": false,
+          "initial_state_verified": true,
+          "POST_clock_verified": true,
+          "GPU_used": false,
+          "PPO_updates": 0,
+          "smoke_only": false,
+          "seconds": 7.615937437862158,
+          "producer_record": {
+            "mode": "estimated_heading",
+            "actual": {
+              "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S59_sideways_part2_v1/formal/branches/heading_on/actual.npz",
+              "sha256": "c9ef8bf3a008ae03f191f8205c92463f2965649414b7b6f324884edd4bb65526",
+              "bytes": 2251700
+            },
+            "frames": 589,
+            "requested_frames": 589,
+            "failure": null,
+            "full_input_completed": true,
+            "zero_control_exact_baseline_verified": false,
+            "command_inputs": [
+              "frozen_original_RGB_pre",
+              "video_estimated_relative_yaw",
+              "measured_current_PRE_robot_yaw",
+              "initial_warmup_yaw"
+            ],
+            "future_reference_read_for_commands": false,
+            "reference_encoder_instantiated": false,
+            "feedback_period_seconds": 0.02,
+            "mean_heading_clipped_fraction": 0.0,
+            "mean_pre_clipped_fraction": 0.0,
+            "mean_residual_clipped_fraction": 0.0,
+            "max_abs_residual": 0.0889996811747551
+          }
+        },
+        "heading_gain14": {
+          "schema": "research36_root_branch_v1",
+          "status": "complete",
+          "config": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S59_sideways_part2_v1/formal/effective_config.json",
+            "sha256": "7b1a5abef7cc2fc2133f17be71eada32a143e47dbc1b206a19e8c0ce11c61d13",
+            "bytes": 7631
+          },
+          "source_id": "MoVi_F_S59_sideways_part2_v1",
+          "model": "r37_gv_only_s371105_estimated",
+          "checkpoint": {
+            "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+            "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+            "bytes": 16578743
+          },
+          "branch": "heading_gain14",
+          "actual_output": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S59_sideways_part2_v1/formal/branches/heading_gain14/actual.npz",
+            "sha256": "2dda0cb98b89bc70445a9a8649d28cd94c91385bca9acab205a0ed13f3d4db9a",
+            "bytes": 2254315
+          },
+          "frames": 589,
+          "requested_frames": 589,
+          "full_input_completed": true,
+          "failure": null,
+          "reused": false,
+          "reuse_evidence": null,
+          "commands_frozen": true,
+          "scoring_teacher_opened": false,
+          "teacher_future_used_for_commands": false,
+          "initial_state_verified": true,
+          "POST_clock_verified": true,
+          "GPU_used": false,
+          "PPO_updates": 0,
+          "smoke_only": false,
+          "seconds": 7.573532052338123,
+          "producer_record": {
+            "mode": "estimated_heading",
+            "actual": {
+              "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S59_sideways_part2_v1/formal/branches/heading_gain14/actual.npz",
+              "sha256": "2dda0cb98b89bc70445a9a8649d28cd94c91385bca9acab205a0ed13f3d4db9a",
+              "bytes": 2254315
+            },
+            "frames": 589,
+            "requested_frames": 589,
+            "failure": null,
+            "full_input_completed": true,
+            "zero_control_exact_baseline_verified": false,
+            "command_inputs": [
+              "frozen_original_RGB_pre",
+              "video_estimated_relative_yaw",
+              "measured_current_PRE_robot_yaw",
+              "initial_warmup_yaw"
+            ],
+            "future_reference_read_for_commands": false,
+            "reference_encoder_instantiated": false,
+            "feedback_period_seconds": 0.02,
+            "mean_heading_clipped_fraction": 0.0,
+            "mean_pre_clipped_fraction": 0.0,
+            "mean_residual_clipped_fraction": 0.0,
+            "max_abs_residual": 0.07140416651964188
+          }
+        }
+      },
+      "common_scored_frames": 589,
+      "requested_frames": 589,
+      "all_branches_fully_scored": true,
+      "teacher_reference": "owned_teacher_candidate, same hash for all models; historical per-model metric values not reused",
+      "teacher_initialization_equal": true,
+      "no_alignment": true,
+      "no_padding": true,
+      "GPU_used": false
+    },
+    {
+      "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S59_walking_part2_v1/formal/metrics.json",
+      "schema": "research36_root_metrics_v1",
+      "status": "complete",
+      "config": {
+        "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S59_walking_part2_v1/formal/effective_config.json",
+        "sha256": "6035a15600ebbec799bbdfde9bff945434a113950c188c4c4692f1c2b1192791",
+        "bytes": 7623
+      },
+      "source_id": "MoVi_F_S59_walking_part2_v1",
+      "model": "r37_gv_only_s371105_estimated",
+      "checkpoint": {
+        "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+        "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+        "bytes": 16578743
+      },
+      "teacher": {
+        "bytes": 945218,
+        "path": "/localssd/video2action_part2_20261018/data/subject59/instances_v2/MoVi_F_S59_walking_part2_v1/teacher_owned_v2/actual/actual_trajectory.npz",
+        "sha256": "2f10ba5f92b89b0ae4b25006cbc3a387bbb7c9cbb54489ed08d21e45a72567dc"
+      },
+      "scores": {
+        "heading_off": {
+          "frames": 213,
+          "seconds": 4.26,
+          "q29_rmse_rad": 0.09332688817937676,
+          "root_xy_rmse_m": 0.3551120644462841,
+          "heading_mae_deg": 9.228810635979116,
+          "root_z_rmse_m": 0.009295868143621053,
+          "actual_root_z_amplitude_m": 0.03410806353811213,
+          "target_root_z_amplitude_m": 0.04424595675822629,
+          "root_velocity_vector_rmse_mps": 0.16501302078088018,
+          "actual_path_m": 1.448037627151199,
+          "teacher_path_m": 2.021198863120088,
+          "contact_F1": 0.8972602739726028,
+          "ankle_origin_slip_proxy_mps": 0.10728036343240534,
+          "contact_semantics": "ankle_roll contacts>1N; not sole/flight truth",
+          "G1_29_global_MPJPE_mm": 443.83674750687885,
+          "G1_29_root_translation_relative_MPJPE_mm": 36.03563343689916,
+          "G1_29_world_velocity_error_mm_per_frame": 4.992880142356016,
+          "G1_29_world_velocity_error_mm_per_s": 249.6440071178008,
+          "G1_29_world_acceleration_error_mm_per_frame2": 1.3856751360738435,
+          "G1_29_world_acceleration_error_mm_per_s2": 3464.187840184609,
+          "path_ratio": 0.7164251146054424,
+          "root_height_range_m": 0.03410806353811213,
+          "teacher_root_height_range_m": 0.04424595675822629
+        },
+        "heading_on": {
+          "frames": 213,
+          "seconds": 4.26,
+          "q29_rmse_rad": 0.09195089235874106,
+          "root_xy_rmse_m": 0.3241735853934461,
+          "heading_mae_deg": 5.873218101370498,
+          "root_z_rmse_m": 0.008269389367878499,
+          "actual_root_z_amplitude_m": 0.03370141724999465,
+          "target_root_z_amplitude_m": 0.04424595675822629,
+          "root_velocity_vector_rmse_mps": 0.16008447765763803,
+          "actual_path_m": 1.4640642538628437,
+          "teacher_path_m": 2.021198863120088,
+          "contact_F1": 0.8919382504288165,
+          "ankle_origin_slip_proxy_mps": 0.13492828156837633,
+          "contact_semantics": "ankle_roll contacts>1N; not sole/flight truth",
+          "G1_29_global_MPJPE_mm": 410.338537733972,
+          "G1_29_root_translation_relative_MPJPE_mm": 24.76120614956291,
+          "G1_29_world_velocity_error_mm_per_frame": 4.793368063780991,
+          "G1_29_world_velocity_error_mm_per_s": 239.66840318904957,
+          "G1_29_world_acceleration_error_mm_per_frame2": 1.5678515449348978,
+          "G1_29_world_acceleration_error_mm_per_s2": 3919.6288623372443,
+          "path_ratio": 0.7243543822317386,
+          "root_height_range_m": 0.03370141724999465,
+          "teacher_root_height_range_m": 0.04424595675822629
+        },
+        "heading_gain14": {
+          "frames": 213,
+          "seconds": 4.26,
+          "q29_rmse_rad": 0.09725481030651371,
+          "root_xy_rmse_m": 0.2701040128798209,
+          "heading_mae_deg": 5.788437168260178,
+          "root_z_rmse_m": 0.008648049918292981,
+          "actual_root_z_amplitude_m": 0.03274402303804069,
+          "target_root_z_amplitude_m": 0.04424595675822629,
+          "root_velocity_vector_rmse_mps": 0.14423074399280383,
+          "actual_path_m": 1.5497622651500742,
+          "teacher_path_m": 2.021198863120088,
+          "contact_F1": 0.8984509466437177,
+          "ankle_origin_slip_proxy_mps": 0.1359010588787708,
+          "contact_semantics": "ankle_roll contacts>1N; not sole/flight truth",
+          "G1_29_global_MPJPE_mm": 340.6727160699849,
+          "G1_29_root_translation_relative_MPJPE_mm": 24.20574827141953,
+          "G1_29_world_velocity_error_mm_per_frame": 4.448357527421033,
+          "G1_29_world_velocity_error_mm_per_s": 222.41787637105162,
+          "G1_29_world_acceleration_error_mm_per_frame2": 1.4997868589990746,
+          "G1_29_world_acceleration_error_mm_per_s2": 3749.4671474976863,
+          "path_ratio": 0.766753976280065,
+          "root_height_range_m": 0.03274402303804069,
+          "teacher_root_height_range_m": 0.04424595675822629
+        }
+      },
+      "branches": {
+        "heading_off": {
+          "schema": "research36_root_branch_v1",
+          "status": "complete",
+          "config": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S59_walking_part2_v1/formal/effective_config.json",
+            "sha256": "6035a15600ebbec799bbdfde9bff945434a113950c188c4c4692f1c2b1192791",
+            "bytes": 7623
+          },
+          "source_id": "MoVi_F_S59_walking_part2_v1",
+          "model": "r37_gv_only_s371105_estimated",
+          "checkpoint": {
+            "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+            "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+            "bytes": 16578743
+          },
+          "branch": "heading_off",
+          "actual_output": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S59_walking_part2_v1/formal/branches/heading_off/actual.npz",
+            "sha256": "f4fb60d8b524615dbae5fecd7b22cfb0281ce29380d6327e733954480b148a7c",
+            "bytes": 822430
+          },
+          "frames": 213,
+          "requested_frames": 213,
+          "full_input_completed": true,
+          "failure": null,
+          "reused": false,
+          "reuse_evidence": null,
+          "commands_frozen": true,
+          "scoring_teacher_opened": false,
+          "teacher_future_used_for_commands": false,
+          "initial_state_verified": true,
+          "POST_clock_verified": true,
+          "GPU_used": false,
+          "PPO_updates": 0,
+          "smoke_only": false,
+          "seconds": 3.32305546104908,
+          "producer_record": {
+            "mode": "zero_control",
+            "actual": {
+              "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S59_walking_part2_v1/formal/branches/heading_off/actual.npz",
+              "sha256": "f4fb60d8b524615dbae5fecd7b22cfb0281ce29380d6327e733954480b148a7c",
+              "bytes": 822430
+            },
+            "frames": 213,
+            "requested_frames": 213,
+            "failure": null,
+            "full_input_completed": true,
+            "zero_control_exact_baseline_verified": true,
+            "command_inputs": [
+              "frozen_original_RGB_pre",
+              "video_estimated_relative_yaw",
+              "measured_current_PRE_robot_yaw",
+              "initial_warmup_yaw"
+            ],
+            "future_reference_read_for_commands": false,
+            "reference_encoder_instantiated": false,
+            "feedback_period_seconds": 0.02,
+            "mean_heading_clipped_fraction": 0.0,
+            "mean_pre_clipped_fraction": 0.0,
+            "mean_residual_clipped_fraction": 0.0,
+            "max_abs_residual": 0.0
+          }
+        },
+        "heading_on": {
+          "schema": "research36_root_branch_v1",
+          "status": "complete",
+          "config": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S59_walking_part2_v1/formal/effective_config.json",
+            "sha256": "6035a15600ebbec799bbdfde9bff945434a113950c188c4c4692f1c2b1192791",
+            "bytes": 7623
+          },
+          "source_id": "MoVi_F_S59_walking_part2_v1",
+          "model": "r37_gv_only_s371105_estimated",
+          "checkpoint": {
+            "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+            "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+            "bytes": 16578743
+          },
+          "branch": "heading_on",
+          "actual_output": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S59_walking_part2_v1/formal/branches/heading_on/actual.npz",
+            "sha256": "660a873dccfd168dcc47c19cd92671e4825d57a6840c7e94c34bbb84f6c8fd66",
+            "bytes": 824455
+          },
+          "frames": 213,
+          "requested_frames": 213,
+          "full_input_completed": true,
+          "failure": null,
+          "reused": false,
+          "reuse_evidence": null,
+          "commands_frozen": true,
+          "scoring_teacher_opened": false,
+          "teacher_future_used_for_commands": false,
+          "initial_state_verified": true,
+          "POST_clock_verified": true,
+          "GPU_used": false,
+          "PPO_updates": 0,
+          "smoke_only": false,
+          "seconds": 3.780292723327875,
+          "producer_record": {
+            "mode": "estimated_heading",
+            "actual": {
+              "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S59_walking_part2_v1/formal/branches/heading_on/actual.npz",
+              "sha256": "660a873dccfd168dcc47c19cd92671e4825d57a6840c7e94c34bbb84f6c8fd66",
+              "bytes": 824455
+            },
+            "frames": 213,
+            "requested_frames": 213,
+            "failure": null,
+            "full_input_completed": true,
+            "zero_control_exact_baseline_verified": false,
+            "command_inputs": [
+              "frozen_original_RGB_pre",
+              "video_estimated_relative_yaw",
+              "measured_current_PRE_robot_yaw",
+              "initial_warmup_yaw"
+            ],
+            "future_reference_read_for_commands": false,
+            "reference_encoder_instantiated": false,
+            "feedback_period_seconds": 0.02,
+            "mean_heading_clipped_fraction": 0.0,
+            "mean_pre_clipped_fraction": 0.0,
+            "mean_residual_clipped_fraction": 0.0,
+            "max_abs_residual": 0.18384400010108948
+          }
+        },
+        "heading_gain14": {
+          "schema": "research36_root_branch_v1",
+          "status": "complete",
+          "config": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S59_walking_part2_v1/formal/effective_config.json",
+            "sha256": "6035a15600ebbec799bbdfde9bff945434a113950c188c4c4692f1c2b1192791",
+            "bytes": 7623
+          },
+          "source_id": "MoVi_F_S59_walking_part2_v1",
+          "model": "r37_gv_only_s371105_estimated",
+          "checkpoint": {
+            "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+            "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+            "bytes": 16578743
+          },
+          "branch": "heading_gain14",
+          "actual_output": {
+            "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S59_walking_part2_v1/formal/branches/heading_gain14/actual.npz",
+            "sha256": "646f43d43fc8fc94942373be08bdcf118448f426aabb8a03af47f7c6db108288",
+            "bytes": 825247
+          },
+          "frames": 213,
+          "requested_frames": 213,
+          "full_input_completed": true,
+          "failure": null,
+          "reused": false,
+          "reuse_evidence": null,
+          "commands_frozen": true,
+          "scoring_teacher_opened": false,
+          "teacher_future_used_for_commands": false,
+          "initial_state_verified": true,
+          "POST_clock_verified": true,
+          "GPU_used": false,
+          "PPO_updates": 0,
+          "smoke_only": false,
+          "seconds": 3.3189141303300858,
+          "producer_record": {
+            "mode": "estimated_heading",
+            "actual": {
+              "path": "/localssd/video2action_part2_20261018/run/research38_20261106/root/r37_parent_MoVi_F_S59_walking_part2_v1/formal/branches/heading_gain14/actual.npz",
+              "sha256": "646f43d43fc8fc94942373be08bdcf118448f426aabb8a03af47f7c6db108288",
+              "bytes": 825247
+            },
+            "frames": 213,
+            "requested_frames": 213,
+            "failure": null,
+            "full_input_completed": true,
+            "zero_control_exact_baseline_verified": false,
+            "command_inputs": [
+              "frozen_original_RGB_pre",
+              "video_estimated_relative_yaw",
+              "measured_current_PRE_robot_yaw",
+              "initial_warmup_yaw"
+            ],
+            "future_reference_read_for_commands": false,
+            "reference_encoder_instantiated": false,
+            "feedback_period_seconds": 0.02,
+            "mean_heading_clipped_fraction": 0.0,
+            "mean_pre_clipped_fraction": 0.0,
+            "mean_residual_clipped_fraction": 0.0,
+            "max_abs_residual": 0.18159939348697662
+          }
+        }
+      },
+      "common_scored_frames": 213,
+      "requested_frames": 213,
+      "all_branches_fully_scored": true,
+      "teacher_reference": "owned_teacher_candidate, same hash for all models; historical per-model metric values not reused",
+      "teacher_initialization_equal": true,
+      "no_alignment": true,
+      "no_padding": true,
+      "GPU_used": false
+    }
+  ],
+  "root_summary": [
+    {
+      "model": "r37_gv_only_s371105_estimated",
+      "branch": "heading_off",
+      "n": 12,
+      "full": 12,
+      "mean": {
+        "q29_rmse_rad": 0.09861965498467508,
+        "root_xy_rmse_m": 0.2468086271961163,
+        "heading_mae_deg": 20.537389117511708,
+        "root_velocity_vector_rmse_mps": 0.17729753241356158,
+        "path_ratio": 0.8082938701535808
+      }
+    },
+    {
+      "model": "r37_gv_only_s371105_estimated",
+      "branch": "heading_on",
+      "n": 12,
+      "full": 12,
+      "mean": {
+        "q29_rmse_rad": 0.09819360702178681,
+        "root_xy_rmse_m": 0.19105331897060407,
+        "heading_mae_deg": 3.9428972244165124,
+        "root_velocity_vector_rmse_mps": 0.14093691441842734,
+        "path_ratio": 0.8140810394749955
+      }
+    },
+    {
+      "model": "r37_gv_only_s371105_estimated",
+      "branch": "heading_gain14",
+      "n": 12,
+      "full": 12,
+      "mean": {
+        "q29_rmse_rad": 0.0995227026361583,
+        "root_xy_rmse_m": 0.17582879399644002,
+        "heading_mae_deg": 4.098713380269218,
+        "root_velocity_vector_rmse_mps": 0.13108331913231916,
+        "path_ratio": 0.9567062337570834
+      }
+    }
+  ],
+  "validation_rows": [],
+  "validation_expected": 129,
+  "scope": "43 extended VAL same fixed parent/A/F models; not untouched TEST; no model selection here",
+  "root_scope": "12 DEV; fixed TRAIN transform and gain, actual simulated yaw only, no teacher yaw input"
+}

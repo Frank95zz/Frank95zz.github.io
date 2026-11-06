@@ -1,0 +1,103 @@
+{
+  "schema": "research39_method_boundary_cpu_audit_v1",
+  "status": "passed",
+  "scope": "One R37 12k GV-only DEV source; 8 command anchors / 40 command ticks; three 50-tick CPU rollouts. Structural noninterference check, not new fidelity or arbitrary-init result.",
+  "source_id": "MoVi_F_S59_walking_part2_v1",
+  "checkpoint": {
+    "path": "/localssd/video2action_part2_20261018/run/research37_20261105/models/r37_gv_only_s371105/stage_12000/checkpoint.pt",
+    "sha256": "527a27ea3f20bd813483f7bc848fa1fb0387282f20ff352773088b705176ea88",
+    "bytes": 16578743
+  },
+  "prediction_receipt": {
+    "path": "/localssd/video2action_part2_20261018/run/research37_20261105/evaluation/predictions/r37_gv_only_s371105_12000_estimated_MoVi_F_S59_walking_part2_v1/completed.json",
+    "sha256": "c42ad3dca4e18c39bf325e592face01e58aca8fe45c81956f3c6780a7b7c1571",
+    "bytes": 21194
+  },
+  "producer": {
+    "path": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/16_推理效率与方法边界_20261106/method_boundary_cpu_audit.py",
+    "sha256": "7ba1cb2790369218beca3800b671207c4be3057f76ed0d355b339fcf6b1bd498",
+    "bytes": 6786
+  },
+  "GPU_used": false,
+  "training_started": false,
+  "full_provider_constructor_under_numpy_load_guard": true,
+  "human_RGB_decoder_forbidden": true,
+  "command_poison_teacher_metadata_bitwise_equal": true,
+  "command_zero_GV_RMS": 0.5651193261146545,
+  "command_zero_GV_token_change_fraction": 0.9535156488418579,
+  "CPU_vs_archived_GPU_max_abs_pre": 7.078051567077637e-07,
+  "poisoned_reference_arrays": [
+    "joint_pos",
+    "joint_vel",
+    "root_pos",
+    "root_quat",
+    "root_linvel",
+    "root_angvel",
+    "timestamps",
+    "terminal_post_q",
+    "terminal_post_root"
+  ],
+  "rollout_frames": [
+    50,
+    50,
+    50
+  ],
+  "rollout_failures": [
+    null,
+    null,
+    null
+  ],
+  "physical_bitwise_equality": {
+    "original": {
+      "token": true,
+      "action": true,
+      "proprioception": true,
+      "full_qpos": true,
+      "full_qvel": true,
+      "root_after": true
+    },
+    "poison_future": {
+      "token": true,
+      "action": true,
+      "proprioception": true,
+      "full_qpos": true,
+      "full_qvel": true,
+      "root_after": true
+    },
+    "initial_only": {
+      "token": true,
+      "action": true,
+      "proprioception": true,
+      "full_qpos": true,
+      "full_qvel": true,
+      "root_after": true
+    }
+  },
+  "actual_trajectories": {
+    "original": {
+      "path": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/16_推理效率与方法边界_20261106/cpu_audit_artifacts/original/attempt/actual_trajectory.npz",
+      "sha256": "5733016ec6e45084ea85269ffa517b1706da74f04cb83ab13f46be0c25b8de02",
+      "bytes": 187047
+    },
+    "poison_future": {
+      "path": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/16_推理效率与方法边界_20261106/cpu_audit_artifacts/poison_future/attempt/actual_trajectory.npz",
+      "sha256": "5733016ec6e45084ea85269ffa517b1706da74f04cb83ab13f46be0c25b8de02",
+      "bytes": 187047
+    },
+    "initial_only": {
+      "path": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/16_推理效率与方法边界_20261106/cpu_audit_artifacts/initial_only/attempt/actual_trajectory.npz",
+      "sha256": "5733016ec6e45084ea85269ffa517b1706da74f04cb83ab13f46be0c25b8de02",
+      "bytes": 187047
+    }
+  },
+  "initial_pose_preserved": true,
+  "future_reference_arrays_removed_successfully": true,
+  "limitations": [
+    "The numeric NPZ monkeypatch is not an OS filesystem sandbox.",
+    "Reference first pose remains privileged; this audit does not establish generic initialization.",
+    "GVHMR estimates are offline and can depend on future RGB frames.",
+    "Teacher labels and pretrained model data lineage are unchanged.",
+    "Poisoned trajectories use existing tokens; ordinary scoring is deliberately not run."
+  ],
+  "wall_seconds": 9.616052255034447
+}

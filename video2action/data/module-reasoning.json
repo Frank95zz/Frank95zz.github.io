@@ -1,0 +1,597 @@
+{
+  "modules": [
+    {
+      "id": "native-controller",
+      "title": "01 · 历史原生表示与控制器",
+      "mechanism": "原生路径先将未来10×69状态编码成8×32连续命令，再执行固定32-level逐标量FSQ。69维包含29个q、29个dq、6维root旋转、3维世界root速度和2个接触量。语义重建decoder含articulation、root、event三头，只参与训练与诊断。原生diffusion控制器读取lag 0/1/2/4/8的命令历史及1080维本体历史，以2步DDIM产生23维动作，补6个腕部零值后通过29关节PD执行。\n\n机器人RGB前端的Direct与Flow是两个候选头：Direct回归端点，Flow学习条件向量场并以8步积分生成命令；不能画成Direct→Flow串行模块。J9在此历史路径的人域特征端增加768→128→768零初始化残差adapter，机器人域绕过该adapter。",
+      "reason": "未来状态的分组表示为关节、root与接触保留入口，语义重建用于检查表示是否丢失动作内容；历史控制适配把表示与实际动作响应绑定。原生链路提供已经运行的机器人输入基线，也说明视觉预测必须遵守控制器、状态、PD和标签的完整接口。它与当前SONIC的64维命令不是同一个坐标系，256→64的维数改变不能完成系统迁移。",
+      "trainable": "原生表示/控制器适配阶段更新E、语义重建与原生控制网络；RGB阶段冻结E和后端，主要更新视觉头。不同历史阶段的可训练对象应按对应配置分别报告，不能套用当前SONIC冻结策略。",
+      "trainLoss": "9月10日anchor的已绑定目标：L_native=0.25L_noise+0.25L_score+L_action+L_sample-teacher+0.5L_Δa+0.1L_semantic+0.1L_counterfactual。RGB→native使用SmoothL1(pre_std)+0.25MSE(token)+0.1SmoothL1(命令目标差分)，Flow另加L_FM。旧RoboGhost专家原始reward配置未完整绑定，不补写未知系数，也不把该阶段说成当前视觉PPO。",
+      "inputs": "训练E：未来10×69数值状态；RGB前端：双窗口视频；低层控制：native命令历史＋15×72=1080维本体历史。",
+      "outputs": "8×32 native命令；控制器23维动作＋6腕部零值→29关节PD→PhysX物理轨迹。",
+      "evidence": "机器人009868 TRAIN与012203 DEV视频展示原生Flow完整链路。六段×两seed的native/SONIC完整系统比较中，native部分分支提前结束，SONIC完整12/12；但状态、PD、表示和标签同时变化，这只能说明完整系统差异。J9 fixed-support蹲起对照属于相同前端搭配不同后端的匹配证据，不是J9视觉网络通过新后端联合反传获得的提升。",
+      "ablationStatus": "已做：完整原生系统与当前系统执行、历史后端匹配对照。未做：去语义重建重训、diffusion相对同预算其他控制器的独立因果消融，以及只改变latent的公平对照。",
+      "ablationNext": "先在各自合法state/PD接口下做oracle命令重放，量化teacher→student差距；再固定RGB曝光与评估协议比较完整后端。若测试表示维数或量化，必须同步适配控制器。",
+      "demoIds": [
+        "native-train",
+        "native-dev"
+      ],
+      "source": [
+        "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/03_Pipeline与训练方法.md",
+        "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/01_Pipeline为什么这样设计_逐模块论证.md",
+        "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/03_模块消融矩阵与下一步.md",
+        "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/05_Demo/04_真人蹲起_J9与原生控制器_fixed_support对照.mp4"
+      ]
+    },
+    {
+      "id": "videomae-windows-lora",
+      "title": "02 · 双时间窗口、VideoMAE与LoRA",
+      "mechanism": "每个10Hz视觉锚点取约0.6秒和2秒两路16帧RGB，保比例letterbox至224×224。VideoMAE-Base的patch16、tubelet2及空间池化产生每路49×768特征，两路共享视觉骨干。当前raw主线只在最后4个block的query/value投影加入rank8 LoRA，前8层固定并可缓存中间特征。\n\n当前方法记录采用0.5秒RGB lookahead。后续时序头即使有causal mask，也不能因此称整个视频系统零延迟因果；离线模仿和实时部署应分别讨论。",
+      "reason": "短窗口为快速局部动作保留时间分辨率，长窗口提供动作阶段和较慢变化的上下文。同一个姿态可能处于抬手或放手阶段，需要多帧区分运动方向。LoRA提供有限的外观适配自由度，并降低重复计算；它本身不是跨域对齐或泛化优势的证明。",
+      "trainable": "基础VideoMAE权重冻结；末4层Q/V的rank8 LoRA更新。共享空间/时序/命令头另行更新。历史native V2视觉训练固定骨干，不能与当前LoRA主线混同。",
+      "trainLoss": "LoRA通过共同命令回归损失及对应实验启用的目标差分/motion辅助损失更新，没有独立的“LoRA reward”。当前Research34/35学习率5e−5，LoRA weight decay=0；六段早期实验学习率1e−4。",
+      "inputs": "两路16帧、224×224 RGB；时间窗约0.6s/2s，当前协议包含0.5s前瞻。",
+      "outputs": "每锚点2×49×768视觉特征。",
+      "evidence": "完整共享模型的六段双域拟合和55片开发集证明这套前端可用；吞吐与非零梯度核查证明LoRA实际参与训练。它们没有隔离双时间尺度、LoRA层数、rank或前瞻时长的贡献。固定旧模型的两段PG1→PG2探针q 0.12470→0.25235rad，说明视角敏感仍存在，而非证明LoRA已经消除视角差异。",
+      "ablationStatus": "已做：完整链路训练、梯度/吞吐核查及固定模型跨视角探针。未做：单窗口重训、LoRA深度/rank公平重训、lookahead 0/.25/.5精度—延迟对照。",
+      "ablationNext": "分别比较短+长/短+短/长+长，冻结/末4层LoRA/12层LoRA，以及lookahead 0/.25/.5。固定token数、head容量、初始化和训练曝光，报告快/慢动作指标、机器人保持与GPU时。",
+      "demoIds": [
+        "joint-jog",
+        "joint-phone",
+        "view-pg1",
+        "view-pg2"
+      ],
+      "source": [
+        "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/01_Pipeline为什么这样设计_逐模块论证.md",
+        "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/03_模块消融矩阵与下一步.md",
+        "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/03_Pipeline与训练方法.md",
+        "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/scripts/part2_unified/unified_fresh_raw_train.py"
+      ]
+    },
+    {
+      "id": "static-difference",
+      "title": "03 · 绝对特征与静态画面差分",
+      "mechanism": "当前raw实现拼接标准化特征x与x−x_static，沿通道形成1536维，再经Linear→128、SiLU和LayerNorm。这里x_static来自“视频第一帧重复16次”的静态clip特征，并扩展到两个窗口和锚点；不是相邻帧时间导数，也不应简写为第一锚点的动态clip特征。",
+      "reason": "绝对特征保留身体外形与姿态，静态差分提供相对初始画面变化的线索，让模型可以同时使用外观和运动相关信息。但相机移动、遮挡、人在画面中的位置变化也会进入该差分，它没有被证明等同于3D运动或光流。其必要性必须通过重新训练检验，不能从完整模型成功反推。",
+      "trainable": "1536→128投影与归一化更新；静态clip构造本身无参数，输入与静态特征使用同一骨干体系。",
+      "trainLoss": "随共享视觉模型的L_cmd、可用的L_Δ及L_motion端到端更新；没有单独“静态差分”监督或奖励。",
+      "inputs": "双窗口动态视觉特征x与第一帧重复形成的静态clip特征x_static。",
+      "outputs": "每个空间位置的128维融合表示。",
+      "evidence": "现有共享模型使用该输入构造并能完成双域拟合；当前没有“保留绝对特征、移除差分后重新训练”的独立结果。历史方法概述中的x_first应以raw实现和11月4日逐模块说明中的静态clip定义为准。",
+      "ablationStatus": "未完成结构必要性消融；只有完整网络运行证据。",
+      "ablationNext": "绝对+静态差分对比仅绝对特征，保持输入支持、初始化、目标、数据曝光与训练预算一致；分组报告相位、动作幅度、相机扰动和遮挡表现。",
+      "demoIds": [
+        "joint-stretch",
+        "joint-side"
+      ],
+      "source": [
+        "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/01_Pipeline为什么这样设计_逐模块论证.md",
+        "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/03_模块消融矩阵与下一步.md",
+        "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/scripts/part2_unified/unified_fresh_raw_train.py",
+        "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/scripts/part2_unified/unified_model.py"
+      ]
+    },
+    {
+      "id": "spatial-queries",
+      "title": "04 · 空间query读出",
+      "mechanism": "两路49个位置组成98个空间token并加入位置embedding。4个可学习的128维query经过4头cross-attention读取空间信息，残差和LayerNorm后对query求均值得到128维表示。当前SONIC头的4个query与历史native的8个query、256维结构不同。",
+      "reason": "视频中关键动作可能只发生在手部或脚部，query让模型根据当前输入分配空间读取权重，比预先硬编码部位更加灵活。但4个query没有手、脚、root的人工语义绑定，不能把它们命名为四个解剖模块；是否比均值池化更好尚待受控证据。",
+      "trainable": "空间位置embedding、query、cross-attention及归一化参数更新。",
+      "trainLoss": "共享命令回归及对应实验辅助项的梯度经过空间读出；无部位级query标签或单独query损失。",
+      "inputs": "98个128维空间token。",
+      "outputs": "每个视觉锚点一个128维空间聚合表示。",
+      "evidence": "完整模型能拟合慢跑、伸展、抛接和打电话等不同局部/全身动作。现有演示只能说明使用该模块的系统可用，不能证明query优于池化或各query学习了固定身体部位。",
+      "ablationStatus": "未做“空间query→参数匹配均值池化MLP”的完整重训消融。",
+      "ablationNext": "以均值池化＋参数匹配MLP替代query，保持骨干、时序头、参数与数据预算一致；报告手臂/腿部分组误差、局部遮挡与小幅动作。",
+      "demoIds": [
+        "joint-stretch",
+        "joint-throw",
+        "joint-phone"
+      ],
+      "source": [
+        "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/01_Pipeline为什么这样设计_逐模块论证.md",
+        "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/03_模块消融矩阵与下一步.md",
+        "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/03_Pipeline与训练方法.md",
+        "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/scripts/part2_unified/unified_model.py"
+      ]
+    },
+    {
+      "id": "temporal-eight-anchors",
+      "title": "05 · 八锚点时序建模与五子步输出",
+      "mechanism": "8个锚点表示加位置embedding，进入2层Transformer：hidden128、4头、FFN512、GELU，使用causal mask约束锚点间信息流。末锚点经LayerNorm与Linear128→320，reshape为5×2×32连续命令，连接10Hz视觉更新和50Hz控制执行。五个控制子步各有预测值，不是把一个动作复制五次。",
+      "reason": "动作历史提供阶段、方向与节奏信息，能减少单帧姿态对未来动作的歧义。五子步输出让控制器在相邻视觉更新之间接收到变化的命令。时序结构的动机与目标差分loss不同：前者是网络容量与输入上下文，后者要求预测变化匹配标签变化；二者不能合并为“平滑模块”。",
+      "trainable": "锚点位置embedding、2层时序Transformer、末端命令头更新；mask与reshape无学习参数。",
+      "trainLoss": "L_cmd=mean(((û−u*)/σ)^2)。Research34/35的L_Δ=mean(((Δû−Δu*)/σ)^2)，差分沿同一来源的有序锚点、同一未来子步槽计算；不是直接惩罚运动幅度，也不是无条件等同20ms物理帧速度。",
+      "inputs": "8个128维锚点特征及其时间顺序。",
+      "outputs": "未来五个50Hz控制子步的5×2×32 pre-FSQ命令。",
+      "evidence": "持续动作与45/120秒视频展示完整模型能够连续输出命令，长片无全程连续GT。结构上尚缺8锚点与1锚点重训。loss层面，Research35机器人权重0.5下关闭目标差分，在43VAL世界MPJPE差为−7.154mm，人物95%CI [−12.076,−3.103]；权重1下差−2.349mm且CI跨0。这不是“删除时序头”的实验。",
+      "ablationStatus": "已做：目标差分loss同更新数开关对照。未做：无时序头、1锚点、历史打乱的完整受控结构消融。",
+      "ablationNext": "分别比较8锚点/1锚点与历史打乱；固定当前帧、五子步输出容量、初始化和训练曝光，观察相位/方向错误、静止歧义和长序列误差增长。",
+      "demoIds": [
+        "joint-walk",
+        "joint-jog",
+        "human-45",
+        "joint-45",
+        "joint-120"
+      ],
+      "source": [
+        "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/01_Pipeline为什么这样设计_逐模块论证.md",
+        "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/03_模块消融矩阵与下一步.md",
+        "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/11_昨夜结果_20261105/00_本轮结果总结.md",
+        "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/03_Pipeline与训练方法.md"
+      ]
+    },
+    {
+      "id": "sonic-command-fsq",
+      "title": "06 · SONIC命令语义与固定FSQ接口",
+      "mechanism": "视觉头每个子步输出2×32连续pre-FSQ命令，按发布控制器契约量化一次得到64维token。SONIC的G1编码标签来自未来10帧q、qd与相对当前机器人yaw的root旋转，未来采样间隔0.1秒；该入口未显式填入目标root平移或线速度。\n\nteacher命令按teacher当前yaw编码。student偏离后，继续拟合同一固定标签不等于在student状态下重发同一世界方向意图。因此这些量应称“控制器运动命令”，不能未经证明称完全状态无关的运动语义。",
+      "reason": "共享中间命令把视觉理解与状态相关低层控制分工，使真人与机器人外观能够监督到同一个可执行接口。FSQ首先保证与冻结decoder的输入分布和语义一致，也限制标量取值；小残差可能被量化抹去，所以需要逐级检查pre、token、action和物理轨迹。",
+      "trainable": "RGB命令头更新；发布运动编码器、标签尺度、FSQ与低层decoder固定。现有实验不学习新的FSQ codebook。",
+      "trainLoss": "标准化连续命令MSE为当前主监督；额外中间表示alignment属于独立实验，不是共享命令必要组成。历史对齐实验VAL q为0.19173，对照0.19154rad，尚无额外收益。",
+      "inputs": "RGB预测的5×2×32 pre-FSQ；训练时对应teacher pre-FSQ标签与冻结尺度σ。",
+      "outputs": "逐子步64维量化命令，进入同一冻结SONIC decoder。",
+      "evidence": "六段TRAIN×2seed的Joint human/robot q为0.02884/0.02803rad，支持同一接口可拟合两域。motion干预的pre差已经很小，不能把执行不敏感全部归因于FSQ。没有控制器重新匹配下的“量化/不量化”公平消融；直接绕过FSQ只会测试接口分布变化。",
+      "ablationStatus": "已做：共同命令双域训练、额外alignment对照及pre→token干预诊断。未做：保持可兼容控制器条件的FSQ必要性重训。",
+      "ablationNext": "先做合法oracle命令与量化敏感性诊断；若要评估FSQ本身，重新匹配连续接口控制器并控制其训练预算。共享head与两套分域head也需参数/计算匹配，当前未完成。",
+      "demoIds": [
+        "joint-throw",
+        "joint-robot-throw",
+        "intent-dev",
+        "control-dev"
+      ],
+      "source": [
+        "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/01_Pipeline为什么这样设计_逐模块论证.md",
+        "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/03_模块消融矩阵与下一步.md",
+        "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/03_Pipeline与训练方法.md",
+        "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/数据/motion干预逐层证据.json"
+      ]
+    },
+    {
+      "id": "sonic-controller-pd",
+      "title": "07 · 冻结低层控制、PD与物理接触",
+      "mechanism": "SONIC decoder输入994维：64维命令＋930维proprio。930维由10帧×93维组成，每帧含局部角速度3、关节角29、关节速度29、上一动作29和投影重力3。decoder输出29维动作，按关节顺序、默认角和scale转换为PD目标：q_des=q_default+S·a；执行器约束与接触动力学产生下一状态。\n\n这些本体字段不显式包含全局XY、绝对yaw或root线速度。投影重力也不能确定绝对yaw。当前heading分支使用额外的仿真实际yaw，不能说930维proprio已经提供全部全局反馈。",
+      "reason": "底层控制器处理平衡与接触，使视觉网络不必直接从RGB回归每一时刻的力矩。G1自由root没有直接的平移执行器；世界位移来自步态和地面接触。因此关节角接近、接触稳定或完整跑完，都不等于方向和路程正确。必须同时报告姿态、世界轨迹、接触和执行完成率。",
+      "trainable": "当前视觉主线固定SONIC decoder、FSQ和PD参数，只训练视觉与指定辅助模块。物理仿真不在当前监督损失的反传图内。",
+      "trainLoss": "当前主线没有重新优化SONIC的原始RL reward。六段续训曾将预测/teacher命令送入固定decoder，在记录的teacher状态历史上加action一致性loss，权重0/.05/.20；该损失可微但不穿过仿真，不能自动代表student闭环目标。",
+      "inputs": "每子步64维量化命令与机器人自己的930维状态历史。",
+      "outputs": "29维动作→默认角/scale→PD关节目标→MuJoCo实际轨迹。",
+      "evidence": "六段SONIC两seed完整12/12；最新Research35五个Joint臂各55/55完整，H续训另有S59 jogging触发跌倒阈值。连续120秒片显示长时间运行，但低姿态等动作仍跟随不足且无连续GT。已见的action loss高权重使TRAIN XY更差，0.05在局部heading有益，说明teacher状态动作一致性不等于闭环执行更好。",
+      "ablationStatus": "已做：action-loss权重对照、完整率/失败保留与长片观察。未做：冻结/重新训练SONIC的同预算对照；没有当前视觉PPO结果。",
+      "ablationNext": "先用teacher oracle与真实student状态定位控制上界，再构造状态纠偏监督或有界残差控制。保持失败分母和同初态协议，不能只优化站稳或仅比较幸存片均值。",
+      "demoIds": [
+        "walking-failure",
+        "heading-correction",
+        "joint-120"
+      ],
+      "source": [
+        "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/01_Pipeline为什么这样设计_逐模块论证.md",
+        "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/03_模块消融矩阵与下一步.md",
+        "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/03_Pipeline与训练方法.md",
+        "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/11_昨夜结果_20261105/00_本轮结果总结.md",
+        "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/04_实验指标与消融.md"
+      ]
+    },
+    {
+      "id": "joint-paired-training",
+      "title": "08 · 双域配对、采样与梯度权重",
+      "mechanism": "MoVi同步真人RGB和动捕先离线转换为G1参考，teacher执行记录命令、状态、轨迹与机器人RGB，按共同源时钟构成(V_H,V_R,u*,s_T,τ_T)。同一动作锚点的人和机器人RGB经同一forward预测同一命令。R只累积机器人梯度，H只累积人域梯度，J使同一参数接收两域梯度。\n\nResearch34/35使用L=L_H+λ_R L_R。λ_R是损失系数，不是采样概率：Joint臂仍处理配对机器人batch。相同人域锚点和更新数不等于相同总数据曝光或GPU算力。早期六段也按域求和，night31历史版本按域数平均，不能混用绝对loss口径。",
+      "reason": "共同目标比“两个视频看起来相似”更强：它给两种外观提供同一执行坐标系。Joint当前最扎实的作用是维持双域输入能力，而非保证每个未见真人动作更准。teacher标签固定监督与评分参考，但teacher自己有追踪误差；student接近teacher也不等于完整保真地还原真人。当前共同参考初态支持独立执行，不支持任意初态自主启动的结论。",
+      "trainable": "同一组LoRA、空间/时序/命令头更新；Research35所有臂保留motion分支。两域没有各自的J9式adapter，不在推理时切换两份head。",
+      "trainLoss": "L_d=L_cmd,d+λ_ΔL_Δ,d+λ_mL_motion,d；Research35 λ_m=0.1，action/alignment均0，λ_R=0/.25/.5/1，λ_Δ=0/.1。六臂均从同Joint+intent父模型续训24k。",
+      "inputs": "261个TRAIN动作实例，来自27个原录制、14类动作；同源H/R锚点与共同teacher目标。",
+      "outputs": "一份同时接受真人与机器人RGB的视觉模型；按域/动作/人物拆分的实际执行结果。",
+      "evidence": "六段TRAIN×2seed：Joint人域/机器人域q 0.02884/0.02803rad；robot-only人域约0.247。P0起点30k、12个已见机器人输入，H→J两seed q为0.30770→0.12607、0.30472→0.12607。55片人域上第一seed收益未在第二seed重复。Research35同55片父模型→J_r05_t0世界MPJPE 161.254→156.943mm，差值人物95%CI [−13.585,+2.922]跨0；H/J共同54完整片比较需另保留H的一条跌倒。",
+      "ablationStatus": "已做：六段R/H/J×2seed、同P0的人域曝光匹配H/J×2seed、Research35机器人系数与temporal六臂。未做：共享head对分域head的参数/计算匹配；Research35未新增机器人保持评估。",
+      "ablationNext": "同时报告真人开发表现与机器人输入保持，在同更新数之外补相同算力预算对照；新增封存人物/动作评估。H_t01是关闭本轮机器人梯度的Joint父模型续训，不能叫从未训练机器人域的纯H模型。",
+      "demoIds": [
+        "joint-throw",
+        "joint-robot-throw",
+        "latest-dev",
+        "latest-val"
+      ],
+      "source": [
+        "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/01_Pipeline为什么这样设计_逐模块论证.md",
+        "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/03_模块消融矩阵与下一步.md",
+        "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/11_昨夜结果_20261105/00_本轮结果总结.md",
+        "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/07_数据与来源/六段联合拟合_原始审计.json",
+        "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/11_昨夜结果_20261105/结果核算.json"
+      ]
+    },
+    {
+      "id": "rgb-motion-intent",
+      "title": "09 · RGB预测的Motion辅助分支",
+      "mechanism": "该分支从同一个128维RGB表示，经128→128→35预测未来5×7物理量，再通过35→128→320生成有界pre-FSQ残差。七维目标是teacher实际局部线速度3、局部角速度3、高度1，来自物理轨迹。命令残差末层零初始化，起始行为保持父模型。\n\n这不是把GVHMR估计直接送入网络：GVHMR七维的字段不同。历史名为joint_motion的night31分支只改变移动类采样，也不等于启用了这个Motion网络。",
+      "reason": "辅助物理量预测希望视觉表示保留速度、转动与高度，再让这些信号影响命令。然而多一个可训练辅助头不保证控制器收到有意义的变化；应检查辅助预测、残差幅度、pre、量化token和真实执行的逐层响应，而不是只凭模块名称解释root收益。",
+      "trainable": "RGB辅助预测头与残差MLP更新，基础共享视觉参数也可接收相关损失；控制器与FSQ冻结。",
+      "trainLoss": "辅助监督使用SmoothL1(predicted 5×7, teacher physical targets)，Research34/35对应配置motion_weight=0.1；残差还通过L_cmd和L_Δ接受监督。",
+      "inputs": "当前RGB时序表示128维；训练标签为5时刻×7维teacher实际状态物理量。",
+      "outputs": "35维预测物理量及320维有界pre-FSQ残差。",
+      "evidence": "Research34两seed control→intent，55片q分别0.15214→0.15289、0.15297→0.15386rad，heading约改善0.28°，XY无一致方向。6DEV同checkpoint置零/反序，pre差RMS仅0.000450/0.000063，token元素改变0.562%/0.075%。输入敏感性弱在量化前已存在；置零仍保留MLP bias，所以不能说整个分支严格无贡献。单片S56侧移intent世界MPJPE 80.43mm、control91.38mm不能替代55片总体结论。",
+      "ablationStatus": "已做：control/intent双seed重训、同checkpoint置零/反序的逐层干预。结果未显示一致总体增益。Research35所有臂保留该支路，不能用其六臂再声称完成motion有无消融。",
+      "ablationNext": "先核查辅助目标尺度、预测方差与残差利用率；进一步比较固定零残差/保留bias/整支路移除，并在训练重跑中控制参数与预算，报告移动和静态动作差异。",
+      "demoIds": [
+        "intent-dev",
+        "control-dev"
+      ],
+      "source": [
+        "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/01_Pipeline为什么这样设计_逐模块论证.md",
+        "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/03_模块消融矩阵与下一步.md",
+        "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/数据/motion干预逐层证据.json",
+        "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/数据/最终55段模型均值.json"
+      ]
+    },
+    {
+      "id": "gvhmr-geometry",
+      "title": "10 · 离线GVHMR几何融合",
+      "mechanism": "GVHMR从真人视频离线估计全局人体运动，提取身体局部速度3、yaw rate1、高度变化/0.25为1、相对yaw的sin/cos为2，共7维。30Hz估计按视频hash与源时钟绑定，插值到五个50Hz命令位置；35维几何加1维availability mask。\n\nnight31融合使用RGB表示与几何各投影128维，再拼接h_v、h_g及h_v⊙h_g，经384→128→320网络产生δu=m·0.5tanh(·)。末层零初始化；机器人域或无几何时mask=0。zero对照仍保留mask=1和相同容量；shift将几何序列滚动半段。它与早期36→128→320纯几何MLP不同。",
+      "reason": "几何提供RGB外观之外的速度、转向与高度线索，有助于诊断视觉模型遗漏了什么。但GVHMR存在尺度、遮挡与域误差，不能当作全局平移真值。几何是否有用与几何是否接入正确状态关系是两个问题；特征融合与heading执行反馈需要分开验证。加入此分支的推理路径有离线人体运动估计，不能与纯RGB主线共同称为完全无几何推理。",
+      "trainable": "几何/RGB交互融合头可训练；GVHMR本身作为离线估计器使用。具体RGB父模型是否冻结按该融合训练配置记录，不由“加几何”字样推断；SONIC/FSQ保持固定。",
+      "trainLoss": "融合残差通过对应命令监督学习；estimated/zero/shift为等容量控制。报告没有给出可独立核实的全套GVHMR原始训练奖励系数，本页不补写。当前Research35六臂没有新增GVHMR融合，不能把其收益归因于本模块。",
+      "inputs": "RGB128维表示＋5×7离线几何＋availability mask。",
+      "outputs": "320维有界命令残差，叠加原RGB pre-FSQ。",
+      "evidence": "实际几何覆盖32TRAIN与12个heldout视频；保留全54共同结果及12几何子集。一个固定融合checkpoint的estimated/zero/shift干预，12片XY约0.3702/0.3922/0.3929m，heading约38.47/38.49/40.05°，正确时序几何有局部位置收益，方向收益有限。当前仍缺固定checkpoint推理干预的对应三臂视频；heading视频属于另一个状态变换模块。网页补充三份独立200k训练checkpoint的S57行走demo，各自指标与该片绑定；它们不对应固定同一checkpoint的推理干预表。",
+      "ablationStatus": "已做：estimated/zero/shift训练配置与固定checkpoint时序干预；正确几何的收益温和。未证实：GVHMR已解决root或跨视角泛化；当前没有几何融合三臂对应的精选Demo。",
+      "ablationNext": "严格按几何可用性定义子集，保留estimated/zero/shift同容量同预算对照；把几何作为训练期辅助监督或蒸馏目标时，另验证RGB-only部署能保留多少收益。",
+      "demoIds": [
+        "gv-estimated",
+        "gv-zero",
+        "gv-shift"
+      ],
+      "source": [
+        "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/01_Pipeline为什么这样设计_逐模块论证.md",
+        "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/03_模块消融矩阵与下一步.md",
+        "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/03_Pipeline与训练方法.md",
+        "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/scripts/night31/geometry_provider.py"
+      ]
+    },
+    {
+      "id": "heading-state-feedback",
+      "title": "11 · 与实际状态相关的Heading命令变换",
+      "mechanism": "视频相对初始转向Δψ_V给出desired_yaw=student_initial_yaw+Δψ_V，实时误差δ=wrap(student_actual_yaw−desired_yaw)。在TRAIN上固定未来G1运动，以不同当前yaw重新编码，拟合ridge或MLP命令变换T(û,δ)。ridge使用标准化pre与sinδ、1−cosδ交互，输出有界近似残差，并保证δ=0严格返回原命令。\n\n部署这一分支时读取冻结RGB预测、离线GVHMR相对朝向、student实际PRE yaw及初始yaw，不读取未来teacher轨迹。修正后再执行一次FSQ和冻结SONIC控制。",
+      "reason": "同一世界方向的动作在不同当前yaw下需要不同相对命令，而固定teacher标签是在teacher yaw下定义的。heading反馈直接处理这一坐标错配，因此能够在不重训整个视觉模型的条件下改变世界方向。它没有显式补齐期望root平移与速度目标，方向纠正不应被解释为推进距离已经解决。",
+      "trainable": "适配器仅在TRAIN重编码监督上拟合；比较时冻结视觉、FSQ、控制器和物理协议。ridge不是PPO，student-pre与teacher-pre拟合也是两个独立设置。",
+      "trainLoss": "监督是相同未来动作在不同当前yaw下的官方encoder命令残差，拟合有界命令变换。没有依据把它写成在线reward优化；本页不臆造未核实的ridge正则系数。",
+      "inputs": "RGB pre-FSQ、估计视频相对yaw、初始yaw及student实际PRE yaw。",
+      "outputs": "与当前执行状态匹配的pre-FSQ命令；零误差时与原命令严格一致。",
+      "evidence": "旧RGB固定12片：heading43.58°→5.26°、XY0.3650→0.3062m、速度RMSE0.2823→0.2361m/s；零修正复现，错时变差。新Joint匹配teacher-input适配器同12片：heading38.06°→5.23°、XY0.3296→0.2903m、速度0.2608→0.2260m/s；9移动片路径比仅0.541→0.546。展示S57视频使用已有ridge迁移，单片101.64°→7.31°，路程1.002→1.097m，teacher2.811m；不是12片5.23°汇总的完全相同适配器配置。",
+      "ablationStatus": "已做：zero/estimated/shift同模型干预、新Joint迁移及teacher-pre/student-pre拟合比较。后者关键人物聚类CI跨0，尚无稳定额外收益。未完成：实时yaw与固定初始yaw、视频heading信息源的全部组合消融；尚未解决速度和累计位移。",
+      "ablationNext": "固定同RGB预测、adapter、初态、控制器和时长，补实时/初始yaw以及正确/错时/置零heading组合；再在student实际状态下构造速度纠偏目标，观察heading、速度向量、XY、终点和接触。",
+      "demoIds": [
+        "heading-correction",
+        "walking-failure",
+        "latest-val"
+      ],
+      "source": [
+        "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/01_Pipeline为什么这样设计_逐模块论证.md",
+        "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/03_模块消融矩阵与下一步.md",
+        "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/04_Demo观看顺序与证据.md",
+        "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/数据/state/formal_evidence.json"
+      ]
+    }
+  ],
+  "trainingStages": [
+    {
+      "stage": "历史S0 · 复用RoboGhost专家",
+      "algorithm": "复用已有参考动作跟踪专家作为控制与动作监督先验；本报告不新增或重建它的原始训练。",
+      "supervision": "数值参考动作与专家action。现有tracking环境含位置、朝向、线/角速度跟踪及action rate、关节限位、不期望接触惩罚。",
+      "loss": "旧权重未完整绑定原始reward配置快照，无法核实精确系数；不补写“完整奖励函数”或声称已复现其全部训练。",
+      "updated": "这一阶段的原始权重来源为历史已有产物，当前网页无新增训练。",
+      "frozen": "后续用作专家/teacher的版本按各实验绑定冻结。",
+      "evidence": "03_Pipeline与训练方法 §3.1；原始reward细节缺失应作为可追溯性边界保留。"
+    },
+    {
+      "stage": "历史S1 · Native表示与控制器适配",
+      "algorithm": "专家动作蒸馏、行为监督与DAgger状态聚合；原生token-conditioned diffusion控制适配。",
+      "supervision": "未来10×69状态、专家action、实际访问状态、语义重建目标与固定状态下替换命令的响应。9月10日anchor使用353TRAIN动作/5956窗口，40验证动作/665窗口。",
+      "loss": "0.25L_noise+0.25L_score+L_action+L_sample-teacher+0.5L_Δa+0.1L_semantic+0.1L_counterfactual。该公式只属于已绑定的历史anchor，不泛化成所有版本的统一loss。",
+      "updated": "未来状态E、语义重建decoder、原生控制网络；E更新时重新编码future以保持标签版本一致。",
+      "frozen": "专家提供监督，视频前端尚不是这个阶段的主要学习对象。",
+      "evidence": "03_Pipeline与训练方法 §3.2及原生源码快照；窗口数不等于独立动作数。"
+    },
+    {
+      "stage": "历史S2 · RGB→Native命令",
+      "algorithm": "固定表示与控制器的视觉监督；Direct回归或条件flow matching。",
+      "supervision": "数值动作teacher执行→相机渲染→时钟对齐后的RGB—命令对；V2视觉集128TRAIN来源。历史reference-future/actual-future标签版本分列。",
+      "loss": "SmoothL1(标准化pre)+0.25MSE(量化token)+0.1SmoothL1(目标命令差分)。Flow另加L_FM=||vθ(xτ,τ,c)−(u_std−ε)||²，xτ=(1−τ)ε+τu_std。",
+      "updated": "视觉空间与Direct/Flow时序命令头。",
+      "frozen": "E、原生低层后端；V2视觉训练VideoMAE骨干固定。",
+      "evidence": "原生TRAIN009868与DEV012203 Demo；Direct/Flow是候选，不是串行模块。"
+    },
+    {
+      "stage": "历史S3 · J9真人接入",
+      "algorithm": "域残差adapter与共享头监督续训；J8累计15k→J9累计20k。",
+      "supervision": "每步8人体、4新机器人配对、4旧机器人replay窗口；人体9源约47.53秒、配对机器人7源、旧机器人replay128源。",
+      "loss": "Direct的pre＋0.25token＋0.1delta；两域各取均值再等权。",
+      "updated": "真人残差adapter及对应共享视觉预测参数；robot绕过人域adapter。",
+      "frozen": "原生表示与控制后端；J9训练没有通过后续fixed-support后端做action反传。",
+      "evidence": "同J9搭配两种原生后端的蹲起视频说明执行匹配改变；不能归因为新后端反传增强了视觉学习。"
+    },
+    {
+      "stage": "SONIC S4 · 六段R/H/J拟合",
+      "algorithm": "AdamW，同机器人P0起点，两seed；共享VideoMAE末4层LoRA与SONIC命令头。",
+      "supervision": "六段TRAIN同步真人/机器人RGB指向同teacher pre-FSQ标签。R仅robot，H仅human，J两域loss求和。",
+      "loss": "每域L_cmd=mean(((û−u*)/σ)^2)；该六段主比较action与额外alignment权重为0。学习率1e−4，head decay1e−4、LoRA decay0、梯度裁剪1。",
+      "updated": "LoRA与空间/时序/命令头，同一份参数。",
+      "frozen": "发布SONIC运动表示、FSQ、decoder及执行契约。",
+      "evidence": "6片×2seed，每域12执行；Joint human q0.02884、robot q0.02803rad。TRAIN可拟合性，不是开发泛化。"
+    },
+    {
+      "stage": "SONIC S5 · 广池与Research34双seed",
+      "algorithm": "扩大覆盖的监督学习；P0起点H/J与warm control/intent分组；相同人域锚点和更新数，但Joint增加机器人曝光与计算。",
+      "supervision": "261TRAIN动作实例/27原录制/14类，固定55开发片来自5人；motion目标来自teacher实际局部速度/角速度/高度。",
+      "loss": "Research34按L_H+λ_RL_R求和，L_d=L_cmd+λ_ΔL_Δ+λ_mL_motion；motion为SmoothL1。学习率5e−5，head decay1e−4、LoRA decay0、clip1。历史night31按域均值，不能混用。",
+      "updated": "视觉LoRA与共享head；intent组另更新辅助motion/残差网络。",
+      "frozen": "SONIC/FSQ/PD与标签尺度。",
+      "evidence": "P0两seed的人域优势未稳定复现；12已见机器人动作保持收益两seed均重复。control/intent双seed整体q未改善。"
+    },
+    {
+      "stage": "SONIC S6 · Research35六臂续训（已完成）",
+      "algorithm": "同Joint+intent父模型、seed351104、每臂额外24k；H_t01、J_r025_t01、J_r05_t01、J_r1_t01、J_r1_t0、J_r05_t0。",
+      "supervision": "同数据与人域锚点，Joint臂同配对机器人batch；机器人系数不是采样概率。6k评12DEV、24k评55DEV/VAL，共402模型—来源评估。",
+      "loss": "L_H+λ_RL_R；λ_R=0/.25/.5/1，λ_Δ=0/.1，λ_m=.1；action/alignment=0。所有臂保留motion，不是motion有无消融。",
+      "updated": "共享LoRA、head、motion分支；H臂只在本轮关闭机器人梯度。",
+      "frozen": "父模型来源、teacher/数据时钟、SONIC、FSQ和PD；没有叠加新GVHMR/heading/PPO。",
+      "evidence": "402执行，401完整、1真实跌倒；五Joint臂55/55完整。55片父模型161.254→J_r05_t0 156.943mm，CI跨0。H/J共同54片比较与跌倒分别报告。"
+    },
+    {
+      "stage": "独立几何支线 · GVHMR融合",
+      "algorithm": "离线GVHMR特征与RGB的交互残差融合；estimated/zero/shift等容量训练及同checkpoint干预。",
+      "supervision": "32TRAIN/12heldout可用几何，视频hash及时钟绑定；geometry7与motion7字段不同。",
+      "loss": "以命令监督训练融合残差，zero保留mask=1与容量，shift滚动半段。不将GVHMR原始训练的未知奖励系数写入本项目loss。",
+      "updated": "几何交互融合头；RGB父模型训练范围以对应版本配置为准。",
+      "frozen": "离线GVHMR产物、SONIC控制接口与实际评价时钟。",
+      "evidence": "12几何片同checkpoint estimated/zero/shift：XY0.3702/0.3922/0.3929m，heading38.47/38.49/40.05°。与heading反馈分开归因。"
+    },
+    {
+      "stage": "独立状态支线 · Heading变换",
+      "algorithm": "TRAIN重新编码生成不同当前yaw下的命令残差标签，再以ridge/MLP拟合；冻结RGB后执行zero/estimated/shift。",
+      "supervision": "固定未来G1动作、改变当前yaw的官方encoder输出；另比较teacher-pre与student-pre拟合。",
+      "loss": "监督式有界命令变换拟合，保证δ=0恒等。未核实的ridge正则系数不补写；这是监督适配，不是PPO。",
+      "updated": "小型状态适配器。",
+      "frozen": "RGB模型、encoder标签生成规则、FSQ、SONIC及物理协议。",
+      "evidence": "新Joint12片heading38.06→5.23°；9移动片路径比约0.546。单片展示另用已有ridge迁移，配置分列。"
+    },
+    {
+      "stage": "未来支线 · 视觉reward与RL诊断（未形成主结果）",
+      "algorithm": "先检验真实rollout难例排序，再考虑有界命令残差优化；当前速度短窗搜索属于控制诊断。",
+      "supervision": "真实RGB、方向/幅度/相位失败对照与弱偏好。",
+      "loss": "没有已验证的本项目视觉PPO完整reward与成功训练结果。11对clean RGB探针中原VideoMAE fit/check为2/8、2/3，旧head为6/8、1/3，证据不足以直接作为主要RL奖励。",
+      "updated": "已做reward诊断与60次TRAIN短窗速度搜索；不是PPO参数更新。",
+      "frozen": "已成功的监督模型作为研究起点，后续独立比较同预算搜索/蒸馏。",
+      "evidence": "dynamic1.4 TRAIN短窗速度RMSE改善4.44%、路径＋8.98%，尚需完整DEV。逐窗teacher选优不能成为部署性能。"
+    }
+  ],
+  "ablationMatrix": [
+    {
+      "module": "原生/SONIC完整系统",
+      "comparison": "六段×两seed，完整后端比较",
+      "result": "native部分分支提前结束；SONIC每组12/12完整。状态、PD、标签与表示同时变化，不能只归因latent。",
+      "status": "已做完整系统对照；非独立latent消融",
+      "next": "各后端先oracle重放，再匹配前端曝光/预算；不能直接互换token。"
+    },
+    {
+      "module": "双时间窗口",
+      "comparison": "短+长 vs 短+短 vs 长+长",
+      "result": "目前只有完整双窗系统结果，没有同预算重训证据。",
+      "status": "未做",
+      "next": "保持token数与头容量，分快慢动作比较。"
+    },
+    {
+      "module": "LoRA深度/秩",
+      "comparison": "冻结 vs 末4层LoRA vs 12层LoRA",
+      "result": "有梯度/吞吐核验，无结构优劣的受控重训。",
+      "status": "未做",
+      "next": "同P0、数据与head，报告域保持、泛化和GPU时。"
+    },
+    {
+      "module": "静态差分",
+      "comparison": "绝对+静态clip差分 vs 仅绝对特征",
+      "result": "没有移除差分后重新训练结果。静态clip为第一帧重复16次。",
+      "status": "未做",
+      "next": "同初始化/目标/曝光，观察相位、幅度和相机扰动。"
+    },
+    {
+      "module": "空间query",
+      "comparison": "4query读出 vs 均值池化＋参数匹配MLP",
+      "result": "完整系统可拟合不同动作；不能证明query必要或具有解剖语义。",
+      "status": "未做",
+      "next": "固定骨干、时序头、参数预算，分手脚/遮挡评分。"
+    },
+    {
+      "module": "时序结构",
+      "comparison": "8锚点 vs 1锚点；历史打乱诊断",
+      "result": "持续视频展示不能替代结构重训；目标差分loss开关也不是时序头有无。",
+      "status": "未做",
+      "next": "匹配当前帧、五子步输出与训练曝光。"
+    },
+    {
+      "module": "RGB前瞻",
+      "comparison": "lookahead0/.25/.5分别重训",
+      "result": "当前0.5s设置不是零延迟因果；没有完整精度—延迟曲线。",
+      "status": "未做",
+      "next": "保留真实RGB支持，避免边界补帧引入混杂。"
+    },
+    {
+      "module": "共享命令双域拟合",
+      "comparison": "R/H/J，6TRAIN×2seed",
+      "result": "Joint human/robot q0.02884/0.02803rad；R人域约0.247。支持可拟合性。",
+      "status": "已做；TRAIN",
+      "next": "扩大独立人物/动作验证，保持TRAIN与开发表分列。"
+    },
+    {
+      "module": "Joint机器人保持",
+      "comparison": "同P0、30k，12TRAIN机器人输入×2seed",
+      "result": "H→J q0.30770→0.12607；0.30472→0.12607rad，收益重复。",
+      "status": "已做；已见机器人域",
+      "next": "新续训必须同时补机器人保持面板。"
+    },
+    {
+      "module": "Joint真人泛化",
+      "comparison": "同P0、同人域锚点/更新数，55片×2seed",
+      "result": "seed1世界MPJPE199.88→193.03mm；seed2 176.73→184.01mm。无稳定整体优势。",
+      "status": "已做；开发集双seed",
+      "next": "补同算力预算与新的封存人物/动作验证。"
+    },
+    {
+      "module": "额外隐表示alignment",
+      "comparison": "同seed同阶段alignment开/关",
+      "result": "VAL q0.19173 vs 0.19154rad，当前设置无额外收益。",
+      "status": "已做；未显示收益",
+      "next": "不要把无alignment收益解释为共同命令监督无用。"
+    },
+    {
+      "module": "共享head必要性",
+      "comparison": "共享head vs 两套分域head",
+      "result": "没有参数/计算匹配的独立对照。",
+      "status": "未做",
+      "next": "同数据/标签/后端，报告双域平均和最差域。"
+    },
+    {
+      "module": "Decoder action loss",
+      "comparison": "六段续训权重0/.05/.20",
+      "result": "高权重TRAIN XY变差；.05局部heading改善。teacher状态监督不能自动优化student闭环。",
+      "status": "已做；局部取舍",
+      "next": "以student访问状态构造一致性目标，保留人域DEV与完整率。"
+    },
+    {
+      "module": "目标差分loss：R=.5",
+      "comparison": "Research35同24k，temporal .1→0，43VAL",
+      "result": "世界MPJPE −7.154mm，人物聚类95%CI [−12.076,−3.103]；一个续训seed。",
+      "status": "已做；有条件收益",
+      "next": "补种子，按移动/静态分组；不称“去掉压幅平滑”。"
+    },
+    {
+      "module": "目标差分loss：R=1",
+      "comparison": "Research35同24k，temporal .1→0，43VAL",
+      "result": "世界MPJPE −2.349mm，95%CI [−8.237,+3.277]；q和速度另有取舍。",
+      "status": "已做；区间跨0",
+      "next": "联合考虑机器人梯度强度，不能普遍宣布temporal应删除。"
+    },
+    {
+      "module": "Motion intent重训",
+      "comparison": "同父模型control/intent，24k，55片×2seed",
+      "result": "q0.15214→0.15289、0.15297→0.15386；heading略改善，XY无一致收益。",
+      "status": "已做；无稳定总体收益",
+      "next": "诊断预测方差和残差利用率，再匹配容量/预算重训。"
+    },
+    {
+      "module": "Motion输入干预",
+      "comparison": "同checkpoint，6DEV置零/未来query反序",
+      "result": "pre RMS差0.000450/0.000063；token元素改变0.562%/0.075%。量化前已弱敏感，置零保留bias。",
+      "status": "已做；推理干预，非模块移除重训",
+      "next": "分别检查整支路关闭与bias，追踪pre→token→action→trajectory。"
+    },
+    {
+      "module": "GVHMR正确时序",
+      "comparison": "同checkpoint estimated/zero/shift，12几何片",
+      "result": "XY0.3702/0.3922/0.3929m；heading38.47/38.49/40.05°。正确几何局部有益，方向改善有限。",
+      "status": "已做；子集干预",
+      "next": "预定几何可用性子集；已补独立三臂重训视频，后续补固定checkpoint推理干预的视频。"
+    },
+    {
+      "module": "Heading反馈：旧RGB",
+      "comparison": "冻结模型12片，zero/estimated/shift，TRAIN拟合",
+      "result": "heading43.58→5.26°；零修正精确复现，错时明显变差。",
+      "status": "已做；支持状态坐标匹配",
+      "next": "补实时yaw/固定初始yaw×正确/错时/置零heading组合。"
+    },
+    {
+      "module": "Heading反馈：新Joint",
+      "comparison": "冻结新视觉，匹配teacher-input适配器，同12片",
+      "result": "heading38.06→5.23°，速度0.2608→0.2260m/s；9移动片路径比0.541→0.546。",
+      "status": "已做；方向收益，位移仍不足",
+      "next": "接速度纠偏目标，单片已有ridge迁移与该汇总分列。"
+    },
+    {
+      "module": "Teacher-pre / student-pre",
+      "comparison": "相同3TRAIN拟合、12DEV、5人",
+      "result": "q/XY/速度各有取舍；关键人物聚类CI跨0。",
+      "status": "已做；无稳定额外收益",
+      "next": "保留简单适配器，将预算用于速度与相位。"
+    },
+    {
+      "module": "跨视角",
+      "comparison": "冻结旧模型2段同步PG1/PG2",
+      "result": "q0.12470→0.25235rad，heading4.27→8.24°。仅两段探针；官方共同时间轴，未测逐文件曝光偏移。",
+      "status": "已做诊断；非多视角训练收益",
+      "next": "扩大配对来源后做同预算单/双视角训练。"
+    },
+    {
+      "module": "长时执行",
+      "comparison": "3原录制×60/120秒×2模型，共12执行",
+      "result": "全部完整，仍有低姿态与跟随不足；无连续GT，不提供全片跟踪分数。",
+      "status": "已做行为/稳定性观察",
+      "next": "固定连续片与失败记录，分段人工行为分析不冒充GT指标。"
+    },
+    {
+      "module": "FSQ必要性",
+      "comparison": "量化 vs 连续接口且控制器匹配",
+      "result": "当前没有公平重训对照；直接取消量化会改变冻结decoder输入分布。",
+      "status": "未做",
+      "next": "先oracle和敏感性诊断，再匹配控制器学习预算。"
+    },
+    {
+      "module": "Research37 全身输入前端",
+      "comparison": "同父模型、32 TRAIN、同采样、12k：RGB / GV+RGB / GV-only（仍joint）",
+      "result": "12 DEV世界MPJPE 423.82 / 428.59 / 289.36mm；GV-only关节−24.7%、XY−29.8%。",
+      "status": "已完成；单seed小开发集",
+      "next": "输入特征分组重训、实际状态反馈、独立更大测试"
+    },
+    {
+      "module": "Research37 时序依赖",
+      "comparison": "固定GV-only checkpoint：正常 / 时间反序 / 全特征置零",
+      "result": "正常289.36mm，反序401.55mm；置零3/12跌倒。",
+      "status": "已完成；推理干预",
+      "next": "身体姿态、Root、静止概率分组；干预不替代重训消融"
+    },
+    {
+      "module": "Research37 两域保持",
+      "comparison": "相同12片机器人RGB输入，RGB与GV-only联合模型",
+      "result": "朝向36.37→42.85°、去平移MPJPE80.99→91.00mm；存在跨域干扰。",
+      "status": "已完成；负结果",
+      "next": "机器人域保持约束、域采样与人域收益共同评估"
+    }
+  ],
+  "keyReadings": [
+    {
+      "title": "逐模块研究逻辑与当前实现",
+      "path": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/01_Pipeline为什么这样设计_逐模块论证.md",
+      "why": "最新细化双窗、静态clip、控制状态契约、三种增强支路及因果边界；优先于11月3日简略表。"
+    },
+    {
+      "title": "历史原生与SONIC方法、训练目标",
+      "path": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/03_Pipeline与训练方法.md",
+      "why": "原生架构与已绑定loss、J9训练、SONIC维数；旧“下一步”状态以较新专题为准。"
+    },
+    {
+      "title": "模块消融矩阵与未完成结构实验",
+      "path": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/03_模块消融矩阵与下一步.md",
+      "why": "区分重训消融、同checkpoint干预、完整后端比较。Research35在此尚写进行中，实际结果以11月5日完成报告为准。"
+    },
+    {
+      "title": "Research35六臂完成结果",
+      "path": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/11_昨夜结果_20261105/00_本轮结果总结.md",
+      "why": "402执行401完整1跌倒、相同55与共同54表、temporal两权重的CI以及root剩余问题。"
+    },
+    {
+      "title": "Heading正式状态实验原始数据",
+      "path": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/数据/state/formal_evidence.json",
+      "why": "12片和9移动片、teacher/student-pre、zero/estimated/shift数值与分母。"
+    },
+    {
+      "title": "Demo用途与配置边界",
+      "path": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/10_Pipeline原理与消融证据/04_Demo观看顺序与证据.md",
+      "why": "单片已有ridge迁移不等于12片新适配器配置；120秒无连续GT；双域影片为TRAIN拟合。"
+    },
+    {
+      "title": "指标定义与统计口径",
+      "path": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报_20260917至20261103/04_实验指标与消融.md",
+      "why": "q RMSE、world/root-relative MPJPE、heading MAE、接触以及同POST时钟定义。"
+    },
+    {
+      "title": "当前精选视频与数值清单",
+      "path": "/cephfs_ssd_xumengdi/video2action_migration_20260927/root/autodl-tmp/video2action-rl/科研汇报网页_20261105/content/evidence.json",
+      "why": "demoIds的连接表。其静态差分简写应按本文件更精确的“第一帧重复16次static clip”理解。"
+    }
+  ]
+}
